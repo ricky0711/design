@@ -258,7 +258,7 @@
             //alert(xmlhttp.responseText);  
             document.getElementById("degree").innerHTML=xmlhttp.responseText;
         }
-    </script>
+</script>
 <?php 
   include('footer.php');
   ob_flush();

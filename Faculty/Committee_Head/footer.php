@@ -373,7 +373,8 @@
     </script>
     <script>
         $(document).ready(function() {
-        $('#datatables').DataTable({
+            // alert('aa');
+        $('#company_list').DataTable({
             "pagingType": "full_numbers",
             "lengthMenu": [
             [10, 25, 50, -1],
@@ -385,27 +386,160 @@
             searchPlaceholder: "Search records",
             }
         });
-
-        var table = $('#datatable').DataTable();
-
-        // Edit record
-        table.on('click', '.edit', function() {
-            $tr = $(this).closest('tr');
-            var data = table.row($tr).data();
-            alert('You press on Row: ' + data[0] + ' ' + data[1] + ' ' + data[2] + '\'s row.');
+        var table = $('#company_list').DataTable();
         });
-
-        // Delete a record
-        table.on('click', '.remove', function(e) {
-            $tr = $(this).closest('tr');
-            table.row($tr).remove().draw();
-            e.preventDefault();
+    </script>
+       <script>
+        $(document).ready(function() {
+        $('#deactivated_companies').DataTable({
+            "pagingType": "full_numbers",
+            "lengthMenu": [
+            [10, 25, 50, -1],
+            [10, 25, 50, "All"]
+            ],
+            responsive: true,
+            language: {
+            search: "_INPUT_",
+            searchPlaceholder: "Search records",
+            }
         });
-
-        //Like record
-        table.on('click', '.like', function() {
-            alert('You clicked on Like button');
+        var table = $('#deactivated_companies').DataTable();
         });
+    </script>
+       <script>
+        $(document).ready(function() {
+        $('#broadcast_list').DataTable({
+            "pagingType": "full_numbers",
+            "lengthMenu": [
+            [10, 25, 50, -1],
+            [10, 25, 50, "All"]
+            ],
+            responsive: true,
+            language: {
+            search: "_INPUT_",
+            searchPlaceholder: "Search records",
+            }
+        });
+        var table = $('#broadcast_list').DataTable();
+        });
+    </script>
+       <script>
+        $(document).ready(function() {
+        $('#placement_schedule').DataTable({
+            "pagingType": "full_numbers",
+            "lengthMenu": [
+            [10, 25, 50, -1],
+            [10, 25, 50, "All"]
+            ],
+            responsive: true,
+            language: {
+            search: "_INPUT_",
+            searchPlaceholder: "Search records",
+            }
+        });
+        var table = $('#placement_schedule').DataTable();
+        });
+    </script>
+       <script>
+        $(document).ready(function() {
+        $('#view_schedule').DataTable({
+            "pagingType": "full_numbers",
+            "lengthMenu": [
+            [10, 25, 50, -1],
+            [10, 25, 50, "All"]
+            ],
+            responsive: true,
+            language: {
+            search: "_INPUT_",
+            searchPlaceholder: "Search records",
+            }
+        });
+        var table = $('#view_schedule').DataTable();
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+        $('#com_list').DataTable({
+            "pagingType": "full_numbers",
+            "lengthMenu": [
+            [10, 25, 50, -1],
+            [10, 25, 50, "All"]
+            ],
+            responsive: true,
+            language: {
+            search: "_INPUT_",
+            searchPlaceholder: "Search records",
+            }
+        });
+        var table = $('#com_list').DataTable();
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+        $('#fac_list').DataTable({
+            "pagingType": "full_numbers",
+            "lengthMenu": [
+            [10, 25, 50, -1],
+            [10, 25, 50, "All"]
+            ],
+            responsive: true,
+            language: {
+            search: "_INPUT_",
+            searchPlaceholder: "Search records",
+            }
+        });
+        var table = $('#fac_list').DataTable();
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+        $('#deactivated_fac').DataTable({
+            "pagingType": "full_numbers",
+            "lengthMenu": [
+            [10, 25, 50, -1],
+            [10, 25, 50, "All"]
+            ],
+            responsive: true,
+            language: {
+            search: "_INPUT_",
+            searchPlaceholder: "Search records",
+            }
+        });
+        var table = $('#deactivated_fac').DataTable();
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+        $('#past_test').DataTable({
+            "pagingType": "full_numbers",
+            "lengthMenu": [
+            [10, 25, 50, -1],
+            [10, 25, 50, "All"]
+            ],
+            responsive: true,
+            language: {
+            search: "_INPUT_",
+            searchPlaceholder: "Search records",
+            }
+        });
+        var table = $('#past_test').DataTable();
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+        $('#upcoming_test').DataTable({
+            "pagingType": "full_numbers",
+            "lengthMenu": [
+            [10, 25, 50, -1],
+            [10, 25, 50, "All"]
+            ],
+            responsive: true,
+            language: {
+            search: "_INPUT_",
+            searchPlaceholder: "Search records",
+            }
+        });
+        var table = $('#upcoming_test').DataTable();
         });
     </script>
   <script>

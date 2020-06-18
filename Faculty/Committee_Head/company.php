@@ -64,57 +64,47 @@
                                     $stmt->execute();
                                 ?>
                             <div class="material-datatables">
-                                <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+                                <table id="company_list" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
                                     <thead>
                                         <tr>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Phone No.</th>
-                                        <th>Contact Person</th>
-                                        <th>CP Email</th>
-                                        <th>CP Phone No.</th>
-                                        <th>Address</th>
-                                        <th>Website</th>
-                                        <th class="disabled-sorting pull-right">Actions</th>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Phone No.</th>
+                                            <th>Contact Person</th>
+                                            <th>CP Email</th>
+                                            <th>CP Phone No.</th>
+                                            <th>Address</th>
+                                            <th>Website</th>
+                                            <th class="disabled-sorting pull-right">Actions</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Phone No.</th>
-                                        <th>Contact Person</th>
-                                        <th>CP Email</th>
-                                        <th>CP Phone No.</th>
-                                        <th>Address</th>
-                                        <th>Website</th>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Phone No.</th>
+                                            <th>Contact Person</th>
+                                            <th>CP Email</th>
+                                            <th>CP Phone No.</th>
+                                            <th>Address</th>
+                                            <th>Website</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                         <?php while($data = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
                                         <tr>
-                                        <td ><?php echo $data['COMPANY_NAME']; ?></td>
-                                        <td ><?php echo $data['COMPANY_EMAIL']; ?></td>
-                                        <td ><?php echo $data['COMPANY_PHONE_NUMBER_1']; ?></td>
-                                        <td ><?php echo $data['COMPANY_HR_NAME']; ?></td>
-                                        <td ><?php echo $data['COMPANY_HR_EMAIL']; ?>></td>
-                                        <td ><?php echo $data['COMPANY_PHONE_NUMBER_2']; ?></</td>
-                                        <td ><?php echo $data['COMPANY_ADDRESS']; ?></td>
-                                        <td ><?php echo $data['COMPANY_WEBSITE']; ?></td>
-                                        <td>
-                                    <a href="company_profile.php?cid=<?php echo $data['COMPANY_ID'] ?>" title="">
-                                        <button type="button" class="btn btn-outline-info"><i
-                                                class="fa fa-user-circle-o"></i></button>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a href="company_deactivate.php?cid=<?php echo $data['COMPANY_ID'] ?>" title="">
-                                        <button type="button" class="btn btn-outline-danger"><i
-                                                class="fas fa-user-slash"></i></button>
-                                    </a>
-                                </td>
+                                            <td><?php echo $data['COMPANY_NAME']; ?></td>
+                                            <td><?php echo $data['COMPANY_EMAIL']; ?></td>
+                                            <td><?php echo $data['COMPANY_PHONE_NUMBER_1']; ?></td>
+                                            <td><?php echo $data['COMPANY_HR_NAME']; ?></td>
+                                            <td><?php echo $data['COMPANY_HR_EMAIL']; ?></td>
+                                            <td><?php echo $data['COMPANY_PHONE_NUMBER_2']; ?></td>
+                                            <td><?php echo $data['COMPANY_ADDRESS']; ?></td>
+                                            <td><?php echo $data['COMPANY_WEBSITE']; ?></td>
+                                            <td></td>
                                         </tr>
-                                        <?php } ?>
+                                        <?php } 
+                                        ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -141,18 +131,18 @@
                                     $stmt2->execute();
                                 ?>
                             <div class="material-datatables">
-                                <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+                                <table id="deactivated_companies" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
                                     <thead>
                                         <tr>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Phone No.</th>
-                                        <th>Contact Person</th>
-                                        <th>CP Email</th>
-                                        <th>CP Phone No.</th>
-                                        <th>Address</th>
-                                        <th>Website</th>
-                                        <th class="disabled-sorting pull-right">Actions</th>
+                                        <th class="text-nowrap">Name</th>
+                                        <th class="text-nowrap">Email</th>
+                                        <th class="text-nowrap">Phone No.</th>
+                                        <th class="text-nowrap">Contact Person</th>
+                                        <th class="text-nowrap">CP Email</th>
+                                        <th class="text-nowrap">CP Phone No.</th>
+                                        <th class="">Address</th>
+                                        <th class="text-nowrap">Website</th>
+                                        <th class="text-nowrap disabled-sorting">Actions</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -165,6 +155,7 @@
                                         <th>CP Phone No.</th>
                                         <th>Address</th>
                                         <th>Website</th>
+                                        <th>Actions</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -174,21 +165,21 @@
                                         <td ><?php echo $data['COMPANY_EMAIL']; ?></td>
                                         <td ><?php echo $data['COMPANY_PHONE_NUMBER_1']; ?></td>
                                         <td ><?php echo $data['COMPANY_HR_NAME']; ?></td>
-                                        <td ><?php echo $data['COMPANY_HR_EMAIL']; ?>></td>
-                                        <td ><?php echo $data['COMPANY_PHONE_NUMBER_2']; ?></</td>
+                                        <td ><?php echo $data['COMPANY_HR_EMAIL']; ?></td>
+                                        <td ><?php echo $data['COMPANY_PHONE_NUMBER_2']; ?></td>
                                         <td ><?php echo $data['COMPANY_ADDRESS']; ?></td>
                                         <td ><?php echo $data['COMPANY_WEBSITE']; ?></td>
                                         <td>
                                     <a href="company_profile.php?cid=<?php echo $data['COMPANY_ID'] ?>" title="">
                                         <button type="button" class="btn btn-outline-info"><i
-                                                class="fa fa-user-circle-o"></i></button>
+                                                class="material-icons">person_pin</i></button>
                                     </a>
                                 </td>
-                                <td>
+                                <!-- <td>
                                     <a href="restore_company.php?cid=<?php echo $data['COMPANY_ID'] ?>" title="">
-                                    <button type="button" class="btn btn-outline-success"><i class="fas fa-trash-restore"></i></button>
+                                    <button type="button" class="btn btn-outline-success"><i class="material-icons">person_pin</i></button>
                                     </a>
-                                </td>
+                                </td> -->
                                         </tr>
                                         <?php } ?>
                                     </tbody>
@@ -217,13 +208,13 @@
                                     $stmt3->execute();
                                 ?>
                             <div class="material-datatables">
-                                <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+                                <table id="broadcast_list" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
                                     <thead>
                                         <tr>
                                         <td>Invitation List</td>
                                         <td>Created by</td>
                                         <td>Date of Creation</td>
-                                        <th class="disabled-sorting pull-right">Actions</th>
+                                        <th class="disabled-sorting">Actions</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -231,6 +222,7 @@
                                         <td>Invitation List</td>
                                         <td>Created by</td>
                                         <td>Date of Creation</td>
+                                        <td>Actions</td>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -243,15 +235,11 @@
                                             <a href="view_list.php?ilid=<?php echo $data['BROADCAST_LIST_ID'] ?>" title="">
                                             <button type="button" class="btn btn-sm btn-outline-info"><i class="fa fa-eye"></i></button>
                                             </a>
-                                        </td>
-                                        <td>
                                             <a href="add_company_list.php?ilid=<?php echo $data['BROADCAST_LIST_ID'] ?>" title="">
                                             <button type="button" class="btn btn-sm btn-outline-success"><i class="fa fa-plus"></i></button>
                                             </a>
-                                        </td>
-                                        <td>
                                             <a href="delete_list.php?ilid=<?php echo $data['BROADCAST_LIST_ID'] ?>" title="">
-                                            <button type="button" class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></button>
+                                            <button type="button" class="btn btn-sm btn-outline-danger"><i class="fa fa-trash"></i></button>
                                             </a>
                                         </td>
                                         </tr>
@@ -296,7 +284,7 @@
                                         $stmt5->execute();
                                     ?>
                             <div class="material-datatables">
-                                <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+                                <table id="placement_schedule" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
                                     <thead>
                                         <tr>
                                         <th></th>
@@ -413,7 +401,7 @@
                                         $stmt6->execute();
                                     ?>
                             <div class="material-datatables">
-                                <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+                                <table id="view_schedule" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
                                     <thead>
                                         <tr>
                                             <td>Company</td>
