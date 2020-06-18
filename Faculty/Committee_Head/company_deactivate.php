@@ -5,5 +5,5 @@
     $stmt->bindParam(":cid",$cid);
     $stmt->execute();
     // print_r($stmt->errorinfo());
-    header("Location: view_company.php");
+    header("Location: company.php");
  ?>

@@ -4,7 +4,7 @@
 <div class="content">
     <div class="container-fluid">
         <div class="row">
-        <div class="col-md-8 ml-auto mr-auto">
+        <div class="ml-auto mr-auto">
             <div class="page-categories">
             <h3 class="title text-center">Resume Details</h3>
             <br />
@@ -46,125 +46,167 @@
                         </div>
                         <div class="card-body">  
                             <form action="#" method="POST">
-                            
-                                <div class="input-group form-control-lg">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                        <i class="material-icons">person_pin</i>
-                                        </span>
+                                <div class="row">
+                                    <div class="media col-6">
+                                        <div class="media-body row">
+                                            <div class="input-group-prepend col-2 mr-0 pr-0">
+                                                <span class="input-group-text">
+                                                <i class="material-icons">person_pin</i>
+                                                </span>
+                                            </div>
+                                            <div class="form-group col-10">
+                                                <label for="ename" class="bmd-label-floating">Event Name</label>
+                                                <input type="text" name="ename" class="form-control">
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="ename" class="bmd-label-floating">Event Name</label>
-                                        <input type="text" name="ename" class="form-control">
-                                    </div>
-                                </div> 
-                                <div class="input-group form-control-lg">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                        <i class="material-icons">person_pin</i>
-                                        </span>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="edes" class="bmd-label-floating">Event Description</label>
-                                        <input type="text" name="edes" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="input-group form-control-lg">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                        <i class="material-icons">person_pin</i>
-                                        </span>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="evenue" class="bmd-label-floating">Event Venue</label>
-                                        <input type="text" name="evenue" class="form-control">
-                                    </div>
-                                </div>    
-                                <div class="input-group form-control-lg">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                        <i class="material-icons">person_pin</i>
-                                        </span>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="edate" class="bmd-label-floating">Event Date</label>
-                                        <input type="text" name="edate" class="form-control pull-left">
+                                    <div class="media col-6">
+                                        <div class="media-body row">
+                                            <div class="input-group-prepend col-2 mr-0 pr-0">
+                                                <span class="input-group-text">
+                                                <i class="material-icons">person_pin</i>
+                                                </span>
+                                            </div>
+                                            <div class="form-group col-10">
+                                                <label for="edes" class="bmd-label-floating">Event Description</label>
+                                                <input type="text" name="edes" class="form-control">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div>
-                                        <select class="form-control p-1 pl-3" name="eventfor" id="eventfor" onchange="event_for()" data-size="5"    title="Select Event For">
-                                            <option disabled selected>Select Event For</option>
-                                            <option value="PRE">PRE-PLACEMENT</option>
-                                            <option value="IN">IN-PLACEMENT</option>
-                                        </select>
+                                    <div class="media col-6">
+                                        <div class="media-body row">    
+                                            <div class="input-group-prepend col-2 mr-0 pr-0">
+                                                <span class="input-group-text">
+                                                <i class="material-icons">person_pin</i>
+                                                </span>
+                                            </div>
+                                            <div class="form-group col-10">
+                                                <label for="evenue" class="bmd-label-floating">Event Venue</label>
+                                                <input type="text" name="evenue" class="form-control">
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>    
-                                <div class="media">
-                                    <div class="media-body mb-2">
-                                        <div id="cmp_id"></div>
+                                    <div class="media col-6">
+                                        <div class="media-body row">
+                                            <div class="input-group-prepend col-2 mr-0 pr-0">
+                                                <span class="input-group-text">
+                                                <i class="material-icons">person_pin</i>
+                                                </span>
+                                            </div>
+                                            <div class="form-group col-10">
+                                                <label for="edate" class="bmd-label-floating">Event Date</label>
+                                                <input type="text" name="edate" class="form-control pull-left">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+                                <div class="media">
+                                        <div class="media-body row">
+                                            <div class="input-group-prepend col-1 mr-0 pr-0">
+                                                <span class="input-group-text">
+                                                <i class="material-icons">person_pin</i>
+                                                </span>
+                                            </div>
+                                            <div class="form-group col-10">
+                                                <label for="etime" class="bmd-label-floating">Event Time</label>
+                                                <input type="time" name="etime" class="from-control ml-2">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="media">
+                                        <div class="media-body row">
+                                            <div class="input-group-prepend col-1 mr-0 pr-0">
+                                                <span class="input-group-text">
+                                                <i class="material-icons">person_pin</i>
+                                                </span>
+                                            </div>
+                                            <select class="form-control pl-2 col-10 btn btn-secondary btn-round" name="eventfor" id="eventfor" onchange="event_for()" data-size="5"    title="Select Event For">
+                                                <option disabled selected>Select Event For</option>
+                                                <option value="PRE">Pre-Placement</option>
+                                                <option value="IN">In-Placement</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="media">
+                                        <div class="media-body">
+                                            <div id="cmp_id" class="row"></div>
+                                        </div>
+                                    </div>
+                                    <div class="media">
+                                        <div class="media-body row">
+                                            <div class="input-group-prepend col-1 mr-0 pr-0">
+                                                <span class="input-group-text">
+                                                <i class="material-icons">person_pin</i>
+                                                </span>
+                                            </div>
+                                            <select class="form-control pl-2 col-10 btn btn-secondary btn-round" name="dept" id="dept" onchange="course()" data-size="5" title="Select Department">
+                                                <option disabled selected>Select Department</option>
+                                                <option value="BMIIT">BMIIT</option>
+                                                <option value="SRIMCA">SRIMCA</option>
+                                                <option value="CGPIT">CGPIT</option>
+                                            </select>
+                                        </div>
+                                    </div>    
+                                    <div class="media">
+                                        <div class="media-body row">
+                                            <div class="input-group-prepend col-1 mr-0 pr-0">
+                                                <span class="input-group-text">
+                                                <i class="material-icons">person_pin</i>
+                                                </span>
+                                            </div>
+                                            <select class="form-control pl-2 col-10 btn btn-secondary btn-round" name="degree" id="degree" onchange="passing_year()" data-size="5" title="Select Degree">
+                                                <option>Select Degree</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="media">
+                                        <div class="media-body row">
+                                            <div class="input-group-prepend col-1 mr-0 pr-0">
+                                                <span class="input-group-text">
+                                                <i class="material-icons">person_pin</i>
+                                                </span>
+                                            </div>
+                                            <select class="form-control pl-2 col-10 btn btn-secondary btn-round" name="pyear" id="pyear" data-size="5"    title="Select Passing Year">
+                                                <option disabled selected>Select Passing Year</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                     
-                                <div class="row">
-                                    <div>
-                                        <select class="form-control p-1 pl-3" name="dept" id="dept" onchange="course()" data-size="5" title="Select Department">
-                                            <option disabled selected>Select Department</option>
-                                            <option value="BMIIT">BMIIT</option>
-                                            <option value="SRIMCA">SRIMCA</option>
-                                            <option value="CGPIT">CGPIT</option>
-                                        </select>
+                                    <div class="media">
+                                        <div class="media-body row">
+                                            <div class="input-group-prepend col-1 mr-0 pr-0">
+                                                <span class="input-group-text">
+                                                <i class="material-icons">person_pin</i>
+                                                </span>
+                                            </div>
+                                            <select class="form-control ml-1 pl-2 col-10 btn btn-secondary btn-round" name="etype" id="etype" data-size="5"    title="Select Event Type">
+                                                <option disabled selected>Select Event Type</option>
+                                                <option value="SM">Seminar</option>
+                                                <option value="TS">Test</option>
+                                                <option value="CM">Company Visit</option>
+                                                <option value="WS">Workshop</option>
+                                            </select>
+                                        </div>
                                     </div>
-                                </div>   
-                                <div class="row">
-                                    <div>
-                                        <select class="form-control" name="degree" id="degree" onchange="passing_year()" data-size="5" title="Select Degree">
-                                            <option>Select Degree</option>
-                                        </select>
+                                    <div class="media">
+                                        <div class="media-body row">
+                                            <div class="input-group-prepend col-1 mr-0 pr-0">
+                                                <span class="input-group-text">
+                                                <i class="material-icons">person_pin</i>
+                                                </span>
+                                            </div>
+                                            <select class="form-control pl-2 col-10 btn btn-secondary btn-round" name="ecat" id="cate" data-size="5"    title="Select Event Type">
+                                                <option disabled selected>Select Event Category</option>
+                                                <option value="1">Mandatory</option>
+                                                <option value="0">Voluntary</option>
+                                            </select>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div>
-                                        <select class="form-control p-1 pl-3" name="pyear" id="pyear" data-size="5"    title="Select Passing Year">
-                                            <option disabled selected>Select Passing Year</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="input-group form-control-lg">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                        <i class="material-icons">clock</i>
-                                        </span>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="etime" class="bmd-label-floating">Event Time</label>
-                                        <input type="time" name="etime" class="">
-                                    </div>
-                                </div>                                                                                   
-                                <div class="row">
-                                    <div>
-                                        <select class="form-control p-1 pl-3" name="etype" id="etype" data-size="5"    title="Select Event Type">
-                                            <option disabled selected>Select Event Type</option>
-                                            <option value="SM">Seminar</option>
-                                            <option value="TS">Test</option>
-                                            <option value="CM">Company Visit</option>
-                                            <option value="WS">Workshop</option>
-                                        </select>
-                                    </div>
-                                </div>    
-                                <div class="row">
-                                    <div>
-                                        <select class="form-control p-1 pl-3" name="ecat" id="cate" data-size="5"    title="Select Event Type">
-                                            <option disabled selected>Select Event Category</option>
-                                            <option value="1">Mandatory</option>
-                                            <option value="0">Voluntary</option>
-                                        </select>
-                                    </div>
-                                </div>    
                                 <div class="media">
                                     <div class="media-body mb-2">
-                                    <input type="submit" class="button button-border x-small" value="Create" name="Submit">
-                                    <input type="reset" class="btn btn-lg btn-outline-danger float-right ml-2" value="RESET" name="">
+                                    <input type="submit" class="btn btn-success" value="Create" name="Submit">
                                     </div>
                                 </div>
                                     
@@ -190,7 +232,7 @@
                                     $stmt->execute();
                                 ?>
                             <div class="material-datatables">
-                                <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+                                <table id="past_events" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
                                     <thead>
                                         <tr>
                                         <th>Name</th>
@@ -260,7 +302,7 @@
                                 $stmt22->execute();
                             ?>
                         <div class="material-datatables">
-                            <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%;">
+                            <table id="upcoming_events" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%;">
                                 <thead>
                                     <tr>
                                     <th>Name</th>
@@ -332,7 +374,7 @@
                                     // print_r($stmt33->errorinfo());
                             ?>
                         <div class="material-datatables">
-                            <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%;">
+                            <table id="canceled_events" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%;">
                                 <thead>
                                     <tr>
                                     <th>Name</th>
@@ -374,6 +416,25 @@
                                     <td><?php echo $data['BATCH_PASSING_YEAR']; ?></td>
                                     <td><?php echo $data['EVENT_TYPE']; ?></td>
                                     <td><?php if ($data['EVENT_CATEGORY']=="1") { echo "Mandatory";	}elseif ($data['EVENT_CATEGORY']=="0") { echo "Voluntary"; }  ?></td>
+                                    <td><a href="restore_event.php?eid=<?php echo $data['EVENT_ID']; ?>"><button class="btn btn-sm btn-outline-success"><i class="fas fa-trash-restore"></i></button></a></td>
+                                    </tr>
+                                    <?php }
+                                        $stmt=$con->prepare("CALL VIEW_PAST_CANCELED_EVENT();");
+                                        $stmt->execute();
+                                        while($data = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                                    ?>
+                                    <tr>
+                                    <td><?php echo $data['EVENT_NAME']; ?></td>
+                                    <td><?php echo $data['EVENT_DESCRIPTION']; ?></td>
+                                    <td><?php echo $data['EVENT_VENUE']; ?></td>
+                                    <td class="text-nowrap"><?php echo $data['EVENT_DATE']; ?></td>
+                                    <td><?php echo $data['EVENT_TIME']; ?></td>
+                                    <td><?php echo $data['BATCH_DEPARTMENT']; ?></td>
+                                    <td><?php echo $data['BATCH_DEGREE']; ?></td>
+                                    <td><?php echo $data['BATCH_PASSING_YEAR']; ?></td>
+                                    <td><?php echo $data['EVENT_TYPE']; ?></td>
+                                    <td><?php if ($data['EVENT_CATEGORY']=="1") { echo "Mandatory"; }elseif ($data['EVENT_CATEGORY']=="0") { echo "Voluntary"; }  ?></td>
+                                    <td>Expired</td>
                                     </tr>
                                     <?php } ?>
                                 </tbody>
@@ -383,7 +444,7 @@
                 </div>
                 </div>
                 <div class="tab-pane" id="link11">
-                <div class="card" style="width:1200px;">
+                <div class="card">
                     <div class="card-header">
                     <h4 class="card-title">Help center</h4>
                     <p class="card-category">

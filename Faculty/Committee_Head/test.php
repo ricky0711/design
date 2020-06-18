@@ -4,7 +4,7 @@
 <div class="content">
     <div class="container-fluid">
         <div class="row">
-        <div class="col-md-8 ml-auto mr-auto">
+        <div class="ml-auto mr-auto">
             <div class="page-categories">
             <h3 class="title text-center">Resume Details</h3>
             <br />
@@ -143,7 +143,7 @@
                                 // print_r( $stmt->errorinfo());
                             ?>
                         <div class="material-datatables">
-                            <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+                            <table id="past_test" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
                                 <thead>
                                     <tr>
                                     <th>Test Name</th>
@@ -213,7 +213,7 @@
                                 $stmt22->execute();
                             ?>
                         <div class="material-datatables">
-                            <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+                            <table id="upcoming_test" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
                                 <thead>
                                     <tr>
                                     <th>Test Name</th>

@@ -51,7 +51,7 @@ wrapper -->
 	                   		<td><?php echo $data['BATCH_PASSING_YEAR']; ?></td>
 	                   		<td><?php echo $data['EVENT_TYPE']; ?></td>
 	                   		<td><?php if ($data['EVENT_CATEGORY']=="1") { echo "Mandatory";	}elseif ($data['EVENT_CATEGORY']=="0") { echo "Voluntary"; }  ?></td>
-                        <td><a href="update_event.php?eid=<?php echo $data['EVENT_ID']; ?>"><button class="btn btn-sm btn-outline-info"><i class="fas fa-edit"></i></button></a></td>
+                        	<td><a href="update_event.php?eid=<?php echo $data['EVENT_ID']; ?>"><button class="btn btn-sm btn-outline-info"><i class="fas fa-edit"></i></button></a></td>
 	                   		<td><a href="cancel_event.php?eid=<?php echo $data['EVENT_ID']; ?>"><button class="btn btn-sm btn-outline-danger"><i class="fa fa-times"></i></button></a></td>
 	                   	</tr>
 	                   <?php } ?>
