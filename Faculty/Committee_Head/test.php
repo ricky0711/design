@@ -76,7 +76,7 @@
                                 <div class="media-body row">
                                     <div class="input-group-prepend col-1">
                                         <span class="input-group-text">
-                                        <i class="material-icons">calendar</i>
+                                        <i class="material-icons">article</i>
                                         </span>
                                     </div>
                                     <div class="form-group col-11">
@@ -86,25 +86,27 @@
                                 </div>
                             </div>
                             <div class="media">
-                                <div class="media-body">
-                                    <div class="input-group-prepend">
+                                <div class="media-body row">
+                                    <div class="input-group-prepend col-1">
                                         <span class="input-group-text">
-                                        <i class="material-icons">calendar</i>
+                                        <i class="material-icons">description</i>
                                         </span>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group col-11">
                                         <label for="tdes" class="bmd-label-floating">Test Description</label>
                                         <input type="text" name="tdes" class="form-control pull-left">
                                     </div>
                                 </div>
                             </div>
-                            <div class="input-group form-control-lg">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">
-                                    <i class="material-icons">calendar</i>
-                                    </span>
+                            <div class="media">
+                                <div class="media-body row">
+                                    <div class="input-group-prepend col-1">
+                                        <span class="input-group-text">
+                                        <i class="material-icons">grade</i>
+                                        </span>
+                                    </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group col-11">
                                     <label for="tmarks" class="bmd-label-floating">Total Marks</label>
                                     <input type="text" name="tmarks" class="form-control pull-left">
                                 </div>
@@ -112,7 +114,7 @@
                             <div class="input-group form-control-lg">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">
-                                    <i class="material-icons">calendar</i>
+                                    <i class="material-icons">library_add_check</i>
                                     </span>
                                 </div>
                                 <div class="form-group">
