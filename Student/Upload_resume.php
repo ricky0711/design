@@ -7,87 +7,40 @@
    include('../Files/PDO/dbcon.php');
 ?>
 <div class="content">
-    <div class="container-fluid">
-        <div class="row">
+  <div class="container-fluid">
+      <div class="row">
         <div class="col-md-12">
             <div class="card">
-            <div class="card-header card-header-primary card-header-icon">
-                <div class="card-icon">
-                <i class="material-icons">assignment</i>
-                </div>
-                <h4 class="card-title">Upload Your Resume</h4>
-            </div>
-            <div class="card-body">
-                <div class="toolbar">
-                <!--        Here you can write extra buttons/actions for the toolbar              -->
-                </div>
-             <form action="#" method="post" enctype="multipart/form-data">
-                  <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="validatedCustomFile" name="resume_document" accept="application/pdf" required>
-                    <label class="custom-file-label" for="validatedCustomFile">Choose file for Resume</label>
-                    <div class="invalid-feedback">Example invalid custom file feedback</div>
+              <div class="card-header card-header-primary card-header-icon">
+                  <div class="card-icon">
+                  <i class="material-icons">assignment</i>
                   </div>
-                  <div class="d-flex justify-content-center">
-                    <button type="submit" class="btn btn-success btn-round" name="doc_save" ><i class="fa fa-upload"></i> Upload</button>
+                  <h4 class="card-title">Upload Your Resume</h4>
+              </div>
+              <div class="card-body">
+                  <div class="toolbar">
+                  <!--        Here you can write extra buttons/actions for the toolbar              -->
                   </div>
-              </form>
-            </div>
+                <form action="#" method="post" enctype="multipart/form-data">
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="validatedCustomFile" name="resume_document" accept="application/pdf" required>
+                      <label class="custom-file-label" for="validatedCustomFile">Choose file for Resume</label>
+                      <div class="invalid-feedback">Example invalid custom file feedback</div>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                      <button type="submit" class="btn btn-success btn-round" name="doc_save" ><i class="fa fa-upload"></i> Upload</button>
+                    </div>
+                </form>
+              </div>
             <!-- end content-->
             </div>
             <!--  end card  -->
         </div>
-        <!-- end col-md-12 -->
-        </div>
-        <!-- end row -->
-    </div> 
+      <!-- end col-md-12 -->
+      </div>
+      <!-- end row -->
+  </div> 
 </div>
-<!-- -------------------------- -->
-<div class="content-wrapper header-info">
-      <div class="mb-30">
-           <div class="card h-100 ">
-           <div class="card-body h-100">
-             <h4 class="card-title">Upload Resume</h4>
-             <!-- action group -->
-             <form action="#" method="post" enctype="multipart/form-data">
-             <div class="scrollbar">
-              <ul class="list-unstyled">
-			          <li class="mb-2">
-                 <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="validatedCustomFile" name="resume_document" accept="application/pdf" required>
-                    <label class="custom-file-label" for="validatedCustomFile">Choose file for Resume</label>
-                    <div class="invalid-feedback">Example invalid custom file feedback</div>
-                  </div>
-                </li>
-                <br>
-                <li>
-                  <div class="d-flex justify-content-center">
-                    <input type="submit" name="doc_save" value="SAVE"> 
-                  </div>          
-                </li>  
-              </ul>
-             </div>
-            </div>
-          </div>
-        </div>
-      </form>
-      <script>
-
-$(document).ready(function(){
- 
- Dropzone.options.dropzoneFrom = {
-  autoProcessQueue: false,
-  acceptedFiles:".pdf",
-  init: function(){
-   var submitButton = document.querySelector('#submit-all');
-   myDropzone = this;
-   submitButton.addEventListener("click", function(){
-    myDropzone.processQueue();
-   });
-  },
- };
- 
-});
-</script>
 <?php 
   include('footer.php');
 ?>      

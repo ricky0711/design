@@ -6,53 +6,48 @@
   $cid = $data["COMPANY_ID"];
   $cname= $data["COMPANY_NAME"];
 ?>
-  <div class="content-wrapper header-info">
-      <div class="mb-30">
-           <div class="card h-100 ">
-           <div class="card-body h-100">
-             <h4 class="card-title">SHOW SHORT LIST</h4>
-             <?php
-              if(isset($_SESSION["errorforstipend"])){
-                 ?>
-                   <h3 class="card-title"><?php echo $_SESSION["errorforstipend"]; ?></h3>
-                 <?php 
-              }else{
-                ?>
-                <h3 class="card-title"></h3>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<div class="content">
+    <div class="container-fluid">
+      <?php
+        if(isset($_SESSION["errorforstipend"])){
+      ?>
+        <div class="row">
+            <div class="col-12">
+              <?php echo $_SESSION["errorforstipend"]; ?>
               <?php 
-              }
-             ?>
-             <div class="scrollbar">
-              <ul class="list-unstyled">
-              <form action="#" method="Post" class="">
-                  <?php
-                        $stmt=$con->prepare("CALL VIEW_SELECTION_LIST(:cid);");
-                        $stmt->bindParam(":cid",$cid);  
-                        $stmt->execute();
-                        $a=1; 
-                  ?>
-                    <select name="slist" id="slist" class="form-control">
-                    <option>Select Shrotlist</option>
+                  }else{
+                    ?>
                     <?php 
-                        while($data  = $stmt->fetch(PDO::FETCH_ASSOC))
-                        {
-                     ?>
-                     <option value="<?php echo $data["SELECTION_LIST_ID"]; ?>"><?php echo $data["SELECTION_LIST_NAME"]; ?></option>
-                   <?php } ?>
-                   </select>
-              </ul>
-                <div>
-                  <hr style="border-top: 1px solid #495057">
-                </div>	
-                <div class="d-flex justify-content-center">
-                    <input type="submit" name="submit" value="Submit" class="btn btn-outline-success">
-                </div>
-                </form>     
-             </div>
+                          }
+                        ?>
+                        
+                      <form action="#" method="Post">
+                        <div class="">
+                              <?php
+                                    $stmt=$con->prepare("CALL VIEW_SELECTION_LIST(:cid);");
+                                    $stmt->bindParam(":cid",$cid);  
+                                    $stmt->execute();
+                                    $a=1; 
+                              ?>
+                              <select class="selectpicker" id="slist" onchange="student_details()" name="slist" data-size="7" data-style="btn btn-primary btn-round" title="Select Shortlist">
+                                <option disabled selected>Select Shortlist</option>
+                                  <?php 
+                                  while($data  = $stmt->fetch(PDO::FETCH_ASSOC))
+                                  {
+                                  ?>
+                                <option value="<?php echo $data["SELECTION_LIST_ID"]; ?>"><?php echo $data["SELECTION_LIST_NAME"]; ?></option>
+                                  <?php } ?>
+                              </select>
+                              <div class="d-flex justify-content-center">
+                              <input type="submit" name="submit" value="Submit" class="btn btn-outline-success">
+                          </div>
+                      </form> 
             </div>
-          </div>
+            <br><br>
         </div>
-
+    </div>
+</div>
 <?php 
   include('footer.php');
   ob_flush();

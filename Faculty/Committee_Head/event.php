@@ -97,7 +97,7 @@
                                             </div>
                                             <div class="form-group col-10">
                                                 <label for="edate" class="bmd-label-floating">Event Date</label>
-                                                <input type="text" name="edate" class="form-control pull-left">
+                                                <input type="text" name="edate" class="form-control datepicker pull-left">
                                             </div>
                                         </div>
                                     </div>
@@ -111,7 +111,7 @@
                                             </div>
                                             <div class="form-group col-10">
                                                 <label for="etime" class="bmd-label-floating">Event Time</label>
-                                                <input type="time" name="etime" class="from-control ml-2">
+                                                <input type="text" name="etime" class="from-control timepicker ml-2">
                                             </div>
                                         </div>
                                     </div>
@@ -484,6 +484,65 @@
             document.getElementById("cmp_id").innerHTML=xmlhttp.responseText;
         }
 </script>
+<?php
+
+  if($_SERVER["REQUEST_METHOD"] == "POST"){
+
+      if(isset($_REQUEST["Submit"])){
+
+          $ename = $_REQUEST["ename"];
+          $edes = $_REQUEST["edes"];
+          $evenue = $_REQUEST["evenue"];
+          $edate = $_REQUEST["edate"];
+          $fdate = strtotime($edate);
+          $date = date('Y-m-d',$fdate);
+          $dept = $_REQUEST["dept"];
+          $degree = $_REQUEST["degree"];
+          $pyear = $_REQUEST["pyear"];
+          $etime = $_REQUEST["etime"];
+          $etype = $_REQUEST["etype"];
+          $ecat = $_REQUEST["ecat"];
+          $eve = $_REQUEST['eventfor'];
+
+          $gb = $_SESSION['lid'];
+          $gtype=$_SESSION['lut'];
+
+          if ($eve == "PRE") {
+            $cid=0;
+          }
+          elseif ($eve == "IN") {
+            $cid=$_REQUEST['cmp_id'];
+          }
+
+          //include('../../Files/PDO/dbcon.php');
+
+          $stmt=$con->prepare("CALL INSERT_EVENT(:gb,:ename,:edes,:evenue,:edate,:dept,:degree,:pyear,:etime,:etype,:ecate,:gtype,:cid);");
+          $stmt->bindParam(":gb",$gb);
+          $stmt->bindParam(":ename",$ename);
+          $stmt->bindParam(":edes",$edes);
+          $stmt->bindParam(":evenue",$evenue);
+          $stmt->bindParam(":edate",$date);
+          $stmt->bindParam(":dept",$dept);
+          $stmt->bindParam(":degree",$degree);
+          $stmt->bindParam(":pyear",$pyear);
+          $stmt->bindParam(":etime",$etime);
+          $stmt->bindParam(":etype",$etype);
+          $stmt->bindParam(":ecate",$ecat);
+          $stmt->bindParam(":gtype",$gtype);
+          $stmt->bindParam(":cid",$cid);
+          $stmt->execute();
+          // print_r( $stmt->errorinfo());
+          if ($stmt) {
+            echo "<script>alert('Event Successfully Created!')</script>";
+          }
+          else {
+            echo "<script>alert('Looks Like Someting Went Worng!!!')</script>";
+          }
+         
+      }
+  }
+  ob_flush();
+?>
 <?php 
 
 include 'footer.php';
