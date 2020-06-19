@@ -67,7 +67,7 @@
                                 <table id="company_list" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
                                     <thead>
                                         <tr>
-                                            <th>Name</th>
+                                            <th">Name</th>
                                             <th>Email</th>
                                             <th>Phone No.</th>
                                             <th>Contact Person</th>
@@ -99,7 +99,7 @@
                                             <td><?php echo $data['COMPANY_HR_EMAIL']; ?></td>
                                             <td><?php echo $data['COMPANY_PHONE_NUMBER_2']; ?></td>
                                             <td><?php echo $data['COMPANY_WEBSITE']; ?></td>
-                                            <td class="pull-right"><a href="company_profile.php?cid=<?php echo $data['COMPANY_ID'] ?>" class="btn btn-link btn-info btn-just-icon " rel="tooltip" title="View Company Profile"><i class="material-icons">visibility</i></a>
+                                            <td class="pull-right text-nowrap"><a href="company_profile.php?cid=<?php echo $data['COMPANY_ID'] ?>" class="btn btn-link btn-info btn-just-icon " rel="tooltip" title="View Company Profile"><i class="material-icons">visibility</i></a>
                                             <a href="company_deactivate.php?cid=<?php echo $data['COMPANY_ID'] ?>" class="btn btn-link btn-danger btn-just-icon " rel="tooltip" title="Deactivate Company"><i class="material-icons">person_remove</i></a></td>
                                         </tr>
                                         <?php } 
@@ -140,7 +140,7 @@
                                         <th class="text-nowrap">CP Email</th>
                                         <th class="text-nowrap">CP Phone No.</th>
                                         <th class="text-nowrap">Website</th>
-                                        <th class="disabled-sorting">Actions</th>
+                                        <th class="disabled-sorting pull-right">Actions</th>
                                         </tr>
                                     </thead>
                                     <tfoot>

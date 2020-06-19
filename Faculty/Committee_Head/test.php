@@ -41,9 +41,9 @@
                     </div>
                     <div class="card-body">
                         <form action="#" method="POST">
-                            <div class="row">
-                                <div class="col-lg-5 col-md-6 col-sm-3">
-                                    <select class="selectpicker" name="dept" id="dept" onchange="course()" data-size="5" data-style="btn btn-primary btn-round" title="Select Department">
+                            <div class="media">
+                                <div class="media-body">
+                                    <select class="form-control p-1 pl-3 btn btn-secondary btn-round" name="dept" id="dept" onchange="course()" data-size="5" data-style="btn btn-primary btn-round" title="Select Department">
                                         <option disabled>Select Department</option>
                                         <option value="BMIIT">BMIIT</option>
                                         <option value="SRIMCA">SRIMCA</option>
@@ -51,47 +51,51 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-lg-5 col-md-6 col-sm-3">
-                                    <select class="selectpicker" name="degree" id="degree" onchange="passing_year()" data-size="5" data-style="btn btn-primary btn-round" title="Select Degree">
+                            <div class="media">
+                                <div class="media-body">
+                                    <select class="form-control p-1 pl-3 btn btn-secondary btn-round" name="degree" id="degree" onchange="passing_year()" data-size="5" data-style="btn btn-primary btn-round" title="Select Degree">
                                         <option disabled selected>Select Degree</option>
                                     </select>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-lg-5 col-md-6 col-sm-3">
-                                    <select class="selectpicker" name="pyear" id="pyear" onchange="event_bind()" data-size="5" data-style="btn btn-primary btn-round" title="Select Passing Year">
+                            <div class="media">
+                                <div class="media-body">
+                                    <select class="form-control p-1 pl-3 btn btn-secondary btn-round" name="pyear" id="pyear" onchange="event_bind()" data-size="5" data-style="btn btn-primary btn-round" title="Select Passing Year">
                                         <option disabled selected>Select Passing Year</option>
                                     </select>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-lg-5 col-md-6 col-sm-3">
-                                    <select class="selectpicker" name="event" id="event" data-size="5" data-style="btn btn-primary btn-round" title="Select Event">
+                            <div class="media">
+                                <div class="media-body">
+                                    <select class="form-control p-1 pl-3 btn btn-secondary btn-round" name="event" id="event" data-size="5" data-style="btn btn-primary btn-round" title="Select Event">
                                         <option disabled selected>Select Event</option>
                                     </select>
                                 </div>
                             </div>
-                            <div class="input-group form-control-lg">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">
-                                    <i class="material-icons">calendar</i>
-                                    </span>
-                                </div>
-                                <div class="form-group">
-                                    <label for="tname" class="bmd-label-floating">Test Name</label>
-                                    <input type="text" name="tname" class="form-control pull-left">
+                            <div class="media">
+                                <div class="media-body row">
+                                    <div class="input-group-prepend col-1">
+                                        <span class="input-group-text">
+                                        <i class="material-icons">calendar</i>
+                                        </span>
+                                    </div>
+                                    <div class="form-group col-11">
+                                        <label for="tname" class="bmd-label-floating">Test Name</label>
+                                        <input type="text" name="tname" class="form-control pull-left">
+                                    </div>
                                 </div>
                             </div>
-                            <div class="input-group form-control-lg">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">
-                                    <i class="material-icons">calendar</i>
-                                    </span>
-                                </div>
-                                <div class="form-group">
-                                    <label for="tdes" class="bmd-label-floating">Test Description</label>
-                                    <input type="text" name="tdes" class="form-control pull-left">
+                            <div class="media">
+                                <div class="media-body">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                        <i class="material-icons">calendar</i>
+                                        </span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="tdes" class="bmd-label-floating">Test Description</label>
+                                        <input type="text" name="tdes" class="form-control pull-left">
+                                    </div>
                                 </div>
                             </div>
                             <div class="input-group form-control-lg">
