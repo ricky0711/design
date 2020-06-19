@@ -9,7 +9,7 @@
     <div class="content-wrapper header-info">
       <!-- widgets -->
       <div class="mb-30">
-           <div class="card h-100 ">
+           <div class="card h-100">
            <div class="card-body h-100">
              <h4 class="card-title">New Material</h4>
              <!-- action group -->

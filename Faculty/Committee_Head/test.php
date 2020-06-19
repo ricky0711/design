@@ -105,22 +105,26 @@
                                         <i class="material-icons">grade</i>
                                         </span>
                                     </div>
+                                    <div class="form-group col-11">
+                                        <label for="tmarks" class="bmd-label-floating">Total Marks</label>
+                                        <input type="text" name="tmarks" class="form-control pull-left">
+                                    </div>
                                 </div>
-                                <div class="form-group col-11">
-                                    <label for="tmarks" class="bmd-label-floating">Total Marks</label>
-                                    <input type="text" name="tmarks" class="form-control pull-left">
+                            </div>
+                            <div class="media">
+                                <div class="media-body row">
+                                    <div class="input-group-prepend col-1">
+                                        <span class="input-group-text">
+                                        <i class="material-icons">library_add_check</i>
+                                        </span>
+                                    </div>
+                                    <div class="form-group col-11">
+                                        <label for="pmarks" class="bmd-label-floating">Passing Marks</label>
+                                        <input type="text" name="pmarks" class="form-control pull-left">
+                                    </div>
                                 </div>
                             </div>
                             <div class="input-group form-control-lg">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">
-                                    <i class="material-icons">library_add_check</i>
-                                    </span>
-                                </div>
-                                <div class="form-group">
-                                    <label for="pmarks" class="bmd-label-floating">Passing Marks</label>
-                                    <input type="text" name="pmarks" class="form-control pull-left">
-                                </div>
                             </div>
                     	<input type="submit" class="btn btn-success btn-round" value="Create" name="Submit">
                     	<input type="reset" class="btn btn-danger btn-round pull-right" value="RESET" name="">
@@ -213,7 +217,6 @@
                     </div>
                     <div class="card-body">
                             <div class="toolbar">
-                            <!--        Here you can write extra buttons/actions for the toolbar              -->
                             </div>
                             <?php
                                 $stmt22=$con->prepare("CALL GET_FUTURE_TEST();");
@@ -276,16 +279,46 @@
                 <div class="tab-pane" id="link10">
                 <div class="card">
                     <div class="card-header">
-                    <h4 class="card-title">Help center</h4>
+                    <h4 class="card-title">Marks</h4>
                     <p class="card-category">
                         More information here
                     </p>
                     </div>
                     <div class="card-body">
-                    From the seamless transition of glass and metal to the streamlined profile, every detail was carefully considered to enhance your experience. So while its display is larger, the phone feels just right.
-                    <br>
-                    <br> Another Text. The first thing you notice when you hold the phone is how great it feels in your hand. The cover glass curves down around the sides to meet the anodized aluminum enclosure in a remarkable, simplified design.
+                    <form action="#" method="post">
+                    <div class="media">
+                        <div class="media-body mb-2">
+                            <select name="dept" class="form-control p-1 pl-3 btn btn-secondary btn-round" id="dept_marks" onchange="course_marks()" autofocus>
+                                <option>Select Department</option>
+                                <option value="BMIIT">BMIIT</option>
+                                <option value="SRIMCA">SRIMCA</option>
+                                <option value="CGPIT">CGPIT</option>
+                            </select>
+                        </div>
                     </div>
+                    <div class="media">
+                        <div class="media-body mb-2">
+                            <select name="degree" class="form-control p-1 pl-3 btn btn-secondary btn-round" id="degree_marks" onchange="passing_year_marks()">
+                                <option>Select Degree</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="media-body mb-2">
+                            <select name="pyear" class="form-control p-1 pl-3 btn btn-secondary btn-round" id="pyear_marks" onchange="test_bind()">
+                                <option>Select Passing Year</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="media-body mb-2">
+                            <select name="test" class="form-control p-1 pl-3 btn btn-secondary btn-round" id="tests" onchange="get_marks()">
+                                <option>Select Test</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="marks"></div>
+                    </form>
                 </div>
                 </div>
             </div>
@@ -300,3 +333,61 @@ include 'footer.php';
 ob_flush();
 ?>
 
+<script type="text/javascript">	
+		function course_marks(){
+            var xmlhttp=new XMLHttpRequest();
+            xmlhttp.open("GET","degreebind.php?dept="+document.getElementById("dept_marks").value,false);
+            xmlhttp.send(null);
+            //alert(xmlhttp.responseText);  
+            document.getElementById("degree_marks").innerHTML=xmlhttp.responseText;
+        }
+        function passing_year_marks(){ 
+            var xmlhttp=new XMLHttpRequest();
+            xmlhttp.open("GET","pyearbind.php?dept="+document.getElementById("dept_marks").value+"&"+"degree="+document.getElementById("degree_marks").value,false);
+            xmlhttp.send(null);
+            document.getElementById("pyear_marks").innerHTML=xmlhttp.responseText;
+        }
+        function test_bind(){ 
+            var xmlhttp=new XMLHttpRequest();
+            xmlhttp.open("GET","testbind.php?dept="+document.getElementById("dept_marks").value+"&"+"degree="+document.getElementById("degree_marks").value+"&"+"pyear="+document.getElementById("pyear_marks").value,false);
+            xmlhttp.send(null);
+            document.getElementById("tests").innerHTML=xmlhttp.responseText;
+        }
+        function get_marks(){ 
+            var xmlhttp=new XMLHttpRequest();
+            xmlhttp.open("GET","marksbind.php?tid="+document.getElementById("tests").value,false);
+            xmlhttp.send(null);
+            document.getElementById("marks").innerHTML=xmlhttp.responseText;
+        }
+        </script>
+<?php
+
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    // include('../../Files/PDO/dbcon.php');
+    if(isset($_REQUEST["marks_submit"])){
+        $tid=$_REQUEST['test'];
+        $i=0;
+        foreach ($_REQUEST as $key => $value) {
+            if($i==sizeof($_REQUEST)-1)
+            {
+            }
+            else if($i>=4) {
+            $stmt=$con->prepare("CALL INSERT_MARKS(:tid,:sid,:obMarks)");
+              $stmt->bindParam(":tid",$tid);
+              $stmt->bindParam(":sid",$key);
+              $stmt->bindParam(":obMarks",$value);
+              $stmt->execute();
+            }
+            $i+=1;
+        }
+        if($stmt)
+      {
+          echo "<script>alert('Marks Filled-Up Successfully')</script>";
+      }
+      else {
+          echo "<script>alert('Something Went Worng')</script>";
+      }
+    }
+}
+ob_flush();
+?>

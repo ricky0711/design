@@ -30,7 +30,24 @@
                     </p>
                     </div>
                     <div class="card-body">
-                        
+                    <div class="media">
+                        <div class="media-body">
+                        <select name="dept" class="form-control p-1 pl-3 btn btn-secondary btn-round" id="dept" onchange="course()" autofocus>
+                                <option>Select Department</option>
+                                <option value="BMIIT">BMIIT</option>
+                                <option value="SRIMCA">SRIMCA</option>
+                                <option value="CGPIT">CGPIT</option>
+                        </select>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="media-body">
+                        <select name="degree" class="form-control p-1 pl-3 btn btn-secondary btn-round" id="degree" onchange="get_batch()">
+                                <option>Select Degree</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="show"></div> 
                     </div>
                 </div>
                 </div>
@@ -43,7 +60,40 @@
                     </p>
                     </div>
                     <div class="card-body">
-                        
+                    <form action="#" method="POST">
+                        <div class="media">
+                            <div class="media-body">
+                            <select name="dept" class="form-control p-1 pl-3 btn btn-secondary btn-round" id="dept_view_batch" onchange="course_view_batch()">
+                                    <option>Select Department</option>
+                                    <option value="BMIIT">BMIIT</option>
+                                    <option value="SRIMCA">SRIMCA</option>
+                                    <option value="CGPIT">CGPIT</option>
+                            </select>
+                            </div>
+                        </div>
+                        <div class="media">
+                            <div class="media-body">
+                            <select name="degree" class="form-control p-1 pl-3 btn btn-secondary btn-round" id="degree_view_batch">
+                                    <option>Select Degree</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="media">
+                            <div class="media-body">
+                            <input type="text" name="pyear" class="form-control" placeholder="Passing Year" value="<?php echo date('Y');?>">
+                            </div>
+                        </div>
+                        <div class="media">
+                            <div class="media-body">
+                            <input type="text" name="sem" class="form-control" placeholder="No. of Semister">
+                            </div>
+                        </div>
+                        <div class="media">
+                            <div class="media-body">
+                            <input type="submit" class="btn btn-success" value="Create" name="Submit">
+                            </div>
+                        </div>
+                    </form>
                     </div>
                 </div>
                 </div>
@@ -84,6 +134,90 @@
 <?php 
 
 include 'footer.php';
+ob_flush();
+?>
+
+<script type="text/javascript"> 
+    function course(){
+            var xmlhttp=new XMLHttpRequest();
+            xmlhttp.open("GET","degreebind.php?dept="+document.getElementById("dept").value,false);
+            xmlhttp.send(null);
+            //alert(xmlhttp.responseText);  
+            document.getElementById("degree").innerHTML=xmlhttp.responseText;
+        }
+        function get_batch(){ 
+            var xmlhttp=new XMLHttpRequest();
+            xmlhttp.open("GET","view_batch_bind.php?dept="+document.getElementById("dept").value+"&degree="+document.getElementById("degree").value,false);
+            xmlhttp.send(null);
+            // alert(xmlhttp.responseText); 
+            document.getElementById("show").innerHTML=xmlhttp.responseText;
+        }
+        function course(){
+            var xmlhttp=new XMLHttpRequest();
+            xmlhttp.open("GET","degreebind.php?dept="+document.getElementById("dept").value,false);
+            xmlhttp.send(null);
+            //alert(xmlhttp.responseText);  
+            document.getElementById("degree").innerHTML=xmlhttp.responseText;
+        }
+        function course_view_batch(){
+            var xmlhttp=new XMLHttpRequest();
+            xmlhttp.open("GET","degreebind.php?dept="+document.getElementById("dept_view_batch").value,false);
+            xmlhttp.send(null);
+            //alert(xmlhttp.responseText);  
+            document.getElementById("degree_view_batch").innerHTML=xmlhttp.responseText;
+        }
+        </script>
+
+<?php
+
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+
+    if(isset($_REQUEST["Submit"])){
+
+        $dept = $_REQUEST["dept"];
+        $degree = $_REQUEST["degree"];
+        
+
+        if ($degree == 'BCA' || $degree == 'BSC(IT)') {
+            $d2d=0;
+            $type='BA';
+        }elseif($degree == 'MCA' || $degree == 'MSC(IT)') {
+          $d2d=0;
+          $type='MA';
+        }elseif($degree == 'IMCA' || $degree == 'IMSC(IT)') {
+          $d2d=0;
+          $type='IBM';
+        }elseif($degree == 'BTECH(IT)'){
+          $d2d=1;
+          $type='BA';
+        }elseif($degree == 'MTECH(IT)'){
+          $d2d=1;
+          $type='MA';
+        }
+
+        $pyear=$_REQUEST["pyear"];
+        $nos=$_REQUEST["sem"];  
+
+        include('../../Files/PDO/dbcon.php');
+
+        $stmt2=$con->prepare("CALL INSERT_UPDATE_BATCH(:dept,:degree,:pyear,:sem,:d2d,:type)");
+        $stmt2->bindParam(":dept",$dept);
+        $stmt2->bindParam(":degree",$degree);
+        $stmt2->bindParam(":pyear",$pyear);
+        $stmt2->bindParam(":sem",$nos);
+        $stmt2->bindParam(":d2d",$d2d);
+        $stmt2->bindParam(":type",$type);
+        $stmt2->execute();
+      //   print_r( $stmt2->errorinfo());
+        if ($stmt2) {
+          echo "<script>alert('BATCH ADDED!')</script>";
+        }
+        else {
+          echo "<script>alert('Looks Like Someting Went Worng!!!')</script>";
+        }
+       
+    }
+}
 ob_flush();
 ?>
 

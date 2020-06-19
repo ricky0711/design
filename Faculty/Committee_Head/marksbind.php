@@ -73,4 +73,10 @@
      }
      }
 ?>
+      
         </table>
+        <div class="media">
+            <div class="media-body mb-2">
+                <input type="submit" class="btn btn-success" value="SUBMIT" name="marks_submit">
+            </div>
+        </div>
