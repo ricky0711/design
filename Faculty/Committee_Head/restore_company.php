@@ -5,5 +5,5 @@
 	$stmt->bindparam(":cid",$cid);
 	$stmt->execute();
 	print_r($stmt->errorinfo());
-	header("location: view_deactive_company.php");
+	header("location: company.php");
  ?>

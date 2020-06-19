@@ -6,42 +6,42 @@
         <div class="row">
         <div class="ml-auto mr-auto">
             <div class="page-categories">
-            <h3 class="title text-center">Resume Details</h3>
+            <h3 class="title text-center">Company Related Activity Details</h3>
             <br />
             <ul class="nav nav-pills nav-pills-success nav-pills-icons justify-content-center" role="tablist">
                 <li class="nav-item">
                 <a class="nav-link active" data-toggle="tab" href="#link7" role="tablist">
-                    <i class="material-icons">info</i> Company List
+                    <i class="material-icons">view_list</i> Company List
                 </a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" data-toggle="tab" href="#link8" role="tablist">
-                    <i class="material-icons">location_on</i> Deactivate Companies
+                    <i class="material-icons">highlight_off</i> Deactivated Companies
                 </a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" data-toggle="tab" href="#link9" role="tablist">
-                    <i class="material-icons">gavel</i> Broadcast List
+                    <i class="material-icons">mark_email_unread</i> Broadcast List
                 </a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" data-toggle="tab" href="#link10" role="tablist">
-                    <i class="material-icons">help_outline</i> Send Broadcast
+                    <i class="material-icons">send</i> Send Broadcast
                 </a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" data-toggle="tab" href="#link11" role="tablist">
-                    <i class="material-icons">help_outline</i> Placement Schedule
+                    <i class="material-icons">access_alarm</i> Placement Schedule
                 </a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" data-toggle="tab" href="#link12" role="tablist">
-                    <i class="material-icons">help_outline</i>  View Schedule
+                    <i class="material-icons">dvr</i>  View Schedule
                 </a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" data-toggle="tab" href="#link13" role="tablist">
-                    <i class="material-icons">help_outline</i> Recommend Student
+                    <i class="material-icons">support_agent</i> Recommend Student
                 </a>
                 </li>
             </ul>
@@ -49,9 +49,9 @@
                 <div class="tab-pane active" id="link7">
                 <div class="card">
                     <div class="card-header">
-                    <h4 class="card-title">Description about product</h4>
+                    <h4 class="card-title">All the available Companies</h4>
                     <p class="card-category">
-                        More information here
+                        Here you can find all the available companines
                     </p>
                     </div>
                     <div class="card-body">
@@ -73,7 +73,6 @@
                                             <th>Contact Person</th>
                                             <th>CP Email</th>
                                             <th>CP Phone No.</th>
-                                            <th>Address</th>
                                             <th>Website</th>
                                             <th class="disabled-sorting pull-right">Actions</th>
                                         </tr>
@@ -86,8 +85,8 @@
                                             <th>Contact Person</th>
                                             <th>CP Email</th>
                                             <th>CP Phone No.</th>
-                                            <th>Address</th>
                                             <th>Website</th>
+                                            <th class="disabled-sorting pull-right">Actions</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -99,9 +98,9 @@
                                             <td><?php echo $data['COMPANY_HR_NAME']; ?></td>
                                             <td><?php echo $data['COMPANY_HR_EMAIL']; ?></td>
                                             <td><?php echo $data['COMPANY_PHONE_NUMBER_2']; ?></td>
-                                            <td><?php echo $data['COMPANY_ADDRESS']; ?></td>
                                             <td><?php echo $data['COMPANY_WEBSITE']; ?></td>
-                                            <td></td>
+                                            <td class="pull-right"><a href="company_profile.php?cid=<?php echo $data['COMPANY_ID'] ?>" class="btn btn-link btn-info btn-just-icon " rel="tooltip" title="View Company Profile"><i class="material-icons">visibility</i></a>
+                                            <a href="company_deactivate.php?cid=<?php echo $data['COMPANY_ID'] ?>" class="btn btn-link btn-danger btn-just-icon " rel="tooltip" title="Deactivate Company"><i class="material-icons">person_remove</i></a></td>
                                         </tr>
                                         <?php } 
                                         ?>
@@ -114,9 +113,9 @@
                 <div class="tab-pane " id="link8">
                 <div class="card">
                     <div class="card-header">
-                    <h4 class="card-title">Resume Details</h4>
+                    <h4 class="card-title">Deactivated Companies</h4>
                     <p class="card-category">
-                        More information here
+                        Here you can find all the companies that are deactiavted 
                     </p>
                     </div>
                     <div class="card-body">
@@ -140,9 +139,8 @@
                                         <th class="text-nowrap">Contact Person</th>
                                         <th class="text-nowrap">CP Email</th>
                                         <th class="text-nowrap">CP Phone No.</th>
-                                        <th class="">Address</th>
                                         <th class="text-nowrap">Website</th>
-                                        <th class="text-nowrap disabled-sorting">Actions</th>
+                                        <th class="disabled-sorting">Actions</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -153,7 +151,6 @@
                                         <th>Contact Person</th>
                                         <th>CP Email</th>
                                         <th>CP Phone No.</th>
-                                        <th>Address</th>
                                         <th>Website</th>
                                         <th>Actions</th>
                                         </tr>
@@ -167,19 +164,9 @@
                                         <td ><?php echo $data['COMPANY_HR_NAME']; ?></td>
                                         <td ><?php echo $data['COMPANY_HR_EMAIL']; ?></td>
                                         <td ><?php echo $data['COMPANY_PHONE_NUMBER_2']; ?></td>
-                                        <td ><?php echo $data['COMPANY_ADDRESS']; ?></td>
                                         <td ><?php echo $data['COMPANY_WEBSITE']; ?></td>
-                                        <td>
-                                    <a href="company_profile.php?cid=<?php echo $data['COMPANY_ID'] ?>" title="">
-                                        <button type="button" class="btn btn-outline-info"><i
-                                                class="material-icons">person_pin</i></button>
-                                    </a>
-                                </td>
-                                <!-- <td>
-                                    <a href="restore_company.php?cid=<?php echo $data['COMPANY_ID'] ?>" title="">
-                                    <button type="button" class="btn btn-outline-success"><i class="material-icons">person_pin</i></button>
-                                    </a>
-                                </td> -->
+                                        <td class="pull-right"><a href="company_profile.php?cid=<?php echo $data['COMPANY_ID'] ?>" class="btn btn-link btn-info btn-just-icon " rel="tooltip" title="View Company Profile"><i class="material-icons">visibility</i></a>
+                                            <a href="restore_company.php?cid=<?php echo $data['COMPANY_ID'] ?>" class="btn btn-link btn-success btn-just-icon " rel="tooltip" title="Restore Company"><i class="material-icons">restore_from_trash</i></a></td>
                                         </tr>
                                         <?php } ?>
                                     </tbody>
@@ -191,9 +178,9 @@
                 <div class="tab-pane" id="link9">
                 <div class="card">
                     <div class="card-header">
-                    <h4 class="card-title">View Resume Details</h4>
+                    <h4 class="card-title">view available Broadcast List</h4>
                     <p class="card-category">
-                        More information here
+                        Here you can find all the available broadcast list
                     </p>
                     </div>
                     <div class="card-body">
@@ -231,17 +218,9 @@
                                         <td><?php echo $data['BROADCAST_LIST_NAME']; ?></td>
                                         <td><?php echo $data['FACULTY_FIRST_NAME']." ".$data['FACULTY_LAST_NAME']; ?></td>
                                         <td><?php echo $data['BROADCAST_LIST_DATE']; ?></td>
-                                        <td>
-                                            <a href="view_list.php?ilid=<?php echo $data['BROADCAST_LIST_ID'] ?>" title="">
-                                            <button type="button" class="btn btn-sm btn-outline-info"><i class="fa fa-eye"></i></button>
-                                            </a>
-                                            <a href="add_company_list.php?ilid=<?php echo $data['BROADCAST_LIST_ID'] ?>" title="">
-                                            <button type="button" class="btn btn-sm btn-outline-success"><i class="fa fa-plus"></i></button>
-                                            </a>
-                                            <a href="delete_list.php?ilid=<?php echo $data['BROADCAST_LIST_ID'] ?>" title="">
-                                            <button type="button" class="btn btn-sm btn-outline-danger"><i class="fa fa-trash"></i></button>
-                                            </a>
-                                        </td>
+                                        <td><a href="view_list.php?ilid=<?php echo $data['BROADCAST_LIST_ID'] ?>" class="btn btn-link btn-info btn-just-icon " rel="tooltip" title="View Broadcast List"><i class="material-icons">visibility</i></a>
+                                            <a href="add_company_list.php?ilid=<?php echo $data['BROADCAST_LIST_ID'] ?>" class="btn btn-link btn-success btn-just-icon " rel="tooltip" title="Add Companies to the List"><i class="material-icons">restore_from_trash</i></a>
+                                            <a href="delete_list.php?ilid=<?php echo $data['BROADCAST_LIST_ID'] ?>" class="btn btn-link btn-danger btn-just-icon " rel="tooltip" title="Delete Broadcast List"><i class="material-icons">delete_sweep</i></a></td>
                                         </tr>
                                         <?php } ?>
                                     </tbody>
@@ -268,9 +247,9 @@
                 <div class="tab-pane" id="link11">
                     <div class="card">
                         <div class="card-header">
-                        <h4 class="card-title">Help center</h4>
+                        <h4 class="card-title">Arrange Placement Schedule</h4>
                         <p class="card-category">
-                            More information here
+                            Here you find information to arrange a Placement
                         </p>
                         </div>
                         <div class="card-body">
@@ -287,14 +266,13 @@
                                 <table id="placement_schedule" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
                                     <thead>
                                         <tr>
-                                        <th></th>
+                                        <th class="disabled-sorting"></th>
                                         <th>Name</th>
                                         <th>Email</th>
                                         <th>Phone No.</th>
                                         <th>Contact Person</th>
                                         <th>CP Email</th>
                                         <th>CP Phone No.</th>
-                                        <th>Address</th>
                                         <th>Website</th>
                                         </tr>
                                     </thead>
@@ -307,7 +285,6 @@
                                         <th>Contact Person</th>
                                         <th>CP Email</th>
                                         <th>CP Phone No.</th>
-                                        <th>Address</th>
                                         <th>Website</th>
                                         </tr>
                                     </tfoot>
@@ -343,8 +320,8 @@
                                     <td><?php echo $data['COMPANY_HR_NAME']; ?></td>
                                     <td><?php echo $data['COMPANY_HR_EMAIL']; ?></td>
                                     <td><?php echo $data['COMPANY_PHONE_NUMBER_2']; ?></td>
-                                    <td><?php echo $data['COMPANY_ADDRESS']; ?></td>
                                     <td><?php echo $data['COMPANY_WEBSITE']; ?></td>
+
                                 </tr>
                                 <?php
                                 $cnt+=1; 
@@ -356,19 +333,12 @@
                                     <td><input type="checkbox" id="company_uncheck<?php echo $cid;?>"
                                             name="<?php echo $cid;?>" value="<?php echo $cid;?>"
                                             onClick="company_uncheck_evnt(this.id)"></td>
-                                    <td>
-                                        <div style="height: 35px;width: 35px;border-radius: 50%;">
-                                            <img src="../../Company/com_logo/<?php echo $data['COMPANY_LOGO'] ?>"
-                                                alt="avatar" style="height: 100%;width: 100%;">
-                                        </div>
-                                    </td>
                                     <td><?php echo $data['COMPANY_NAME']; ?></td>
                                     <td><?php echo $data['COMPANY_EMAIL']; ?></td>
                                     <td><?php echo $data['COMPANY_PHONE_NUMBER_1']; ?></td>
                                     <td><?php echo $data['COMPANY_HR_NAME']; ?></td>
                                     <td><?php echo $data['COMPANY_HR_EMAIL']; ?></td>
                                     <td><?php echo $data['COMPANY_PHONE_NUMBER_2']; ?></td>
-                                    <td><?php echo $data['COMPANY_ADDRESS']; ?></td>
                                     <td><?php echo $data['COMPANY_WEBSITE']; ?></td>
                                 </tr>
                                 <?php
@@ -378,6 +348,32 @@
                                 ?>
                                     </tbody>
                                 </table>
+                                    <div class="media col-6">
+                                        <div class="media-body row">
+                                            <div class="input-group-prepend col-2 mr-0 pr-0">
+                                                <span class="input-group-text">
+                                                <i class="material-icons">date_range</i>
+                                                </span>
+                                            </div>
+                                            <div class="form-group col-10">
+                                                <label for="edate" class="bmd-label-floating">Event Date</label>
+                                                <input type="text" name="edate" class="form-control datepicker pull-left">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="media col-6">
+                                        <div class="media-body row">
+                                            <div class="input-group-prepend col-2 mr-0 pr-0">
+                                                <span class="input-group-text">
+                                                <i class="material-icons">date_range</i>
+                                                </span>
+                                            </div>
+                                            <div class="form-group col-10">
+                                                <label for="edate" class="bmd-label-floating">No. of Days</label>
+                                                <input type="text" name="edate" class="form-control pull-left">
+                                            </div>
+                                        </div>
+                                    </div>
                             </div>
                         </div>
                     </div>
@@ -385,9 +381,9 @@
                 <div class="tab-pane" id="link12">
                     <div class="card">
                         <div class="card-header">
-                        <h4 class="card-title">Help center</h4>
+                        <h4 class="card-title">View Schedule</h4>
                         <p class="card-category">
-                            More information here
+                            Here you can find information regarding already generated Placement
                         </p>
                         </div>
                         <div class="card-body">
@@ -405,15 +401,15 @@
                                     <thead>
                                         <tr>
                                             <td>Company</td>
-                                            <td>Strat</td>
-                                            <td>End</td>
+                                            <td>Starting Date</td>
+                                            <td>Ending Date</td>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <td>Company</td>
-                                            <td>Strat</td>
-                                            <td>End</td>
+                                            <td>Starting Date</td>
+                                            <td>Ending Date</td>
                                         </tr>
                                     </tfoot>
                                     <tbody>

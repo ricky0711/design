@@ -4,34 +4,34 @@
 <div class="content">
     <div class="container-fluid">
         <div class="row">
-        <div class="ml-auto mr-auto">
+        <div class="ml-auto mr-auto d-flex justify-content-center">
             <div class="page-categories">
             <h3 class="title text-center">Resume Details</h3>
             <br />
             <ul class="nav nav-pills nav-pills-success nav-pills-icons justify-content-center" role="tablist">
                 <li class="nav-item">
                 <a class="nav-link active" data-toggle="tab" href="#link7" role="tablist">
-                    <i class="material-icons">info</i> New Event
+                    <i class="material-icons">event</i> New Event
                 </a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" data-toggle="tab" href="#link8" role="tablist">
-                    <i class="material-icons">location_on</i> Past Event
+                    <i class="material-icons">done_all</i> Past Event
                 </a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" data-toggle="tab" href="#link9" role="tablist">
-                    <i class="material-icons">gavel</i> Upcoming Event
+                    <i class="material-icons">next_plan</i> Upcoming Event
                 </a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" data-toggle="tab" href="#link10" role="tablist">
-                    <i class="material-icons">help_outline</i> Cancelled Event
+                    <i class="material-icons">highlight_off</i> Cancelled Event
                 </a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" data-toggle="tab" href="#link11" role="tablist">
-                    <i class="material-icons">help_outline</i> Attendance
+                    <i class="material-icons">emoji_people</i> Attendance
                 </a>
                 </li>
             </ul>
@@ -39,9 +39,9 @@
                 <div class="tab-pane active" id="link7">
                     <div class="card">
                         <div class="card-header">
-                        <h4 class="card-title">Description about product</h4>
+                        <h4 class="card-title">Description about New Event</h4>
                         <p class="card-category">
-                            More information here
+                            Provide all the information here
                         </p>
                         </div>
                         <div class="card-body">  
@@ -51,7 +51,7 @@
                                         <div class="media-body row">
                                             <div class="input-group-prepend col-2 mr-0 pr-0">
                                                 <span class="input-group-text">
-                                                <i class="material-icons">person_pin</i>
+                                                <i class="material-icons">today</i>
                                                 </span>
                                             </div>
                                             <div class="form-group col-10">
@@ -64,7 +64,7 @@
                                         <div class="media-body row">
                                             <div class="input-group-prepend col-2 mr-0 pr-0">
                                                 <span class="input-group-text">
-                                                <i class="material-icons">person_pin</i>
+                                                <i class="material-icons">add_comment</i>
                                                 </span>
                                             </div>
                                             <div class="form-group col-10">
@@ -79,7 +79,7 @@
                                         <div class="media-body row">    
                                             <div class="input-group-prepend col-2 mr-0 pr-0">
                                                 <span class="input-group-text">
-                                                <i class="material-icons">person_pin</i>
+                                                <i class="material-icons">add_location_alt</i>
                                                 </span>
                                             </div>
                                             <div class="form-group col-10">
@@ -92,7 +92,7 @@
                                         <div class="media-body row">
                                             <div class="input-group-prepend col-2 mr-0 pr-0">
                                                 <span class="input-group-text">
-                                                <i class="material-icons">person_pin</i>
+                                                <i class="material-icons">date_range</i>
                                                 </span>
                                             </div>
                                             <div class="form-group col-10">
@@ -106,7 +106,7 @@
                                         <div class="media-body row">
                                             <div class="input-group-prepend col-1 mr-0 pr-0">
                                                 <span class="input-group-text">
-                                                <i class="material-icons">person_pin</i>
+                                                <i class="material-icons">schedule</i>
                                                 </span>
                                             </div>
                                             <div class="form-group col-10">
@@ -119,7 +119,7 @@
                                         <div class="media-body row">
                                             <div class="input-group-prepend col-1 mr-0 pr-0">
                                                 <span class="input-group-text">
-                                                <i class="material-icons">person_pin</i>
+                                                <i class="material-icons">museum</i>
                                                 </span>
                                             </div>
                                             <select class="form-control pl-2 col-10 btn btn-secondary btn-round" name="eventfor" id="eventfor" onchange="event_for()" data-size="5"    title="Select Event For">
@@ -138,7 +138,7 @@
                                         <div class="media-body row">
                                             <div class="input-group-prepend col-1 mr-0 pr-0">
                                                 <span class="input-group-text">
-                                                <i class="material-icons">person_pin</i>
+                                                <i class="material-icons">apartment</i>
                                                 </span>
                                             </div>
                                             <select class="form-control pl-2 col-10 btn btn-secondary btn-round" name="dept" id="dept" onchange="course()" data-size="5" title="Select Department">
@@ -153,7 +153,7 @@
                                         <div class="media-body row">
                                             <div class="input-group-prepend col-1 mr-0 pr-0">
                                                 <span class="input-group-text">
-                                                <i class="material-icons">person_pin</i>
+                                                <i class="material-icons">school</i>
                                                 </span>
                                             </div>
                                             <select class="form-control pl-2 col-10 btn btn-secondary btn-round" name="degree" id="degree" onchange="passing_year()" data-size="5" title="Select Degree">
@@ -165,7 +165,7 @@
                                         <div class="media-body row">
                                             <div class="input-group-prepend col-1 mr-0 pr-0">
                                                 <span class="input-group-text">
-                                                <i class="material-icons">person_pin</i>
+                                                <i class="material-icons">military_tech</i>
                                                 </span>
                                             </div>
                                             <select class="form-control pl-2 col-10 btn btn-secondary btn-round" name="pyear" id="pyear" data-size="5"    title="Select Passing Year">
@@ -178,7 +178,7 @@
                                         <div class="media-body row">
                                             <div class="input-group-prepend col-1 mr-0 pr-0">
                                                 <span class="input-group-text">
-                                                <i class="material-icons">person_pin</i>
+                                                <i class="material-icons">style</i>
                                                 </span>
                                             </div>
                                             <select class="form-control ml-1 pl-2 col-10 btn btn-secondary btn-round" name="etype" id="etype" data-size="5"    title="Select Event Type">
@@ -194,7 +194,7 @@
                                         <div class="media-body row">
                                             <div class="input-group-prepend col-1 mr-0 pr-0">
                                                 <span class="input-group-text">
-                                                <i class="material-icons">person_pin</i>
+                                                <i class="material-icons">tune</i>
                                                 </span>
                                             </div>
                                             <select class="form-control pl-2 col-10 btn btn-secondary btn-round" name="ecat" id="cate" data-size="5"    title="Select Event Type">
@@ -217,9 +217,9 @@
                 <div class="tab-pane" id="link8">
                     <div class="card" style="width:1200px;">
                         <div class="card-header">
-                        <h4 class="card-title">Resume Details</h4>
+                        <h4 class="card-title">Events that already occured</h4>
                         <p class="card-category">
-                            More information here
+                            Here you will find the events that already happend
                         </p>
                         </div>
                         <div class="card-body">
@@ -283,42 +283,28 @@
                     </div>
                 </div>
                 <div class="tab-pane" id="link9">
-                <div class="card" style="width:1200px;">
-                    <div class="card-header">
-                    <h4 class="card-title">View Resume Details</h4>
-                    <p class="card-category">
-                        More information here
-                    </p>
-                    </div>
-                    <div class="card-body">
-                            <div class="toolbar">
-                            <!--        Here you can write extra buttons/actions for the toolbar              -->
-                            </div>
-                            <?php
-                                //include('../../Files/PDO/dbcon.php');
-                                $stmt22=$con->prepare("CALL VIEW_FUTURE_EVENT();");
-                                $stmt22->execute();
-                                $stmt22=$con->prepare("CALL VIEW_FUTURE_EVENT();");
-                                $stmt22->execute();
-                            ?>
-                        <div class="material-datatables">
-                            <table id="upcoming_events" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%;">
-                                <thead>
-                                    <tr>
-                                    <th>Name</th>
-                                    <th>Description</th>
-                                    <th>Venue</th>
-                                    <th>Date</th>
-                                    <th>Time</th>
-                                    <th>Department</th>
-                                    <th>Degree</th>
-                                    <th>Passing Year</th>
-                                    <th>Type</th>
-                                    <th>Category</th>
-                                    </tr>
-                                </thead>
-                                <tfoot>
-                                    <tr>
+                    <div class="card" style="width:1200px;">
+                        <div class="card-header">
+                        <h4 class="card-title">Events that are ready to Occur</h4>
+                        <p class="card-category">
+                            Here you will find the Upcoming Events 
+                        </p>
+                        </div>
+                        <div class="card-body">
+                                <div class="toolbar">
+                                <!--        Here you can write extra buttons/actions for the toolbar              -->
+                                </div>
+                                <?php
+                                    //include('../../Files/PDO/dbcon.php');
+                                    $stmt22=$con->prepare("CALL VIEW_FUTURE_EVENT();");
+                                    $stmt22->execute();
+                                    $stmt22=$con->prepare("CALL VIEW_FUTURE_EVENT();");
+                                    $stmt22->execute();
+                                ?>
+                            <div class="material-datatables">
+                                <table id="upcoming_events" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%;">
+                                    <thead>
+                                        <tr>
                                         <th>Name</th>
                                         <th>Description</th>
                                         <th>Venue</th>
@@ -329,36 +315,56 @@
                                         <th>Passing Year</th>
                                         <th>Type</th>
                                         <th>Category</th>
-                                    </tr>
-                                </tfoot>
-                                <tbody>
-                                    <?php while($data = $stmt22->fetch(PDO::FETCH_ASSOC)) { ?>
-                                    <tr>
-                                    <td><?php echo $data['EVENT_NAME']; ?></td>
-                                    <td><?php echo $data['EVENT_DESCRIPTION']; ?></td>
-                                    <td><?php echo $data['EVENT_VENUE']; ?></td>
-                                    <td><?php echo $data['EVENT_DATE']; ?></td>
-                                    <td><?php echo $data['EVENT_TIME']; ?></td>
-                                    <td><?php echo $data['BATCH_DEPARTMENT']; ?></td>
-                                    <td><?php echo $data['BATCH_DEGREE']; ?></td>
-                                    <td><?php echo $data['BATCH_PASSING_YEAR']; ?></td>
-                                    <td><?php echo $data['EVENT_TYPE']; ?></td>
-                                    <td><?php if ($data['EVENT_CATEGORY']=="1") { echo "Mandatory";	}elseif ($data['EVENT_CATEGORY']=="0") { echo "Voluntary"; }  ?></td>
-                                    </tr>
-                                    <?php } ?>
-                                </tbody>
-                            </table>
+                                        <th class="disabled-sorting">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Description</th>
+                                            <th>Venue</th>
+                                            <th>Date</th>
+                                            <th>Time</th>
+                                            <th>Department</th>
+                                            <th>Degree</th>
+                                            <th>Passing Year</th>
+                                            <th>Type</th>
+                                            <th>Category</th>
+                                            <th class="disabled-sorting">Actions</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        <?php while($data = $stmt22->fetch(PDO::FETCH_ASSOC)) { ?>
+                                        <tr>
+                                        <td><?php echo $data['EVENT_NAME']; ?></td>
+                                        <td><?php echo $data['EVENT_DESCRIPTION']; ?></td>
+                                        <td><?php echo $data['EVENT_VENUE']; ?></td>
+                                        <td><?php echo $data['EVENT_DATE']; ?></td>
+                                        <td><?php echo $data['EVENT_TIME']; ?></td>
+                                        <td><?php echo $data['BATCH_DEPARTMENT']; ?></td>
+                                        <td><?php echo $data['BATCH_DEGREE']; ?></td>
+                                        <td><?php echo $data['BATCH_PASSING_YEAR']; ?></td>
+                                        <td><?php echo $data['EVENT_TYPE']; ?></td>
+                                        <td><?php if ($data['EVENT_CATEGORY']=="1") { echo "Mandatory";	}elseif ($data['EVENT_CATEGORY']=="0") { echo "Voluntary"; }  ?></td>
+                                        <td>
+                                            <a href="update_event.php?eid=<?php echo $data['EVENT_ID']; ?>" class="btn btn-link btn-info btn-just-icon " rel="tooltip" title="Update Event"><i class="material-icons">library_add_check</i></a>
+                                            <a href="cancel_event.php?eid=<?php echo $data['EVENT_ID']; ?>" class="btn btn-link btn-danger btn-just-icon " rel="tooltip" title="Cancel Event"><i class="material-icons">delete_sweep</i></a>
+                                        </td>
+                                        </tr>
+                                        <?php } ?>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
+                        
                     </div>
-                    
-                </div>
                 </div>
                 <div class="tab-pane" id="link10">
                 <div class="card" style="width:1200px;">
                     <div class="card-header">
-                    <h4 class="card-title">Help center</h4>
+                    <h4 class="card-title">Events that are cancelled</h4>
                     <p class="card-category">
-                        More information here
+                        Here you can find the events that are cancelled due to any reason 
                     </p>
                     </div>
                     <div class="card-body">
@@ -387,6 +393,7 @@
                                     <th>Passing Year</th>
                                     <th>Type</th>
                                     <th>Category</th>
+                                    <th class="disabled-sorting">Actions</th>
                                     </tr>
                                 </thead>
                                 <tfoot>
@@ -401,6 +408,8 @@
                                         <th>Passing Year</th>
                                         <th>Type</th>
                                         <th>Category</th>
+                                        <th class="disabled-sorting">Actions</th>
+
                                     </tr>
                                 </tfoot>
                                 <tbody>
@@ -416,7 +425,7 @@
                                     <td><?php echo $data['BATCH_PASSING_YEAR']; ?></td>
                                     <td><?php echo $data['EVENT_TYPE']; ?></td>
                                     <td><?php if ($data['EVENT_CATEGORY']=="1") { echo "Mandatory";	}elseif ($data['EVENT_CATEGORY']=="0") { echo "Voluntary"; }  ?></td>
-                                    <td><a href="restore_event.php?eid=<?php echo $data['EVENT_ID']; ?>"><button class="btn btn-sm btn-outline-success"><i class="fas fa-trash-restore"></i></button></a></td>
+                                    <td><a href="restore_event.php?eid=<?php echo $data['EVENT_ID']; ?>" class="btn btn-link btn-info btn-just-icon " rel="tooltip" title="Restore Event"><i class="material-icons">restore_from_trash</i></a></td>
                                     </tr>
                                     <?php }
                                         $stmt=$con->prepare("CALL VIEW_PAST_CANCELED_EVENT();");

@@ -156,6 +156,7 @@
                                     <th>Passing Year</th>
                                     <th>Total Marks</th>
                                     <th>Passing Marks</th>
+                                    <th class="disabled-sorting">Actions</th>
                                     </tr>
                                 </thead>
                                 <tfoot>
@@ -170,6 +171,7 @@
                                         <th>Passing Year</th>
                                         <th>Total Marks</th>
                                         <th>Passing Marks</th>
+                                        <th class="disabled-sorting">Actions</th>
                                     </tr>
                                 </tfoot>
                                 <tbody>
@@ -186,6 +188,7 @@
                                         <td><?php echo $data['BATCH_PASSING_YEAR']; ?></td>
                                         <td><?php echo $data['TEST_TOTAL_MARKS']; ?></td>
                                         <td><?php echo $data['TEST_PASSING_MARKS']; ?></td>
+                                        <td><a href="view_test_marks.php?tid=<?php echo $data['TEST_ID']; ?>" class="btn btn-link btn-info btn-just-icon " rel="tooltip" title="View Marks"><i class="material-icons">visibility</i></a></td>
                                     </tr>
                                     <?php } ?>
                                 </tbody>

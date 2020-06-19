@@ -5,6 +5,6 @@
     $stmt=$con->prepare("CALL CANCEL_EVENT(:eid);");
     $stmt->bindParam(":eid",$eid);
     $stmt->execute();
-    header('Location: upcoming_events.php');
+    header('Location: event.php');
     ob_flush();
 ?>

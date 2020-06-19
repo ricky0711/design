@@ -542,6 +542,57 @@
         var table = $('#upcoming_test').DataTable();
         });
     </script>
+    <script>
+        $(document).ready(function() {
+        $('#past_events').DataTable({
+            "pagingType": "full_numbers",
+            "lengthMenu": [
+            [10, 25, 50, -1],
+            [10, 25, 50, "All"]
+            ],
+            responsive: true,
+            language: {
+            search: "_INPUT_",
+            searchPlaceholder: "Search records",
+            }
+        });
+        var table = $('#past_events').DataTable();
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+        $('#upcoming_events').DataTable({
+            "pagingType": "full_numbers",
+            "lengthMenu": [
+            [10, 25, 50, -1],
+            [10, 25, 50, "All"]
+            ],
+            responsive: true,
+            language: {
+            search: "_INPUT_",
+            searchPlaceholder: "Search records",
+            }
+        });
+        var table = $('#upcoming_events').DataTable();
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+        $('#canceled_events').DataTable({
+            "pagingType": "full_numbers",
+            "lengthMenu": [
+            [10, 25, 50, -1],
+            [10, 25, 50, "All"]
+            ],
+            responsive: true,
+            language: {
+            search: "_INPUT_",
+            searchPlaceholder: "Search records",
+            }
+        });
+        var table = $('#canceled_events').DataTable();
+        });
+    </script>
   <script>
     $(document).ready(function() {
       // initialise Datetimepicker and Sliders

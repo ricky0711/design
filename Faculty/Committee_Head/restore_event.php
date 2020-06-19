@@ -4,5 +4,5 @@
 	$stmt=$con->prepare("CALL RESTORE_EVENT(:eid)");
 	$stmt->bindparam(":eid",$eid);
 	$stmt->execute();
-	header("location: canceled_events.php");
+	header("location:event.php");
  ?>
