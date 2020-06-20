@@ -593,6 +593,58 @@
         var table = $('#canceled_events').DataTable();
         });
     </script>
+    <script>
+        $(document).ready(function() {
+        $('#student_list').DataTable({
+            "pagingType": "full_numbers",
+            "lengthMenu": [
+            [10, 25, 50, -1],
+            [10, 25, 50, "All"]
+            ],
+            responsive: true,
+            language: {
+            search: "_INPUT_",
+            searchPlaceholder: "Search records",
+            }
+        });
+        var table = $('#student_list').DataTable();
+        });
+    </script>
+
+    <script>
+        $(document).ready(function() {
+        $('#student_list_de').DataTable({
+            "pagingType": "full_numbers",
+            "lengthMenu": [
+            [10, 25, 50, -1],
+            [10, 25, 50, "All"]
+            ],
+            responsive: true,
+            language: {
+            search: "_INPUT_",
+            searchPlaceholder: "Search records",
+            }
+        });
+        var table = $('#student_list_de').DataTable();
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+        $('#materials').DataTable({
+            "pagingType": "full_numbers",
+            "lengthMenu": [
+            [10, 25, 50, -1],
+            [10, 25, 50, "All"]
+            ],
+            responsive: true,
+            language: {
+            search: "_INPUT_",
+            searchPlaceholder: "Search records",
+            }
+        });
+        var table = $('#materials').DataTable();
+        });
+    </script>
   <script>
     $(document).ready(function() {
       // initialise Datetimepicker and Sliders

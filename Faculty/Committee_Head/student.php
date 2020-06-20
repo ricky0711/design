@@ -9,27 +9,27 @@
         <div class="row">
         <div class="ml-auto mr-auto">
             <div class="page-categories">
-            <h3 class="title text-center">Resume Details</h3>
+            <h3 class="title text-center">Student related activities Details</h3>
             <br />
             <ul class="nav nav-pills nav-pills-success nav-pills-icons justify-content-center" role="tablist">
                 <li class="nav-item">
                 <a class="nav-link active" data-toggle="tab" href="#link7" role="tablist">
-                    <i class="material-icons">info</i> Student List
+                    <i class="material-icons">group</i> Student List
                 </a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" data-toggle="tab" href="#link8" role="tablist">
-                    <i class="material-icons">location_on</i> Deactivate Student
+                    <i class="material-icons">remove_circle</i> Deactivated Student
                 </a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" data-toggle="tab" href="#link9" role="tablist">
-                    <i class="material-icons">gavel</i> New Material
+                    <i class="material-icons">source</i> New Material
                 </a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" data-toggle="tab" href="#link10" role="tablist">
-                    <i class="material-icons">help_outline</i> View Material
+                    <i class="material-icons">find_in_page</i> View Material
                 </a>
                 </li>
             </ul>
@@ -37,33 +37,48 @@
                 <div class="tab-pane active" id="link7">
                 <div class="card">
                     <div class="card-header">
-                    <h4 class="card-title">Description about product</h4>
+                    <h4 class="card-title">Student List</h4>
                     <p class="card-category">
-                        More information here
+                        View list of Students 
                     </p>
                     </div>
                     <div class="card-body">
                         <div class="media">
-                            <div class="media-body ">
-                                <select name="dept" class="form-control p-1 pl-3 btn btn-secondary btn-round" id="dept" onchange="course()" autofocus>
-                                    <option>Select Department</option>
+                            <div class="media-body row">
+                                <div class="input-group-prepend col-1 mr-0 pr-0">
+                                    <span class="input-group-text">
+                                    <i class="material-icons">apartment</i>
+                                    </span>
+                                </div>
+                                <select class="form-control pl-2 col-10 btn btn-secondary btn-round" name="dept" id="dept" onchange="course()" data-size="5" title="Select Department">
+                                    <option disabled selected>Select Department</option>
                                     <option value="BMIIT">BMIIT</option>
                                     <option value="SRIMCA">SRIMCA</option>
                                     <option value="CGPIT">CGPIT</option>
-                                        </select>
+                                </select>
                             </div>
-                        </div>
+                        </div>    
                         <div class="media">
-                            <div class="media-body">
-                                <select name="degree" class="form-control p-1 pl-3 btn btn-secondary btn-round" id="degree" onchange="passing_year()">
+                            <div class="media-body row">
+                                <div class="input-group-prepend col-1 mr-0 pr-0">
+                                    <span class="input-group-text">
+                                    <i class="material-icons">school</i>
+                                    </span>
+                                </div>
+                                <select class="form-control pl-2 col-10 btn btn-secondary btn-round" name="degree" id="degree" onchange="passing_year()" data-size="5" title="Select Degree">
                                     <option>Select Degree</option>
                                 </select>
                             </div>
                         </div>
                         <div class="media">
-                            <div class="media-body">
-                                <select name="pyear" class="form-control p-1 pl-3 btn btn-secondary btn-round" id="pyear" onchange="get_stud()">
-                                    <option>Select Passing Year</option>
+                            <div class="media-body row">
+                                <div class="input-group-prepend col-1 mr-0 pr-0">
+                                    <span class="input-group-text">
+                                    <i class="material-icons">military_tech</i>
+                                    </span>
+                                </div>
+                                <select class="form-control pl-2 col-10 btn btn-secondary btn-round" name="pyear" id="pyear" data-size="5"  onchange="get_stud()"  title="Select Passing Year">
+                                    <option disabled selected>Select Passing Year</option>
                                 </select>
                             </div>
                         </div>
@@ -74,33 +89,48 @@
                 <div class="tab-pane " id="link8">
                 <div class="card">
                     <div class="card-header">
-                    <h4 class="card-title">Resume Details</h4>
+                    <h4 class="card-title">Deactivated Student Details</h4>
                     <p class="card-category">
-                        More information here
+                        View list of Students who are deactivated 
                     </p>
                     </div>
                     <div class="card-body">
                         <div class="media">
-                            <div class="media-body ">
-                                <select name="dept" class="form-control p-1 pl-3 btn btn-secondary btn-round" id="dept_de" onchange="course_de()" autofocus>
-                                    <option>Select Department</option>
+                            <div class="media-body row">
+                                <div class="input-group-prepend col-1 mr-0 pr-0">
+                                    <span class="input-group-text">
+                                    <i class="material-icons">apartment</i>
+                                    </span>
+                                </div>
+                                <select class="form-control pl-2 col-10 btn btn-secondary btn-round" name="dept" id="dept_de" onchange="course_de()" data-size="5" title="Select Department">
+                                    <option disabled selected>Select Department</option>
                                     <option value="BMIIT">BMIIT</option>
                                     <option value="SRIMCA">SRIMCA</option>
                                     <option value="CGPIT">CGPIT</option>
                                 </select>
                             </div>
-                        </div>
+                        </div>    
                         <div class="media">
-                            <div class="media-body">
-                                <select name="degree" class="form-control p-1 pl-3 btn btn-secondary btn-round" id="degree_de" onchange="passing_year_de()">
+                            <div class="media-body row">
+                                <div class="input-group-prepend col-1 mr-0 pr-0">
+                                    <span class="input-group-text">
+                                    <i class="material-icons">school</i>
+                                    </span>
+                                </div>
+                                <select class="form-control pl-2 col-10 btn btn-secondary btn-round" name="degree" id="degree_de" onchange="passing_year_de()" data-size="5" title="Select Degree">
                                     <option>Select Degree</option>
                                 </select>
                             </div>
                         </div>
                         <div class="media">
-                            <div class="media-body">
-                                <select name="pyear" class="form-control p-1 pl-3 btn btn-secondary btn-round" id="pyear_de" onchange="get_stud_de()">
-                                    <option>Select Passing Year</option>
+                            <div class="media-body row">
+                                <div class="input-group-prepend col-1 mr-0 pr-0">
+                                    <span class="input-group-text">
+                                    <i class="material-icons">military_tech</i>
+                                    </span>
+                                </div>
+                                <select class="form-control pl-2 col-10 btn btn-secondary btn-round" name="pyear" id="pyear_de" data-size="5"  onchange="get_stud_de()"  title="Select Passing Year">
+                                    <option disabled selected>Select Passing Year</option>
                                 </select>
                             </div>
                         </div>
@@ -111,43 +141,66 @@
                 <div class="tab-pane" id="link9">
                 <div class="card">
                     <div class="card-header">
-                    <h4 class="card-title">View Resume Details</h4>
+                    <h4 class="card-title">Upload a new Material</h4>
                     <p class="card-category">
-                        More information here
+                        Provide information here to upload a new Material
                     </p>
                     </div>
                     <div class="card-body">
-                    <form action="#" method="POST" enctype="multipart/form-data">   
+                    <form action="#" method="POST" enctype="multipart/form-data">
                         <div class="media">
-                            <div class="media-body">
-                            <select name="dept" class="form-control p-1 pl-3 btn btn-secondary btn-round" id="dept_material" onchange="course_material()">
-                                    <option>Select Department</option>
+                            <div class="media-body row">
+                                <div class="input-group-prepend col-1 mr-0 pr-0">
+                                    <span class="input-group-text">
+                                    <i class="material-icons">apartment</i>
+                                    </span>
+                                </div>
+                                <select class="form-control pl-2 col-10 btn btn-secondary btn-round" name="dept" id="dept_material" onchange="course_material()" data-size="5" title="Select Department">
+                                    <option disabled selected>Select Department</option>
                                     <option value="BMIIT">BMIIT</option>
                                     <option value="SRIMCA">SRIMCA</option>
                                     <option value="CGPIT">CGPIT</option>
-                            </select>
+                                </select>
                             </div>
-                        </div>
+                        </div>    
                         <div class="media">
-                            <div class="media-body">
-                            <select name="degree" class="form-control p-1 pl-3 btn btn-secondary btn-round" id="degree_material">
+                            <div class="media-body row">
+                                <div class="input-group-prepend col-1 mr-0 pr-0">
+                                    <span class="input-group-text">
+                                    <i class="material-icons">school</i>
+                                    </span>
+                                </div>
+                                <select class="form-control pl-2 col-10 btn btn-secondary btn-round" name="degree" id="degree_material" onchange="passing_year_material()" data-size="5" title="Select Degree">
                                     <option>Select Degree</option>
                                 </select>
                             </div>
                         </div>
                         <div class="media">
-                            <div class="media-body">
-                            <input type="text" name="title" class="form-control" placeholder="Material Title">
+                            <div class="media-body row">
+                                <div class="input-group-prepend col-1 mr-0 pr-0">
+                                    <span class="input-group-text">
+                                    <i class="material-icons">today</i>
+                                    </span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="ename" class="bmd-label-floating">Material Title</label>
+                                    <input type="text" name="title" class="form-control col-10">
+                                </div>
                             </div>
-                        </div>
+                        </div>  
                         <div class="media">
-                            <div class="media-body">
-                            <select name="doc_type" class="form-control p-1 pl-3 btn btn-secondary btn-round">
-                                    <option>Select Type</option>
+                            <div class="media-body row">
+                                <div class="input-group-prepend col-1 mr-0 pr-0">
+                                    <span class="input-group-text">
+                                    <i class="material-icons">style</i>
+                                    </span>
+                                </div>
+                                <select class="form-control pl-2 col-10 btn btn-secondary btn-round" name="doc_type" data-size="5" title="Select Type">
+                                    <option selected disabled>Select Type</option>
                                     <option value="PL">Practical List</option>
                                     <option value="RL">Referance Material</option>
                                     <option value="SP">Sample Paper</option>
-                            </select>
+                                </select>
                             </div>
                         </div>
                         <div class="custom-file">
@@ -167,34 +220,40 @@
                 <div class="tab-pane" id="link10">
                 <div class="card">
                     <div class="card-header">
-                    <h4 class="card-title">Help center</h4>
+                    <h4 class="card-title">View Uploaded Materials</h4>
                     <p class="card-category">
-                        More information here
+                        Here you can find all the uploaded materials
                     </p>
                     </div>
                     <div class="card-body">
-                      <div class="media">
-                        <div class="media-body">
-                          <select name="dept" class="form-control p-1 pl-3 btn btn-secondary btn-round" id="dept_view_material" onchange="course_view_material()" autofocus>
-                                <option>Select Department</option>
-                                <option value="BMIIT">BMIIT</option>
-                                <option value="SRIMCA">SRIMCA</option>
-                                <option value="CGPIT">CGPIT</option>
-                          </select>
+                        <div class="media">
+                            <div class="media-body row">
+                                <div class="input-group-prepend col-1 mr-0 pr-0">
+                                    <span class="input-group-text">
+                                    <i class="material-icons">apartment</i>
+                                    </span>
+                                </div>
+                                <select class="form-control pl-2 col-10 btn btn-secondary btn-round" name="dept" id="dept_view_material" onchange="course_view_material()" data-size="5" title="Select Department">
+                                    <option disabled selected>Select Department</option>
+                                    <option value="BMIIT">BMIIT</option>
+                                    <option value="SRIMCA">SRIMCA</option>
+                                    <option value="CGPIT">CGPIT</option>
+                                </select>
+                            </div>
+                        </div>    
+                        <div class="media">
+                            <div class="media-body row">
+                                <div class="input-group-prepend col-1 mr-0 pr-0">
+                                    <span class="input-group-text">
+                                    <i class="material-icons">school</i>
+                                    </span>
+                                </div>
+                                <select class="form-control pl-2 col-10 btn btn-secondary btn-round" name="degree" id="degree_view_material" onchange="get_material()" data-size="5" title="Select Degree">
+                                    <option>Select Degree</option>
+                                </select>
+                            </div>
                         </div>
-                      </div>
-                      <div class="media">
-                        <div class="media-body">
-                          <select name="degree" class="form-control p-1 pl-3 btn btn-secondary btn-round" id="degree_view_material" onchange="get_material()">
-                                <option>Select Degree</option>
-                            </select>
-                        </div>
-                      </div>
-                      <div class="media">
-                        <div class="media-body">
                           <div id="material"></div>
-                        </div>
-                      </div>
                     </div>
                 </div>
                 </div>

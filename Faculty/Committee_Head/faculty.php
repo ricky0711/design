@@ -6,22 +6,22 @@
         <div class="row">
         <div class="ml-auto mr-auto">
             <div class="page-categories">
-            <h3 class="title text-center">Resume Details</h3>
+            <h3 class="title text-center">Faculty related activities Details</h3>
             <br />
             <ul class="nav nav-pills nav-pills-success nav-pills-icons justify-content-center" role="tablist">
                 <li class="nav-item">
                 <a class="nav-link active" data-toggle="tab" href="#link7" role="tablist">
-                    <i class="material-icons">info</i>Committee Member List 
+                    <i class="material-icons">people_alt</i>Committee Member List 
                 </a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" data-toggle="tab" href="#link8" role="tablist">
-                    <i class="material-icons">info</i> Faculty List
+                    <i class="material-icons">people_outline</i> Faculty List
                 </a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" data-toggle="tab" href="#link9" role="tablist">
-                    <i class="material-icons">location_on</i> Deactivate Faculty
+                    <i class="material-icons">desktop_access_disabled</i> Deactivated Faculty
                 </a>
                 </li>
             </ul>
@@ -74,11 +74,8 @@
                                         <td><?php echo $data['FACULTY_PHONE_NUMBER']; ?></td>
                                         <td><?php echo $data['FACULTY_GENDER']; ?></td>
                                         <td><?php echo $data['FACULTY_ABOUT']; ?></td>
-                                        <td><a href="view_faculty_profile.php?fid=<?php echo $data['FACULTY_ID'] ?>" title="">
-                                        <button type="button" class="btn btn-outline-info"><i class="fa fa-user-circle-o"></i></button>
-                                        </a><a href="deactivate_profile.php?fid=<?php echo $data['FACULTY_ID'] ?>" title="">
-                                        <button type="button" class="btn btn-outline-danger"><i class="fas fa-user-slash"></i></button>
-                                        </a></td>
+                                        <td><a href="view_faculty_profile.php?fid=<?php echo $data['FACULTY_ID'] ?>" class="btn btn-link btn-info btn-just-icon " rel="tooltip" title="View Committee Member Profile"><i class="material-icons">visibility</i></a>
+                                            <a href="deactivate_profile.php?fid=<?php echo $data['FACULTY_ID'] ?>" class="btn btn-link btn-danger btn-just-icon " rel="tooltip" title="Deactivate Committee Member"><i class="material-icons">person_remove</i></a></td>
                                         </tr>
                                         <?php } ?>
                                     </tbody>
@@ -135,12 +132,8 @@
                                         <td><?php echo $data['FACULTY_PHONE_NUMBER']; ?></td>
                                         <td><?php echo $data['FACULTY_GENDER']; ?></td>
                                         <td><?php echo $data['FACULTY_ABOUT']; ?></td>
-                                        <td><a href="view_faculty_profile.php?fid=<?php echo $data['FACULTY_ID'] ?>" title="">
-                                        <button type="button" class="btn btn-outline-info"><i class="fa fa-user-circle-o"></i></button>
-                                        </a>
-                                        <a href="deactivate_profile.php?fid=<?php echo $data['FACULTY_ID'] ?>" title="">
-                                        <button type="button" class="btn btn-outline-danger"><i class="fas fa-user-slash"></i></button>
-                                        </a></td>
+                                        <td><a href="view_faculty_profile.php?fid=<?php echo $data['FACULTY_ID'] ?>" class="btn btn-link btn-info btn-just-icon " rel="tooltip" title="View Faculty Profile"><i class="material-icons">visibility</i></a>
+                                            <a href="deactivate_profile.php?fid=<?php echo $data['FACULTY_ID'] ?>" class="btn btn-link btn-danger btn-just-icon " rel="tooltip" title="Deactivate Faculty"><i class="material-icons">person_remove</i></a></td>
                                         </tr>
                                         <?php } ?>
                                     </tbody>
@@ -196,9 +189,7 @@
                                         <td><?php echo $data['FACULTY_PHONE_NUMBER']; ?></td>
                                         <td><?php echo $data['FACULTY_GENDER']; ?></td>
                                         <td><?php echo $data['FACULTY_ABOUT']; ?></td>
-                                        <td><a href="restore_faculty.php?fid=<?php echo $data['FACULTY_ID'] ?>" title="">
-                                            <button type="button" class="btn btn-outline-info"><i class="fas fa-trash-restore"></i></button>
-                                            </a></td>
+                                        <td><a href="restore_faculty.php?fid=<?php echo $data['FACULTY_ID'] ?>" class="btn btn-link btn-success btn-just-icon " rel="tooltip" title="Restore Faculty"><i class="material-icons">sync</i></a></td>
                                         </tr>
                                         <?php } ?>
                                     </tbody>

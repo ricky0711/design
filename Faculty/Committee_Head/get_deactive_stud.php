@@ -12,44 +12,44 @@
      $stmt->bindParam(':pyear',$pyear);
      $stmt->execute();
      ?>
-<table class="table table-responsive text-dark">
-    <tr class="font-weight-bold">
-        <td></td>
-        <td>Enrollment Number</td>
-        <td>Name</td>
-        <td>Email</td>
-        <td>Phone Number</td>
-        <td>About</td>
-        <td></td>
-        <td></td>
-    </tr>
-    <?php 
-     while ($data=$stmt->fetch(PDO::FETCH_ASSOC)) {
-?>
-    <tr>
-        <td>
-            <div style="height: 35px;width: 35px;border-radius: 50%;">
-                <img src="../../Student/Profile_pic/<?php echo $data['STUDENT_PROFILE_PIC'] ?>" alt="avatar"
-                    style="height: 100%;width: 100%;">
-            </div>
-        </td>
-        <td><?php echo $data['STUDENT_ENROLLMENT_NUMBER'] ?></td>
-        <td class="text-nowrap"><?php echo $data['STUDENT_FIRST_NAME'] ?> <?php echo $data['STUDENT_LAST_NAME'] ?></td>
-        <td><?php echo $data['STUDENT_EMAIL'] ?></td>
-        <td><?php echo $data['STUDENT_PHONE_NUMBER'] ?></td>
-        <td class="text-nowrap"><?php echo $data['STUDENT_ABOUT'] ?></td>
-        <td>
-            <a href="student_profile.php?sid=<?php echo $data['STUDENT_ID']; ?>" title="">
-                <button class="btn btn-outline-info" type="button"><i class="fa fa-user-circle-o"></i></button>
-            </a>
-        </td>
-        <td>
-            <a href="restore_student.php?sid=<?php echo $data['STUDENT_ID']; ?>" title="">
-                <button class="btn btn-outline-success" type="button"><i class="fas fa-trash-restore"></i></button>
-            </a>
-        </td>
-    </tr>
-    <?php 
-    }
-?>
-</table>
+     <div class="toolbar">
+
+    </div>
+<div class="material-datatables">
+    <table id="student_list_de" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+        <thead>
+            <tr>
+                <th>Enrollment Number</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>About</th>
+                <th class="disabled-sorting">Actions</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>Enrollment Number</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>About</th>
+                <th class="disabled-sorting">Actions</th>
+            </tr>
+        </tfoot>
+        <tbody>
+            <?php while ($data=$stmt->fetch(PDO::FETCH_ASSOC)) {?>
+
+            <tr>
+                <td><?php echo $data['STUDENT_ENROLLMENT_NUMBER'] ?></td>
+                <td class="text-nowrap"><?php echo $data['STUDENT_FIRST_NAME'] ?> <?php echo $data['STUDENT_LAST_NAME'] ?></td>
+                <td><?php echo $data['STUDENT_EMAIL'] ?></td>
+                <td><?php echo $data['STUDENT_PHONE_NUMBER'] ?></td>
+                <td class="text-nowrap"><?php echo $data['STUDENT_ABOUT'] ?></td>
+                <td><a href="student_profile.php?sid=<?php echo $data['STUDENT_ID']; ?>" class="btn btn-link btn-info btn-just-icon " rel="tooltip" title="View Student Profile"><i class="material-icons">visibility</i></a>
+                <a href="restore_student.php?sid=<?php echo $data['STUDENT_ID']; ?>" class="btn btn-link btn-success btn-just-icon " rel="tooltip" title="Restore Student"><i class="material-icons">person_add</i></a></td>
+            </tr>
+            <?php } ?>
+        </tbody>
+    </table>
+</div>

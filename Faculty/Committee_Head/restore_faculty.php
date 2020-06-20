@@ -5,5 +5,5 @@
     $stmt->bindParam(':fid',$fid);
     $stmt->execute();
 
-    header("Location: view_deactive_faculty.php");
+    header("Location: faculty.php");
  ?>

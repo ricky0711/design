@@ -6,27 +6,27 @@
         <div class="row">
         <div class="ml-auto mr-auto">
             <div class="page-categories">
-            <h3 class="title text-center">Resume Details</h3>
+            <h3 class="title text-center">Test Details</h3>
             <br />
             <ul class="nav nav-pills nav-pills-success nav-pills-icons justify-content-center" role="tablist">
                 <li class="nav-item">
                 <a class="nav-link active" data-toggle="tab" href="#link7" role="tablist">
-                    <i class="material-icons">info</i> New Test
+                    <i class="material-icons">event</i> New Test
                 </a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" data-toggle="tab" href="#link8" role="tablist">
-                    <i class="material-icons">location_on</i> Past Test
+                    <i class="material-icons">done_all</i> Past Test
                 </a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" data-toggle="tab" href="#link9" role="tablist">
-                    <i class="material-icons">gavel</i> Upcoming Test
+                    <i class="material-icons">next_plan</i> Upcoming Test
                 </a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" data-toggle="tab" href="#link10" role="tablist">
-                    <i class="material-icons">help_outline</i> Marks
+                    <i class="material-icons">poll</i> Marks
                 </a>
                 </li>
             </ul>
@@ -34,40 +34,60 @@
                 <div class="tab-pane active" id="link7">
                 <div class="card">
                     <div class="card-header">
-                    <h4 class="card-title">Description about product</h4>
+                    <h4 class="card-title">Create New Test</h4>
                     <p class="card-category">
-                        More information here
+                        Provide information to create a new Test
                     </p>
                     </div>
                     <div class="card-body">
                         <form action="#" method="POST">
                             <div class="media">
-                                <div class="media-body">
-                                    <select class="form-control p-1 pl-3 btn btn-secondary btn-round" name="dept" id="dept" onchange="course()" data-size="5" data-style="btn btn-primary btn-round" title="Select Department">
-                                        <option disabled>Select Department</option>
+                                <div class="media-body row">
+                                    <div class="input-group-prepend col-1 mr-0 pr-0">
+                                        <span class="input-group-text">
+                                        <i class="material-icons">apartment</i>
+                                        </span>
+                                    </div>
+                                    <select class="form-control pl-2 col-10 btn btn-secondary btn-round" name="dept" id="dept" onchange="course()" data-size="5" title="Select Department">
+                                        <option disabled selected>Select Department</option>
                                         <option value="BMIIT">BMIIT</option>
                                         <option value="SRIMCA">SRIMCA</option>
-    							        <option value="CGPIT">CGPIT</option>
+                                        <option value="CGPIT">CGPIT</option>
+                                    </select>
+                                </div>
+                            </div>    
+                            <div class="media">
+                                <div class="media-body row">
+                                    <div class="input-group-prepend col-1 mr-0 pr-0">
+                                        <span class="input-group-text">
+                                        <i class="material-icons">school</i>
+                                        </span>
+                                    </div>
+                                    <select class="form-control pl-2 col-10 btn btn-secondary btn-round" name="degree" id="degree" onchange="passing_year()" data-size="5" title="Select Degree">
+                                        <option>Select Degree</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="media">
-                                <div class="media-body">
-                                    <select class="form-control p-1 pl-3 btn btn-secondary btn-round" name="degree" id="degree" onchange="passing_year()" data-size="5" data-style="btn btn-primary btn-round" title="Select Degree">
-                                        <option disabled selected>Select Degree</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="media">
-                                <div class="media-body">
-                                    <select class="form-control p-1 pl-3 btn btn-secondary btn-round" name="pyear" id="pyear" onchange="event_bind()" data-size="5" data-style="btn btn-primary btn-round" title="Select Passing Year">
+                                <div class="media-body row">
+                                    <div class="input-group-prepend col-1 mr-0 pr-0">
+                                        <span class="input-group-text">
+                                        <i class="material-icons">military_tech</i>
+                                        </span>
+                                    </div>
+                                    <select class="form-control pl-2 col-10 btn btn-secondary btn-round" name="pyear" id="pyear" data-size="5"  onchange="event_bind()"  title="Select Passing Year">
                                         <option disabled selected>Select Passing Year</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="media">
-                                <div class="media-body">
-                                    <select class="form-control p-1 pl-3 btn btn-secondary btn-round" name="event" id="event" data-size="5" data-style="btn btn-primary btn-round" title="Select Event">
+                                <div class="media-body row">
+                                    <div class="input-group-prepend col-1 mr-0 pr-0">
+                                        <span class="input-group-text">
+                                        <i class="material-icons">event</i>
+                                        </span>
+                                    </div>
+                                    <select class="form-control pl-2 col-10 btn btn-secondary btn-round" name="event" id="event" data-size="5"  onchange="event_bind()"  title="Select Passing Year">
                                         <option disabled selected>Select Event</option>
                                     </select>
                                 </div>
@@ -135,9 +155,9 @@
                 <div class="tab-pane " id="link8">
                     <div class="card" style="width:1200px;">
                     <div class="card-header">
-                    <h4 class="card-title">Resume Details</h4>
+                    <h4 class="card-title">Past Test Details</h4>
                     <p class="card-category">
-                        More information here
+                        Get information about test's that already happened
                     </p>
                     </div>
                     <div class="card-body">
@@ -210,9 +230,9 @@
                 <div class="tab-pane" id="link9">
                 <div class="card" style="width:1200px;">
                     <div class="card-header">
-                    <h4 class="card-title">View Resume Details</h4>
+                    <h4 class="card-title">Upcoming Test Details</h4>
                     <p class="card-category">
-                        More information here
+                        Get information about test's that are going to happen
                     </p>
                     </div>
                     <div class="card-body">
@@ -281,7 +301,7 @@
                     <div class="card-header">
                     <h4 class="card-title">Marks</h4>
                     <p class="card-category">
-                        More information here
+                        Enter marks for the occured test
                     </p>
                     </div>
                     <div class="card-body">
@@ -333,7 +353,26 @@ include 'footer.php';
 ob_flush();
 ?>
 
-<script type="text/javascript">	
+<script type="text/javascript">
+        function course(){
+            var xmlhttp=new XMLHttpRequest();
+            xmlhttp.open("GET","degreebind.php?dept="+document.getElementById("dept").value,false);
+            xmlhttp.send(null);
+            //alert(xmlhttp.responseText);  
+            document.getElementById("degree").innerHTML=xmlhttp.responseText;
+        }
+        function passing_year(){ 
+            var xmlhttp=new XMLHttpRequest();
+            xmlhttp.open("GET","pyearbind.php?dept="+document.getElementById("dept").value+"&"+"degree="+document.getElementById("degree").value,false);
+            xmlhttp.send(null);
+            document.getElementById("pyear").innerHTML=xmlhttp.responseText;
+        }
+        function event_bind(){ 
+            var xmlhttp=new XMLHttpRequest();
+            xmlhttp.open("GET","test_eventbind.php?dept="+document.getElementById("dept").value+"&"+"degree="+document.getElementById("degree").value+"&"+"pyear="+document.getElementById("pyear").value,false);
+            xmlhttp.send(null);
+            document.getElementById("event").innerHTML=xmlhttp.responseText;
+        }
 		function course_marks(){
             var xmlhttp=new XMLHttpRequest();
             xmlhttp.open("GET","degreebind.php?dept="+document.getElementById("dept_marks").value,false);
@@ -364,6 +403,37 @@ ob_flush();
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     // include('../../Files/PDO/dbcon.php');
+    if(isset($_REQUEST["Submit"])){
+
+        $tname = $_REQUEST["tname"];
+        $eid = $_REQUEST["event"];
+        $tdes = $_REQUEST["tdes"];
+        $tmarks = $_REQUEST["tmarks"];
+        $pmarks = $_REQUEST["pmarks"];
+
+        $gb = $_SESSION['lid'];
+        $gtype=$_SESSION['lut'];
+
+        //include('../../Files/PDO/dbcon.php');
+
+        $stmt=$con->prepare("CALL INSERT_TEST(:eid,:tname,:tdes,:tmarks,:pmarks);");
+        $stmt->bindParam(":eid",$eid);
+        $stmt->bindParam(":tname",$tname);
+        $stmt->bindParam(":tdes",$tdes);
+        $stmt->bindParam(":tmarks",$tmarks);
+        $stmt->bindParam(":pmarks",$pmarks);
+        $stmt->execute();
+        
+        if ($stmt) {
+            echo "<script>alert('Test Successfully Created!')</script>";
+            header("Refresh: 0");
+        }
+        else {
+            echo "<script>alert('Looks Like Someting Went Worng!!!')</script>";
+        }
+
+      // print_r( $stmt->errorinfo());
+    }
     if(isset($_REQUEST["marks_submit"])){
         $tid=$_REQUEST['test'];
         $i=0;
@@ -383,6 +453,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         if($stmt)
       {
           echo "<script>alert('Marks Filled-Up Successfully')</script>";
+          header("Refresh: 0");
       }
       else {
           echo "<script>alert('Something Went Worng')</script>";

@@ -4,139 +4,240 @@
   include('header.php');
   $datahead=$_SESSION['Userdata'];
 ?>
-     <?php
-        $count=0;
-        include('../../Files/PDO/dbcon.php');
-        $id=$_SESSION['lid'];
-        $type=$_SESSION['lut'];
-        $stmt=$con->prepare("CALL GET_FACULTY(:fid)");
-        $stmt->bindparam(":fid",$fid);
-        $stmt->execute();
-        $data = $stmt->fetch(PDO::FETCH_ASSOC);
-        ?>
-  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>      
-  <div class="content-wrapper header-info">
-        <div class="row">
-        <div class="col-lg-12 mb-30">
-          <div class="card">
-            <div class="card-body" oncontextmenu="return false;">
-              <div class="user-bg" style="background: url(../Files/assets/images/user-bg.jpg);">
-                <div class="user-info">
-                  <div class="row">
-                    <div class="col-lg-6 align-self-center">
-                        <div style="width: 125px;height: 125px; position: relative; overflow: hidden;border-radius: 50%;">
-                                                <img src="../img/<?php echo $data['FACULTY_PROFILE_PIC']; ?>" id="profileDisplay" style="display: block;margin: -5px auto;" class="w-100 h-100">
-
-                                            </div>
-                    </div>
-                    <!-- <div class="col-lg-6 text-right align-self-center">
-                        <button type="button" class="btn btn-sm btn-danger"><i class="ti-user pr-1"></i>Follow</button>
-                        <button type="button" class="btn btn-sm btn-success"><i class="ti-email pr-1"></i>Message</button>
-                    </div> -->
-                  </div>              
-                </div>              
-              </div>
-            </div>
-          </div>
+<div class="content">
+  <div class="container-fluid">
+    <div class="col-md-8 col-12 mr-auto ml-auto">
+      <!--      Wizard container        -->
+      <div class="wizard-container">
+        <div class="card card-wizard" data-color="rose" id="wizardProfile">
+            <?php
+              $count=0;
+              include('../../Files/PDO/dbcon.php');
+              $id=$_SESSION['lid'];
+              $type=$_SESSION['lut'];
+              $stmt=$con->prepare("CALL GET_FACULTY(:fid)");
+              $stmt->bindparam(":fid",$fid);
+              $stmt->execute();
+              $data = $stmt->fetch(PDO::FETCH_ASSOC);
+            ?>
+            <form action="#" method="POST" enctype="multipart/form-data">
+                <!--        You can switch " data-color="primary" "  with one of the next bright colors: "green", "orange", "red", "blue"       -->
+                <div class="card-header text-center">
+                  <h3 class="card-title">
+                    Your Profile
+                  </h3>
+                  <h5 class="card-description">This information will let us know more about you.</h5>
+                </div>
+                <div class="wizard-navigation">
+                  <ul class="nav nav-pills">
+                    <li class="nav-item">
+                      <a class="nav-link active" href="#about" data-toggle="tab" role="tab">
+                        About
+                      </a>
+                    </li>
+                    <!-- <li class="nav-item">
+                      <a class="nav-link" href="#account" data-toggle="tab" role="tab">
+                        Parents
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#address" data-toggle="tab" role="tab">
+                        Address
+                      </a>
+                    </li> -->
+                  </ul>
+                
+                <div class="card-body">
+                  <div class="tab-content">
+                      <div class="tab-pane active" id="about">
+                          <h5 class="info-text"> Let's start with the basic information (with validation)</h5>
+                          <div class="row justify-content-center">
+                            <div class="col-sm-4">
+                                <div class="picture-container">
+                                  <div class="picture" style="height:150px;width:150px;">
+                                    <img src="../img/<?php echo $data['FACULTY_PROFILE_PIC']; ?>" onclick="triggerClick()" id="profileDisplay"  style="display: block;margin: -5px auto;" class="w-100 h-100">
+                                    <input type="file" class="form-control" name="faculty_pic" placeholder="Company Logo" name="profileImage" id="profileImage" onchange="displayImage(this)" accept="image/*" style="display: none;" value="<?php echo $date['FACULTY_PROFILE_PIC'] ?>" disabled>
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                              <div class="input-group form-control-lg">
+                                <div class="row">
+                                  <div class="input-group-prepend col-1 mr-3">
+                                      <span class="input-group-text">
+                                      <i class="material-icons">face</i>
+                                      </span>
+                                  </div>
+                                  <div class="form-group col-5">
+                                      <label for="exampleInput1" class="bmd-label-floating">First Name</label>
+                                      <input type="text" class="form-control" name="fname" class="form-control" placeholder="First Name" value="<?php echo $data["FACULTY_FIRST_NAME"]; ?>" disabled >
+                                  </div>
+                                  <div class="form-group col-5">
+                                      <label for="exampleInput1" class="bmd-label-floating">Last Name</label>
+                                      <input type="text" name="lname" class="form-control" placeholder="Last Name" value="<?php echo $data["FACULTY_LAST_NAME"]; ?>" disabled>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="input-group form-control-lg">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                    <i class="material-icons">record_voice_over</i>
+                                    </span>
+                                </div>
+                                <?php $gender = $data["FACULTY_GENDER"]; ?>
+                                <?php if($gender == 'M'){ ?>
+                                <div class="form-group">    
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input class="form-check-input" type="radio" name="gender" value="M" checked disabled> Male
+                                      <span class="circle">
+                                        <span class="check"></span>
+                                      </span>
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input class="form-check-input" type="radio" name="gender" value="F" disabled> Female
+                                      <span class="circle">
+                                        <span class="check"></span>
+                                      </span>
+                                    </label>
+                                  </div>
+                                </div>
+                                <?php }else{ ?>
+                                <div class="form-group">    
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input class="form-check-input" type="radio" name="gender" value="M" disabled> Male
+                                      <span class="circle">
+                                        <span class="check"></span>
+                                      </span>
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input class="form-check-input" type="radio" name="gender" value="F" checked disabled> Female
+                                      <span class="circle">
+                                        <span class="check"></span>
+                                      </span>
+                                    </label>
+                                  </div>
+                                </div>
+                                <?php } ?>
+                                </div>
+                              </div>
+                              <div class="col-sm-6 mt-5">
+                                  <div class="input-group form-control-lg">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                        <i class="material-icons">email</i>
+                                        </span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInput1" class="bmd-label-floating">Email</label>
+                                        <input type="email" name="email" placeholder="Student Email" class="form-control" value="<?php echo $data["FACULTY_EMAIL"]; ?>" disabled>
+                                    </div>
+                                  </div>
+                              </div>
+                              <div class="col-sm-6 mt-3">
+                                  <div class="input-group form-control-lg">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                        <i class="material-icons">calendar</i>
+                                        </span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInput1" class="bmd-label-floating">Phone Number</label>
+                                        <input type="text" name="num" class="form-control" placeholder="Phone number" value="<?php echo $data["FACULTY_PHONE_NUMBER"]; ?>" disabled>
+                                    </div>
+                                  </div>
+                              </div>
+                              <div class="col-sm-10 mt-2">
+                                  <div class="input-group form-control-lg">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                        <i class="material-icons">calendar</i>
+                                        </span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="about" class="bmd-label-floating">About</label>
+                                        <input type="text" name="about" class="form-control" placeholder="Phone number" value="<?php echo $data["FACULTY_ABOUT"]; ?>" disabled>
+                                    </div>
+                                  </div>
+                              </div>
+                              <div class="media">
+                                <div class="media-body mb-2">
+                                    <?php 
+                                        if ($data['FACULTY_ROLE'] == 'FC') {
+                                            ?>
+                                                <select name="frole" onchange="update_role()" id="frole" class="form-control">
+                                                    <option value="FC" selected>Faculty</option>
+                                                    <option value="CM">Committee Member</option>
+                                                    <option value="CH">Committee Head</option>
+                                                </select>
+                                            <?php
+                                        }elseif ($data['FACULTY_ROLE'] == 'CM') {
+                                            ?>
+                                                <select name="frole" onchange="update_role()" id="frole" class="form-control">
+                                                    <option value="FC">Faculty</option>
+                                                    <option value="CM" selected>Committee Member</option>
+                                                    <option value="CH">Committee Head</option>
+                                                </select>
+                                            <?php
+                                        }
+                                    ?>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <div class="mr-auto">
+                    <input type="button" class="btn btn-previous btn-fill btn-default btn-wd disabled" name="previous" value="Previous">
+                  </div>
+                  <div class="ml-auto">
+                      <a href="update_profile.php"> <button type="button" class="btn btn-finish btn-fill btn-rose btn-wd">Update</button> </a>
+                  </div>
+                  <div class="clearfix"></div>
+                </div>
+            </form>
         </div>
       </div>
-      <!-- widgets -->
-      <div class="mb-30">
-           <div class="card h-100 ">
-           <div class="card-body h-100">
-             <h4 class="card-title">Faculty Profile</h4>
-             <!-- action group -->
-             <div class="btn-group info-drop">
-                <button type="button" class="dropdown-toggle-split text-muted" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-more"></i></button>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item text-white" href="#"><i class="text-danger ti-trash"></i>Clear All</a>
-                </div>
-              </div>
-             <div class="scrollbar">
-              <ul class="list-unstyled">
-           
-              <form action="#" method="POST">
-              	  <li>
-                  <div class="media">
-                    <div class="media-body mb-2">
-                      <label>First Name</label>
-                    	<input type="text" name="fname" class="form-control" placeholder="First Name" value="<?php echo $data["FACULTY_FIRST_NAME"]; ?>" disabled>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="media">
-                    <div class="media-body mb-2">
-                      <label>Last Name</label>
-                    	<input type="text" name="lname" class="form-control" placeholder="Last Name" value="<?php echo $data["FACULTY_LAST_NAME"]; ?>" disabled>
-                    </div>
-                  </div>
-                </li>
-                <?php $gender = $data["FACULTY_GENDER"]; ?>
-                <li>
-					<?php if($gender == 'M'){ ?>
-            <div class="row m-3">
-          <label class="text-white">Gender&nbsp;: &nbsp;</label>
-						Male
-					</div>
-					<?php }else{ ?>
-					<div class="row m-3">
-          <label class="text-white">Gender&nbsp;: &nbsp;</label>
-            Female
-					</div>
-					<?php } ?>
-                </li>  
-                 <li>
-                  <div class="media">
-                    <div class="media-body mb-2">
-                    <label>Email</label>
-                    	<input type="email" name="email" placeholder="Faculty email" class="form-control" value="<?php echo $data["FACULTY_EMAIL"]; ?>" disabled>
-                    </div>
-                  </div>
-                </li>
-                 <li>
-                  <div class="media">
-                    <div class="media-body mb-2">
-                    <label>Phone Number</label>
-                    <input type="text" name="num" placeholder="Faculty Number" class="form-control" value="<?php echo $data["FACULTY_PHONE_NUMBER"]; ?>" disabled>
-                    </div>
-                  </div>
-                </li>
-                 <li>
-                  <div class="media">
-                    <div class="media-body mb-2">
-                      <label>About</label>
-                    	<textarea name="about" rows="3" placeholder="Something about yourself........" class="form-control" disabled><?php echo $data["FACULTY_ABOUT"]; ?>
-                    	</textarea>
-                    </div>
-                  </div>
-                </li>    
-                <li>
-                  <div class="media">
-                    <div class="media-body mb-2">
-                        <?php 
-                            if ($data['FACULTY_ROLE'] == 'FC') {
-                                ?>
-                                    <select name="frole" onchange="update_role()" id="frole" class="form-control">
-                                        <option value="FC" selected>Faculty</option>
-                                        <option value="CM">Committee Member</option>
-                                        <option value="CH">Committee Head</option>
-                                    </select>
-                                <?php
-                            }elseif ($data['FACULTY_ROLE'] == 'CM') {
-                                ?>
-                                    <select name="frole" onchange="update_role()" id="frole" class="form-control">
-                                        <option value="FC">Faculty</option>
-                                        <option value="CM" selected>Committee Member</option>
-                                        <option value="CH">Committee Head</option>
-                                    </select>
-                                <?php
-                            }
-                        ?>
-                    </div>
-                  </div>
-                </li>   
-              </form>         
+      <!-- wizard container -->
+  </div>
+</div>
+<script type="text/javascript" >
+  function triggerClick() {
+      document.querySelector('#profileImage').click();
+  }
+
+  function displayImage(e) {
+      if(e.files[0]){
+          var reader = new FileReader();
+
+          reader.onload = function(e){
+              document.querySelector('#profileDisplay').setAttribute('src',e.target.result);
+
+          }
+          reader.readAsDataURL(e.files[0]);
+      }
+  }
+</script>
+<script>
+    function update_role() {
+        var frole = document.getElementById("frole").value;
+        if (frole == 'CH') {
+            var mypath="update_committee_head_role.php?fid=<?php echo $fid; ?>";
+            window.location.href = mypath;
+        }
+        else{
+            var mypath="update_faculty_role.php?fid=<?php echo $fid; ?>&frole="+frole;
+            window.location.href = mypath;
+        }
+    }
+</script>      
 <?php 
   include('footer.php');
   ob_flush();
@@ -153,44 +254,4 @@
             window.location.href = mypath;
         }
     }
-</script>
-
-<script language="JavaScript">
-  window.onload = function() {
-    document.addEventListener("contextmenu", function(e){
-      e.preventDefault();
-    }, false);
-    document.addEventListener("keydown", function(e) {
-    //document.onkeydown = function(e) {
-      // "I" key
-      if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
-        disabledEvent(e);
-      }
-      // "J" key
-      if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
-        disabledEvent(e);
-      }
-      // "S" key + macOS
-      if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
-        disabledEvent(e);
-      }
-      // "U" key
-      if (e.ctrlKey && e.keyCode == 85) {
-        disabledEvent(e);
-      }
-      // "F12" key
-      if (event.keyCode == 123) {
-        disabledEvent(e);
-      }
-    }, false);
-    function disabledEvent(e){
-      if (e.stopPropagation){
-        e.stopPropagation();
-      } else if (window.event){
-        window.event.cancelBubble = true;
-      }
-      e.preventDefault();
-      return false;
-    }
-  };
 </script>

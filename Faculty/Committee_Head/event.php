@@ -463,8 +463,13 @@
                     <div class="card-body">
                         <form action="#" method="post">
                         <div class="media">
-                            <div class="media-body">
-                                <select name="dept_att" class="form-control p-1 pl-3 btn btn-secondary btn-round" id="dept_att" onchange="course_att()"
+                            <div class="media-body row">
+                                <div class="input-group-prepend col-1 mr-0 pr-0">
+                                    <span class="input-group-text">
+                                    <i class="material-icons">apartment</i>
+                                    </span>
+                                </div>
+                                <select name="dept_att" class="form-control col-10 p-1 pl-3 btn btn-secondary btn-round" id="dept_att" onchange="course_att()"
                                     autofocus>
                                     <option>Select Department</option>
                                     <option value="BMIIT">BMIIT</option>
@@ -474,24 +479,39 @@
                             </div>
                         </div>
                         <div class="media">
-                            <div class="media-body">
-                                <select name="degree_att" class="form-control p-1 pl-3 btn btn-secondary btn-round" id="degree_att"
+                            <div class="media-body row">
+                                <div class="input-group-prepend col-1 mr-0 pr-0">
+                                    <span class="input-group-text">
+                                    <i class="material-icons">school</i>
+                                    </span>
+                                </div>
+                                <select name="degree_att" class="form-control col-10 p-1 pl-3 btn btn-secondary btn-round" id="degree_att"
                                     onchange="passing_year_att()">
                                     <option>Select Degree</option>
                                 </select>
                             </div>
                         </div>
                         <div class="media">
-                            <div class="media-body mb-2">
-                                <select name="pyear_att" class="form-control p-1 pl-3 btn btn-secondary btn-round" id="pyear_att"
+                            <div class="media-body row">
+                                <div class="input-group-prepend col-1 mr-0 pr-0">
+                                    <span class="input-group-text">
+                                    <i class="material-icons">military_tech</i>
+                                    </span>
+                                </div>
+                                <select name="pyear_att" class="form-control col-10 p-1 pl-3 btn btn-secondary btn-round" id="pyear_att"
                                     onchange="all_event_att()">
                                     <option>Select Passing Year</option>
                                 </select>
                             </div>
                         </div>
                         <div class="media">
-                            <div class="media-body mb-2">
-                                <select name="event_att" class="form-control p-1 pl-3 btn btn-secondary btn-round" id="event_att"
+                            <div class="media-body row">
+                                <div class="input-group-prepend col-1 mr-0 pr-0">
+                                    <span class="input-group-text">
+                                    <i class="material-icons">style</i>
+                                    </span>
+                                </div>
+                                <select name="event_att" class="form-control col-10 p-1 pl-3 btn btn-secondary btn-round" id="event_att"
                                     onchange="get_att()">
                                     <option>Select Event</option>
                                 </select>
