@@ -184,12 +184,10 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                <form action="" method="post">
                     <div class="form-group">
                       <label for="title" class="bmd-label-floating">Shortlist Title</label>
-                      <input type="text" name="shortlistname" class="form-control" name="title" id="title">
+                      <input type="text" name="shortlistname" class="form-control">
                     </div>
-                </form>    
                 </div>
                 <div class="modal-footer justify-content-center">
                   <input type="submit" name="new_shortlist" class="btn btn-success btn-round" value="Create">

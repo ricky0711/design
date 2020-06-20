@@ -218,13 +218,33 @@
                                         <td><?php echo $data['BATCH_PASSING_YEAR']; ?></td>
                                         <td><?php echo $data['TEST_TOTAL_MARKS']; ?></td>
                                         <td><?php echo $data['TEST_PASSING_MARKS']; ?></td>
-                                        <td><a href="view_test_marks.php?tid=<?php echo $data['TEST_ID']; ?>" class="btn btn-link btn-info btn-just-icon " rel="tooltip" title="View Marks"><i class="material-icons">visibility</i></a></td>
+                                        <td><button type="button" value="<?php echo $data['TEST_ID']; ?>" class="btn btn-link btn-info btn-just-icon viewMarks" rel="tooltip" title="View Marks" data-toggle="modal" data-target="#noticeModal"><i class="material-icons">visibility</i></button></td>
                                     </tr>
                                     <?php } ?>
                                 </tbody>
                             </table>
                         </div>
                     </div>
+                    <form action="#" method="post">
+                            <div class="modal fade" id="noticeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                <div class="modal-content" >
+                                    <div class="modal-header">
+                                    <h5 class="modal-title" id="myModalLabel">Update Stipend</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                        <i class="material-icons">close</i>
+                                    </button>
+                                    </div>
+                                    <div class="modal-body">
+                                    <div class="material-datatables" id="Marks_view">
+                                    </div>        
+                                    </div>
+                                    <div class="modal-footer justify-content-center">
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </form>
                 </div>
                 </div>
                 <div class="tab-pane" id="link9">
@@ -350,7 +370,7 @@
 <?php 
 
 include 'footer.php';
-ob_flush();
+// ob_flush();
 ?>
 
 <script type="text/javascript">

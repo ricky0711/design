@@ -1,6 +1,8 @@
 <?php 
     include 'header.php';
 ?>
+<script src="../../Files/ckeditor/ckeditor.js"></script>
+
 <div class="content">
     <div class="container-fluid">
         <div class="row">
@@ -178,6 +180,9 @@
                 <div class="tab-pane" id="link9">
                 <div class="card">
                     <div class="card-header">
+                    <button class="btn btn-success btn-round pull-right btn-sm mt-2" data-toggle="modal" data-target="#noticeModal3">
+                      <i class="material-icons mr-1">add_circle_outline</i>New
+                    </button>
                     <h4 class="card-title">view available Broadcast List</h4>
                     <p class="card-category">
                         Here you can find all the available broadcast list
@@ -219,7 +224,7 @@
                                         <td><?php echo $data['FACULTY_FIRST_NAME']." ".$data['FACULTY_LAST_NAME']; ?></td>
                                         <td><?php echo $data['BROADCAST_LIST_DATE']; ?></td>
                                         <td><a href="view_list.php?ilid=<?php echo $data['BROADCAST_LIST_ID'] ?>" class="btn btn-link btn-info btn-just-icon " rel="tooltip" title="View Broadcast List"><i class="material-icons">visibility</i></a>
-                                            <a href="add_company_list.php?ilid=<?php echo $data['BROADCAST_LIST_ID'] ?>" class="btn btn-link btn-success btn-just-icon " rel="tooltip" title="Add Companies to the List"><i class="material-icons">restore_from_trash</i></a>
+                                            <a href="add_company_list.php?ilid=<?php echo $data['BROADCAST_LIST_ID'] ?>" class="btn btn-link btn-success btn-just-icon " rel="tooltip" title="Add Companies to the List"><i class="material-icons">add</i></a>
                                             <a href="delete_list.php?ilid=<?php echo $data['BROADCAST_LIST_ID'] ?>" class="btn btn-link btn-danger btn-just-icon " rel="tooltip" title="Delete Broadcast List"><i class="material-icons">delete_sweep</i></a></td>
                                         </tr>
                                         <?php } ?>
@@ -238,9 +243,72 @@
                         </p>
                         </div>
                         <div class="card-body">
-                        From the seamless transition of glass and metal to the streamlined profile, every detail was carefully considered to enhance your experience. So while its display is larger, the phone feels just right.
-                        <br>
-                        <br> Another Text. The first thing you notice when you hold the phone is how great it feels in your hand. The cover glass curves down around the sides to meet the anodized aluminum enclosure in a remarkable, simplified design.
+                        <form action="broadcast_sender.php" method="POST">
+                        <select name="blid" class="form-control p-1 pl-3 btn btn-secondary btn-round" required>
+                                            <option>Select Broadcast List</option>
+                                            <?php
+                                            $stmt=$con->prepare("CALL VIEW_BROADCAST_LISTS();");
+                                            $stmt->execute();
+                                            $stmt=$con->prepare("CALL VIEW_BROADCAST_LISTS();");
+                                            $stmt->execute();
+                                             $a=0;
+                            while($data = $stmt->fetch(PDO::FETCH_ASSOC))
+                            { 
+                              if ($a==0) 
+                              {
+                                ?>
+                                            <option value="<?php echo $data['BROADCAST_LIST_ID']; ?>" selected>
+                                                <?php echo $data['BROADCAST_LIST_NAME']; ?>-<?php echo $data['FACULTY_FIRST_NAME']; ?>
+                                                <?php echo $data['FACULTY_LAST_NAME']; ?>-<?php echo $data['BROADCAST_LIST_DATE']; ?>
+                                            </option>
+                                            <?php 
+                              $a+=1;
+                              }
+                              else
+                              {
+                                ?>
+                                            <option value="<?php echo $data['BROADCAST_LIST_ID']; ?>">
+                                                <?php echo $data['BROADCAST_LIST_NAME']; ?>-<?php echo $data['FACULTY_FIRST_NAME']; ?>
+                                                <?php echo $data['FACULTY_LAST_NAME']; ?>-<?php echo $data['BROADCAST_LIST_DATE']; ?>
+                                            </option>
+                                            <?php 
+                              }
+                            } ?>
+                                        </select>
+                                        <p class="ml-5 text-darker font-weight-bold">For name of the representatve type @REP_NAME, for name of the company type @CMPNY_NAME and
+                            for sender name type @SENDER.</p>
+                            <div class="media">
+                                <div class="media-body row">
+                                    <div class="input-group-prepend col-1">
+                                        <span class="input-group-text pl-4">
+                                        <i class="material-icons">library_add_check</i>
+                                        </span>
+                                    </div>
+                                    <div class="form-group col-11">
+                                        <label for="pmarks" class="bmd-label-floating">Subject</label>
+                                        <input type="text" name="subject" class="form-control pull-left">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="media-body mb-2">
+                                    <textarea name="editor" id="editor">
+                                        <p>Dear @REP_NAME,</p>
+                                        <p>Content @CMPNY_NAME Content</p>
+                                        <p>Yours&#39; Truly, @SENDER.</p>
+                                    </textarea>
+                                    <script>
+                                        CKEDITOR.replace('editor');
+                                    </script>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="media-body mb-2">
+                                    <input type="submit" class="btn btn-success" value="Send"
+                                        name="Submit">
+                                </div>
+                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -431,7 +499,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane" id="link13">
+                <div class="tab-pane" id="link13" name="link13">
                     <div class="card">
                         <div class="card-header">
                         <h4 class="card-title">Help center</h4>
@@ -440,9 +508,36 @@
                         </p>
                         </div>
                         <div class="card-body">
-                        From the seamless transition of glass and metal to the streamlined profile, every detail was carefully considered to enhance your experience. So while its display is larger, the phone feels just right.
-                        <br>
-                        <br> Another Text. The first thing you notice when you hold the phone is how great it feels in your hand. The cover glass curves down around the sides to meet the anodized aluminum enclosure in a remarkable, simplified design.
+                            <div class="media">
+                                <div class="media-body">
+                                    <select name="cid" class="form-control p-1 pl-3 btn btn-secondary btn-round" id="cid" onchange="get_event()" autofocus>
+                                        <option>Select Comapny</option>
+                                        <?php 
+                                            $stmt=$con->prepare("CALL VIEW_COMPANY();");
+                                            $stmt->execute();
+                                            $stmt=$con->prepare("CALL VIEW_COMPANY();");
+                                            $stmt->execute();
+                                            while ($x = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                                                ?>
+                                                    <option value="<?php echo $x['COMPANY_ID']; ?>"><?php echo $x['COMPANY_NAME']; ?></option>
+                                                <?php
+                                            }
+                                        ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="media-body">
+                                    <select name="event" class="form-control p-1 pl-3 btn btn-secondary btn-round" id="event" onchange="get_student()">
+                                        <option>Select Event</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="media-body">
+                                    <div id="student"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -452,9 +547,72 @@
         </div>
     </div>
 </div>
+<form action="#" method="post">
+          <div class="modal fade" id="noticeModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content" >
+                <div class="modal-header">
+                  <h5 class="modal-title" id="myModalLabel">Create New ShortList</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <i class="material-icons">close</i>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                      <label for="title" class="bmd-label-floating">Shortlist Title</label>
+                      <input type="text" name="ilname" class="form-control">
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-center">
+                  <input type="submit" name="new_broadcast" class="btn btn-success btn-round" value="Create">
+                </div>
+              </div>
+            </div>
+          </div> 
+        </form> 
+
+        <script type="text/javascript">	
+		function get_event(){
+            // alert('aa');
+            var xmlhttp=new XMLHttpRequest();
+            xmlhttp.open("GET","get_company_event.php?cid="+document.getElementById("cid").value,false);
+            xmlhttp.send(null);
+            document.getElementById("event").innerHTML=xmlhttp.responseText;
+        }
+        function get_student(){ 
+            var xmlhttp=new XMLHttpRequest();
+            // alert(document.getElementById("event").value);
+            xmlhttp.open("GET","student_bind.php?eid="+document.getElementById("event").value+"&"+"cid="+document.getElementById("cid").value,false);
+            xmlhttp.send(null);
+            // alert(xmlhttp.responseText);
+            document.getElementById("student").innerHTML=xmlhttp.responseText;
+        }
+        </script>
 <?php 
+    include 'footer.php';
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
 
-include 'footer.php';
-ob_flush();
+        if(isset($_REQUEST["new_broadcast"])){
+  
+            $ilname = $_REQUEST["ilname"];
+           
+            $gb = $_SESSION['lid'];
+  
+            //include('../../Files/PDO/dbcon.php');
+  
+            $stmt=$con->prepare("CALL INSERT_BROADCAST_LIST(:ilname, :gb);");
+            $stmt->bindParam(":ilname",$ilname);
+            $stmt->bindParam(":gb",$gb);
+            $stmt->execute();
+            // print_r( $stmt->errorinfo());
+            if ($stmt) {
+              echo "<script>alert('Event Successfully Created!')</script>";
+            }
+            else {
+              echo "<script>alert('Looks Like Someting Went Worng!!!')</script>";
+            }
+            header("Location: company.php");
+        }
+    }
+    ob_flush();
 ?>
-

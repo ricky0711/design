@@ -3,7 +3,7 @@
   include('header.php');
   $data=$_SESSION['Userdata'];
   include('../../Files/PDO/dbcon.php');
-  $stmt=$con->prepare("CALL  VIEW_COMPANY()");
+  $stmt=$con->prepare("CALL VIEW_COMPANY()");
   $stmt->execute();
 ?>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>

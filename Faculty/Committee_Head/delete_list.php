@@ -6,6 +6,6 @@
     $stmt->bindParam(":ilid",$ilid);
     $stmt->execute();
     // print_r($stmt->errorinfo());
-    header('Location: broadcast_list.php');
+    header('Location: company.php');
     ob_flush();
 ?>

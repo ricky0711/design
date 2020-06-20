@@ -663,6 +663,20 @@
         $('.card.card-wizard').addClass('active');
       }, 600);
     });
+    $(document).on("click" , "button.editBtn" , function(){
+        var id=$(this).val();
+        var xmlhttp=new XMLHttpRequest();
+        xmlhttp.open("GET","update_event.php?eid="+id,false);
+        xmlhttp.send(null);
+        document.getElementById("Update_event").innerHTML=xmlhttp.responseText;
+    })
+    $(document).on("click" , "button.viewMarks" , function(){
+        var id=$(this).val();
+        var xmlhttp=new XMLHttpRequest();
+        xmlhttp.open("GET","view_test_marks.php?tid="+id,false);
+        xmlhttp.send(null);
+        document.getElementById("Marks_view").innerHTML=xmlhttp.responseText;
+    })
   </script>
 </body>
 

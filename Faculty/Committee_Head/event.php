@@ -315,7 +315,7 @@
                                         <th>Passing Year</th>
                                         <th>Type</th>
                                         <th>Category</th>
-                                        <th class="disabled-sorting">Actions</th>
+                                        <th class="disabled-sorting text-right">Actions</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -330,7 +330,7 @@
                                             <th>Passing Year</th>
                                             <th>Type</th>
                                             <th>Category</th>
-                                            <th class="disabled-sorting">Actions</th>
+                                            <th class="disabled-sorting text-right">Actions</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -346,8 +346,8 @@
                                         <td><?php echo $data['BATCH_PASSING_YEAR']; ?></td>
                                         <td><?php echo $data['EVENT_TYPE']; ?></td>
                                         <td><?php if ($data['EVENT_CATEGORY']=="1") { echo "Mandatory";	}elseif ($data['EVENT_CATEGORY']=="0") { echo "Voluntary"; }  ?></td>
-                                        <td>
-                                            <a href="update_event.php?eid=<?php echo $data['EVENT_ID']; ?>" class="btn btn-link btn-info btn-just-icon " rel="tooltip" title="Update Event"><i class="material-icons">library_add_check</i></a>
+                                        <td class="text-right">
+                                            <button type="button" value="<?php echo $data['EVENT_ID']; ?>" class="btn btn-link btn-info btn-just-icon editBtn" rel="tooltip" title="Update Event" data-toggle="modal" data-target="#noticeModal"><i class="material-icons">library_add_check</i></button>
                                             <a href="cancel_event.php?eid=<?php echo $data['EVENT_ID']; ?>" class="btn btn-link btn-danger btn-just-icon " rel="tooltip" title="Cancel Event"><i class="material-icons">delete_sweep</i></a>
                                         </td>
                                         </tr>
@@ -356,7 +356,26 @@
                                 </table>
                             </div>
                         </div>
-                        
+                        <form action="#" method="post">
+                            <div class="modal fade" id="noticeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                <div class="modal-content" >
+                                    <div class="modal-header">
+                                    <h5 class="modal-title" id="myModalLabel">Update Stipend</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                        <i class="material-icons">close</i>
+                                    </button>
+                                    </div>
+                                    <div class="modal-body">
+                                    <div class="material-datatables" id="Update_event">
+                                    </div>        
+                                    </div>
+                                    <div class="modal-footer justify-content-center">
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
                 <div class="tab-pane" id="link10">

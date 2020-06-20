@@ -1,6 +1,7 @@
 <?php 
   ob_start();
-  include('header.php');
+//   include('header.php');
+session_start();
  
   $data=$_SESSION['Userdata'];
 ?>
@@ -41,6 +42,6 @@
         </div>
     </div>
     <?php 
-  include('footer.php');
+//   include('footer.php');
   ob_flush();
 ?>

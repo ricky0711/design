@@ -1,6 +1,7 @@
 <?php 
   ob_start();
-  include('header.php');
+  // include('header.php');
+  session_start();
   $data=$_SESSION['Userdata'];
 
   include('../../Files/PDO/dbcon.php');
@@ -57,7 +58,7 @@
                 <li>
                   <div class="media">
                     <div class="media-body mb-2">
-                      <select name="eventfor" class="form-control p-1 pl-3" id="eventfor" onchange="event_for()">
+                      <select name="eventfor" class="form-control p-1 pl-3" id="eventfor_update" onchange="event_for_update()">
                       <?php if(isset($xdata['EVENT_COMPANY_ID'])) {?>
                             <option>Select Event For</option>
                             <option value="PRE">PRE-PLACEMENT</option>
@@ -74,14 +75,14 @@
                 <li>
                   <div class="media">
                     <div class="media-body mb-2">
-                        <div id="cmp_id"></div>
+                        <div id="cmp_id_update"></div>
                     </div>
                   </div>
                 </li>
                 <li>
                   <div class="media">
                     <div class="media-body mb-2">
-                      <select name="dept" class="form-control p-1 pl-3" id="dept" onchange="course()">
+                      <select name="dept" class="form-control p-1 pl-3" id="dept_update" onchange="course_update()">
                             <option>Select Department</option>
                             <option value="BMIIT">BMIIT</option>
                             <option value="SRIMCA">SRIMCA</option>
@@ -93,7 +94,7 @@
                 <li>
                   <div class="media">
                     <div class="media-body mb-2">
-                      <select name="degree" class="form-control p-1 pl-3" id="degree" onchange="passing_year()">
+                      <select name="degree" class="form-control p-1 pl-3" id="degree_update" onchange="passing_year_update()">
                             <option>Select Degree</option>
                         </select>
                     </div>
@@ -102,7 +103,7 @@
                 <li>
                   <div class="media">
                     <div class="media-body mb-2">
-                      <select name="pyear" class="form-control p-1 pl-3" id="pyear">
+                      <select name="pyear" class="form-control p-1 pl-3" id="pyear_update">
                             <option>Select Passing Year</option>
                       </select>
                     </div>
@@ -169,8 +170,7 @@
                 <li>
                   <div class="media">
                     <div class="media-body mb-2">
-                      <input type="submit" class="button button-border x-small" value="Create" name="Submit">
-                      <input type="reset" class="btn btn-lg btn-outline-danger float-right ml-2" value="RESET" name="">
+                      <input type="submit" class="btn btn-success" value="Create" name="Submit">
                     </div>
                   </div>
                 </li>
@@ -181,32 +181,32 @@
           </div>
         </div>
         <script type="text/javascript"> 
-    function course(){
+    function course_update(){
             var xmlhttp=new XMLHttpRequest();
-            xmlhttp.open("GET","degreebind.php?dept="+document.getElementById("dept").value,false);
+            xmlhttp.open("GET","degreebind.php?dept="+document.getElementById("dept_update").value,false);
             xmlhttp.send(null);
-            //alert(xmlhttp.responseText);  
-            document.getElementById("degree").innerHTML=xmlhttp.responseText;
+            alert(xmlhttp.responseText);  
+            document.getElementById("degree_update").innerHTML=xmlhttp.responseText;
         }
-        function passing_year(){ 
+        function passing_year_update(){ 
             var xmlhttp=new XMLHttpRequest();
-            xmlhttp.open("GET","pyearbind.php?dept="+document.getElementById("dept").value+"&"+"degree="+document.getElementById("degree").value,false);
+            xmlhttp.open("GET","pyearbind.php?dept="+document.getElementById("dept_update").value+"&"+"degree="+document.getElementById("degree_update").value,false);
             xmlhttp.send(null);
-            document.getElementById("pyear").innerHTML=xmlhttp.responseText;
+            document.getElementById("pyear_update").innerHTML=xmlhttp.responseText;
         }
-        function event_for()
+        function event_for_update()
         {
             var xmlhttp=new XMLHttpRequest();
-            xmlhttp.open("GET","company_id.php?eve="+document.getElementById("eventfor").value,false);
+            xmlhttp.open("GET","company_id.php?eve="+document.getElementById("eventfor_update").value,false);
             xmlhttp.send(null);
-            document.getElementById("cmp_id").innerHTML=xmlhttp.responseText;
+            document.getElementById("cmp_id_update").innerHTML=xmlhttp.responseText;
         }
 
-        if(document.getElementById("eventfor").value == "IN"){
+        if(document.getElementById("eventfor_update").value == "IN"){
               var xmlhttp=new XMLHttpRequest();
-              xmlhttp.open("GET","company_id.php?eve="+document.getElementById("eventfor").value,false);
+              xmlhttp.open("GET","company_id.php?eve="+document.getElementById("eventfor_update").value,false);
               xmlhttp.send(null);
-              document.getElementById("cmp_id").innerHTML=xmlhttp.responseText;
+              document.getElementById("cmp_id_update").innerHTML=xmlhttp.responseText;
         }
         var cid = <?php echo json_encode($cid); ?>;
         alert(cid);
@@ -214,7 +214,7 @@
         </script>
 
 <?php 
-  include('footer.php');
+  // include('footer.php');
 ?>
 
 <?php
@@ -279,9 +279,9 @@
           $stmt->bindParam(":eid",$eid);
           $stmt->execute();
           ?>
-            <script type="text/javascript">
+            <!-- <script type="text/javascript">
               window.location.replace("update_event_reloader.php?eid=<?php echo $eid; ?>");
-            </script>
+            </script> -->
           <?php
       }
   }

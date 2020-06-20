@@ -99,26 +99,26 @@
                             </div>
                         </div>
                         <div class="media">
-                            <div class="media-body row">
+                            <div class="media-body row mt-2">
                                 <div class="input-group-prepend col-1 mr-0 pr-0">
                                     <span class="input-group-text">
                                     <i class="material-icons">today</i>
                                     </span>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group col-11">
                                     <label for="ename" class="bmd-label-floating">Passing Year</label>
                                     <input type="text" name="pyear" class="form-control col-10" value="<?php echo date('Y');?>">
                                 </div>
                             </div>
                         </div>
                         <div class="media">
-                            <div class="media-body row">
+                            <div class="media-body row mt-1">
                                 <div class="input-group-prepend col-1 mr-0 pr-0">
                                     <span class="input-group-text">
                                     <i class="material-icons">today</i>
                                     </span>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group col-11">
                                     <label for="ename" class="bmd-label-floating">No. of Semesters</label>
                                     <input type="text" name="sem" class="form-control col-10" >
                                 </div>
