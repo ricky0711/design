@@ -634,6 +634,159 @@ $(".custom-file-input").on("change", function() {
             achivement+=1;
           }
         </script>
+        <script type="text/javascript">
+          function others(){
+            var sp = document.getElementById("sp").value;
+            if(sp == "OTHERS")
+            {
+              var xmlhttp=new XMLHttpRequest();
+              document.getElementById("sptext").innerHTML='<input type="text" name="others_sp_d2d_n_12th" class="form-control mt-2" placeholder="Specify Your Specialzation">';
+            }
+            else{
+              var xmlhttp=new XMLHttpRequest();
+              document.getElementById("sptext").innerHTML='';  
+            }
+          }
+          function others1(){
+            var sp = document.getElementById("12sp").value;
+            if(sp == "OTHERS")
+            {
+              var xmlhttp=new XMLHttpRequest();
+              document.getElementById("sptext").innerHTML='<input type="text" name="others_sp_ba_12th" class="form-control mt-2" placeholder="Specify Your Specialzation">';
+            }
+            else{
+              var xmlhttp=new XMLHttpRequest();
+              document.getElementById("sptext").innerHTML='';  
+            }
+          }
+          function othersforbach1(){
+            var sp = document.getElementById("bdgree").value;
+            if(sp == "OTHERS")
+            {
+              var xmlhttp=new XMLHttpRequest();
+              document.getElementById("bsptext").innerHTML='<input type="text" name="others_sp_bach_ma" class="form-control mt-2" placeholder="Specify Your Degree">';
+            }
+            else{
+              var xmlhttp=new XMLHttpRequest();
+              document.getElementById("bsptext").innerHTML='';  
+            }
+          }
+
+          function othersformaster1(){
+            var sp = document.getElementById("masterdegree").value;
+            if(sp == "OTHERS")
+            {
+              var xmlhttp=new XMLHttpRequest();
+              document.getElementById("mastertext").innerHTML='<input type="text" name="others_sp_master_type_ma" class="form-control mt-2" placeholder="Specify Your Degree">';
+            }
+            else{
+              var xmlhttp=new XMLHttpRequest();
+              document.getElementById("mastertext").innerHTML='';  
+            }
+          }
+
+            function othersformaster(){
+            var sp = document.getElementById("msp").value;
+            if(sp == "OTHERS")
+            {
+              var xmlhttp=new XMLHttpRequest();
+              document.getElementById("msptext").innerHTML='<input type="text" name="others_sp_master" class="form-control mt-2" placeholder="Specify Your Specialzation">';
+            }
+            else{
+              var xmlhttp=new XMLHttpRequest();
+              document.getElementById("msptext").innerHTML='';  
+            }
+          } 
+          function y(){
+              var xmlhttp=new XMLHttpRequest();
+              xmlhttp.open("GET","d2d.php?d2d=y",false);
+              xmlhttp.send(null);
+              document.getElementById("d2dtext").innerHTML=xmlhttp.responseText;
+          }
+          function n(){
+              var xmlhttp=new XMLHttpRequest();
+              xmlhttp.open("GET","d2d.php?d2d=n",false);
+              xmlhttp.send(null);
+              document.getElementById("d2dtext").innerHTML=xmlhttp.responseText;
+          }
+          function othersfordip(){
+                    var sp = document.getElementById("dsp").value;
+                    if(sp == "OTHERS")
+                    {
+                      var xmlhttp=new XMLHttpRequest();
+                      document.getElementById("dsptext").innerHTML='<input type="text" name="others_sp_dip" class="form-control mt-2" placeholder="Specify Your Specialzation">';
+                    }
+                    else{
+                      var xmlhttp=new XMLHttpRequest();
+                      document.getElementById("dsptext").innerHTML='';  
+                    }
+                  }
+
+              
+               function othersfordipspyba(){
+                    var sp = document.getElementById("diplomasp").value;
+                    if(sp == "OTHERS")
+                    {
+                      var xmlhttp=new XMLHttpRequest();
+                      document.getElementById("dsptext").innerHTML='<input type="text" name="others_sp_dip_y_ba" class="form-control mt-2" placeholder="Specify Your Specialzation">';
+                    }
+                    else{
+                      var xmlhttp=new XMLHttpRequest();
+                      document.getElementById("dsptext").innerHTML='';  
+                    }
+                  }    
+
+
+                function othersforbach(){
+                    var sp = document.getElementById("bbdegree").value;
+                    if(sp == "OTHERS")
+                    {
+                      var xmlhttp=new XMLHttpRequest();
+                      document.getElementById("bachsptext").innerHTML='<input type="text" name="others_sp_bach_n_d2d_ba" class="form-control mt-2" placeholder="Specify Your Degree">';
+                    }
+                    else{
+                      var xmlhttp=new XMLHttpRequest();
+                      document.getElementById("bachsptext").innerHTML='';  
+                    }
+                  }
+                  function othersforbachforMAandd2dY(){
+                    var sp = document.getElementById("bbdegree").value;
+                    if(sp == "OTHERS")
+                    {
+                      var xmlhttp=new XMLHttpRequest();
+                      document.getElementById("bachsptext").innerHTML='<input type="text" name="others_sp_bach_d2dY" class="form-control mt-2" placeholder="Specify Your Degree">';
+                    }
+                    else{
+                      var xmlhttp=new XMLHttpRequest();
+                      document.getElementById("bachsptext").innerHTML='';  
+                    }
+                  }
+                  function otherfordipmastertypey(){
+                    var sp = document.getElementById("masterdegree").value;
+                    if(sp == "OTHERS")
+                    {
+                      var xmlhttp=new XMLHttpRequest();
+                      document.getElementById("mastersptext").innerHTML='<input type="text" name="other_for_master_dip_y" class="form-control mt-2" placeholder="Specify Your Degree">';
+                    }
+                    else{
+                      var xmlhttp=new XMLHttpRequest();
+                      document.getElementById("mastersptext").innerHTML='';  
+                    }
+                  }  
+
+                function othersformaster(){
+                    var sp = document.getElementById("mastersp").value;
+                    if(sp == "OTHERS")
+                    {
+                      var xmlhttp=new XMLHttpRequest();
+                      document.getElementById("mastersptext").innerHTML='<input type="text" name="others_sp_master" class="form-control mt-2" placeholder="Specify Your Specialzation">';
+                    }
+                    else{
+                      var xmlhttp=new XMLHttpRequest();
+                      document.getElementById("mastersptext").innerHTML='';  
+                    }
+                  }              
+        </script>
 </body>
 
 </html>

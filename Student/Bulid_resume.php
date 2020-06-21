@@ -36,7 +36,7 @@
 ?> 
 
 <?php 
-  if(isset($_REQUEST['submit'])){
+  if(isset($_REQUEST['build_resume'])){
       include('../Files/PDO/dbcon.php');
       $tname = $_REQUEST['resume'];
       $bid = $data["STUDENT_BATCH_ID"];
@@ -55,7 +55,7 @@
       $stmt1=$con->prepare("CALL GET_STUDENT_DIP_12TH(:sid);");
       $stmt1->bindParam(":sid",$sid);  
       $stmt1->execute();
-      //print_r($stmt1->errorinfo());
+      // print_r($stmt1->errorinfo());
       $data5 = $stmt1->fetch(PDO::FETCH_ASSOC);
       $dipid = $data5["ACADEMIC_DETAILS_DIPLOMA_ID"];
       $twid = $data5["ACADEMIC_DETAILS_12TH_ID"];

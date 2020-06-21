@@ -1,7 +1,7 @@
 <?php 
   session_start();
   $data=$_SESSION['Userdata'];
- ?>
+?>
 <!DOCTYPE html>
 <html lang="en">
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
@@ -194,3 +194,4 @@
                 </div>
             </nav>
             <!-- End Navbar -->
+            <!-- <?php print_r($data);?> -->

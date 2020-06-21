@@ -13,6 +13,37 @@
                 $stmt->execute();
                 $data = $stmt->fetch(PDO::FETCH_ASSOC);
             ?>
+     <script>   
+    function isInputNumber(evt) {
+
+        var ch = String.fromCharCode(evt.which);
+
+        if (!(/[0-9]/.test(ch))) {
+            evt.preventDefault();
+        }
+
+    }
+
+    function isInputChar(evt) {
+
+        var ch = String.fromCharCode(evt.which);
+
+        if (!(/[A-Za-z]/.test(ch))) {
+            evt.preventDefault();
+        }
+
+    }
+
+    function isInputCharSpace(evt) {
+
+        var ch = String.fromCharCode(evt.which);
+
+        if (!(/^[a-zA-Z ]*$/.test(ch))) {
+            evt.preventDefault();
+        }
+
+    }
+    </script>
       <div class="content">
         <div class="container-fluid">
           <div class="col-md-8 col-12 mr-auto ml-auto">
@@ -69,7 +100,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInput1" class="bmd-label-floating">Company Name</label>
-                                    <input type="text" class="form-control" id="exampleInput1" name="cname" value="<?php echo $data["COMPANY_NAME"]; ?>" required>
+                                    <input type="text" maxlength="30" class="form-control" id="exampleInput1" name="cname" value="<?php echo $data["COMPANY_NAME"]; ?>" required>
                                 </div>
                                 </div>
                                 <div class="input-group form-control-lg">
@@ -80,7 +111,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInput11" class="bmd-label-floating">Company Phone Number</label>
-                                    <input type="text" class="form-control" id="exampleInput11" name="cnum" value="<?php echo $data["COMPANY_PHONE_NUMBER_1"]; ?>" required>
+                                    <input type="text"  id="mobile1" onkeyup="check1(); return false;" onkeypress="isInputNumber(event)" maxlength="10" class="form-control" id="exampleInput11" name="cnum" value="<?php echo $data["COMPANY_PHONE_NUMBER_1"]; ?>" required>
+                                    <span id="message1"></span>
                                 </div>
                                 </div>
                             </div>
@@ -93,7 +125,9 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInput1" class="bmd-label-floating">Email</label>
-                                    <input type="email" class="form-control" id="exampleemalil" name="cemail" value="<?php echo $data["COMPANY_EMAIL"]; ?>" required>
+                                    <input type="email" pattern=(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])
+                                      maxlength="255"
+                                     class="form-control" id="exampleemalil" name="cemail" value="<?php echo $data["COMPANY_EMAIL"]; ?>" required>
                                 </div>
                                 </div>
                             </div>
@@ -106,7 +140,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInput1" class="bmd-label-floating">Registration Year</label>
-                                    <input type="text" min-length="4" max-length="4" min="1950" max="<?php echo date('Y'); ?>" oninvalid="Year Must be between 1950-<?php echo date('Y'); ?>" class="form-control" name="creg" value="<?php echo $data["COMPANY_REGISTERED_YEAR"]; ?>" required>
+                                    <input type="text" minlength="4" maxlength="4" onkeypress="isInputNumber(event)" min="1950" max="<?php echo date('Y'); ?>" oninvalid="Year Must be between 1950-<?php echo date('Y'); ?>" class="form-control" name="creg" value="<?php echo $data["COMPANY_REGISTERED_YEAR"]; ?>" required>
                                 </div>
                                 </div>
                             </div>
@@ -126,7 +160,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="exampleInput1" class="bmd-label-floating">HR Name</label>
-                                                        <input type="text" class="form-control" id="exampleInput1" name="hrname" value="<?php echo $data["COMPANY_HR_NAME"]; ?>"  required>
+                                                        <input type="text" onkeypress="isInputCharSpace(event)" maxlength="50" class="form-control" id="exampleInput1" name="hrname" value="<?php echo $data["COMPANY_HR_NAME"]; ?>"  required>
                                                     </div>
                                                 </div>
                                             </div>
@@ -139,7 +173,8 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="exampleInput11" class="bmd-label-floating">HR Phone Number</label>
-                                                        <input type="text" class="form-control" id="exampleInput11" name="hrnum" value="<?php echo $data["COMPANY_PHONE_NUMBER_2"]; ?>" required>
+                                                        <input type="text" id="mobile" onkeyup="check(); return false;" maxlength="10" onkeypress="isInputNumber(event)" class="form-control" id="exampleInput11" name="hrnum" value="<?php echo $data["COMPANY_PHONE_NUMBER_2"]; ?>" required>
+                                                        <span id="message"></span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -152,7 +187,9 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="exampleInput1" class="bmd-label-floating">Email</label>
-                                                            <input type="email" class="form-control" id="exampleemalil" name="hremail" value="<?php echo $data["COMPANY_HR_EMAIL"]; ?>" required>
+                                                            <input type="email" pattern=(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])
+                                                              maxlength="255"
+                                                             class="form-control" id="exampleemalil" name="hremail" value="<?php echo $data["COMPANY_HR_EMAIL"]; ?>" required>
                                                         </div>
                                                     </div>
                                             </div>
@@ -165,7 +202,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="exampleInput1" class="bmd-label-floating">Company Website</label>
-                                                        <input type="text" class="form-control" id="exampleInput1" name="cweb" value="<?php echo $data["COMPANY_WEBSITE"]; ?>"  required>
+                                                        <input type="url" maxlength="100" class="form-control" id="exampleInput1" name="cweb" value="<?php echo $data["COMPANY_WEBSITE"]; ?>"  required>
                                                     </div>
                                                 </div>
                                             </div>
@@ -193,15 +230,17 @@
                           <div class="col-sm-4">
                             <div class="form-group">
                               <label>Maximum Package</label>
-                              <input type="text" name="cmax" value="<?php echo $data["COMPANY_MAXIMUM_PACKAGE"]; ?>" class="form-control">
+                              <input type="text" name="cmax" id="maxval" minlength="5" onkeyup="packagecheck(); return false;" onkeypress="isInputNumber(event)" value="<?php echo $data["COMPANY_MAXIMUM_PACKAGE"]; ?>" class="form-control">
+                              <span id="packagemessage"></span>
                             </div>
                           </div>
                           <div class="col-sm-4">
                             <div class="form-group">
                               <label>Minimum Package</label>
-                              <input type="text" name="cmin" value="<?php echo $data["COMPANY_MINIMUM_PACKAGE"]; ?>" class="form-control">
+                              <input type="text" name="cmin" id="minval" minlength="5" onkeyup="packagecheck(); return false;" onkeypress="isInputNumber(event)" value="<?php echo $data["COMPANY_MINIMUM_PACKAGE"]; ?>" class="form-control">
                             </div>
                           </div>
+                          
                           <!-- <div class="col-sm-4">
                             <div class="form-group">
                               <label>No. of Employess</label>
@@ -252,15 +291,121 @@
             
         }
         
-        function course(){
-            var xmlhttp=new XMLHttpRequest();
-            xmlhttp.open("GET","degreebind.php?dept="+document.getElementById("dept").value,false);
-            xmlhttp.send(null);
-            //alert(xmlhttp.responseText);  
-            document.getElementById("degree").innerHTML=xmlhttp.responseText;
-        }
-    </script>
 
+        function check()
+    {
+        // alert("ff");
+        var pass1 = document.getElementById('mobile');
+        var message = document.getElementById('message');
+        var badColor = "#84BA3F";
+        if(mobile.value.length!=10){
+            // alert("ffrr");
+            message.style.color = badColor;
+            message.innerHTML = "required 10 digits, match requested format!"
+        }    
+        if(mobile.value.length=='10'){
+            message.style.color = badColor;
+            message.innerHTML = ""
+        }
+    }
+
+
+    function check1()
+    {
+        var pass1 = document.getElementById('mobile1');
+        var message = document.getElementById('message1');
+        var badColor = "#84BA3F";
+        if(mobile1.value.length!=10){
+            message.style.color = badColor;
+            message.innerHTML = "required 10 digits, match requested format!"
+        }    
+        if(mobile1.value.length=='10'){
+            message.style.color = badColor;
+            message.innerHTML = ""
+        }
+    }
+
+    
+    function packagecheck()
+    {
+        //alert("This");
+        var min = document.getElementById('minval');
+        var max = document.getElementById('maxval');
+        var message = document.getElementById('packagemessage');
+        var badColor = "#84BA3F";
+        if(parseInt(min.value) > parseInt(max.value)){
+            message.style.color = badColor;
+            message.innerHTML = "Min Package must be less than Max Package";
+        }else{
+            message.style.color = badColor;
+            message.innerHTML = "";
+        }    
+
+        if(parseInt(min.value) < 1){
+            // alert("This");
+            message.style.color = badColor;
+            message.innerHTML = "Min package could not be zero.";
+        }
+
+    }
+      function check()
+    {
+        // alert("ff");
+        var pass1 = document.getElementById('mobile');
+        var message = document.getElementById('message');
+        var badColor = "#84BA3F";
+        if(mobile.value.length!=10){
+            // alert("ffrr");
+            message.style.color = badColor;
+            message.innerHTML = "required 10 digits, match requested format!"
+        }    
+        if(mobile.value.length=='10'){
+            message.style.color = badColor;
+            message.innerHTML = ""
+        }
+    }
+
+
+    function check1()
+    {
+        var pass1 = document.getElementById('mobile1');
+        var message = document.getElementById('message1');
+        var badColor = "#84BA3F";
+        if(mobile1.value.length!=10){
+            message.style.color = badColor;
+            message.innerHTML = "required 10 digits, match requested format!"
+        }    
+        if(mobile1.value.length=='10'){
+            message.style.color = badColor;
+            message.innerHTML = ""
+        }
+    }
+
+    
+    function packagecheck()
+    {
+        //alert("This");
+        var min = document.getElementById('minval');
+        var max = document.getElementById('maxval');
+        var message = document.getElementById('packagemessage');
+        var badColor = "#84BA3F";
+        if(parseInt(min.value) > parseInt(max.value)){
+            message.style.color = badColor;
+            message.innerHTML = "Min Package must be less than Max Package";
+        }else{
+            message.style.color = badColor;
+            message.innerHTML = "";
+        }    
+
+        if(parseInt(min.value) < 1){
+            // alert("This");
+            message.style.color = badColor;
+            message.innerHTML = "Min package could not be zero.";
+        }
+
+    }
+    </script>
+    
 <?php 
 
   if(isset($_REQUEST['Update']))
