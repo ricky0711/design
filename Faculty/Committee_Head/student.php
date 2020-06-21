@@ -287,6 +287,19 @@ ob_flush();
             xmlhttp.open("GET","get_stud.php?dept="+document.getElementById("dept").value+"&"+"degree="+document.getElementById("degree").value+"&"+"pyear="+document.getElementById("pyear").value,false);
             xmlhttp.send(null);
             document.getElementById("students").innerHTML=xmlhttp.responseText;
+            $('#student_list').DataTable({
+            "pagingType": "full_numbers",
+            "lengthMenu": [
+            [10, 25, 50, -1],
+            [10, 25, 50, "All"]
+            ],
+            responsive: true,
+            language: {
+            search: "_INPUT_",
+            searchPlaceholder: "Search records",
+            }
+        });
+        var table = $('#student_list').DataTable();
         }
         function course_de(){
             var xmlhttp=new XMLHttpRequest();
@@ -306,6 +319,19 @@ ob_flush();
             xmlhttp.open("GET","get_deactive_stud.php?dept="+document.getElementById("dept_de").value+"&"+"degree="+document.getElementById("degree_de").value+"&"+"pyear="+document.getElementById("pyear_de").value,false);
             xmlhttp.send(null);
             document.getElementById("students_de").innerHTML=xmlhttp.responseText;
+            $('#student_list_de').DataTable({
+            "pagingType": "full_numbers",
+            "lengthMenu": [
+            [10, 25, 50, -1],
+            [10, 25, 50, "All"]
+            ],
+            responsive: true,
+            language: {
+            search: "_INPUT_",
+            searchPlaceholder: "Search records",
+            }
+        });
+        var table = $('#student_list_de').DataTable();
         }
         function course_material(){
             var xmlhttp=new XMLHttpRequest();
@@ -326,6 +352,19 @@ ob_flush();
             xmlhttp.open("GET","material_bind.php?dept="+document.getElementById("dept_view_material").value+"&"+"degree="+document.getElementById("degree_view_material").value,false);
             xmlhttp.send(null);
             document.getElementById("material").innerHTML=xmlhttp.responseText;
+            $('#materials').DataTable({
+            "pagingType": "full_numbers",
+            "lengthMenu": [
+            [10, 25, 50, -1],
+            [10, 25, 50, "All"]
+            ],
+            responsive: true,
+            language: {
+            search: "_INPUT_",
+            searchPlaceholder: "Search records",
+            }
+        });
+        var table = $('#materials').DataTable();
         }
         </script>
 

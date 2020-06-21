@@ -187,6 +187,19 @@ ob_flush();
             xmlhttp.send(null);
             // alert(xmlhttp.responseText); 
             document.getElementById("show").innerHTML=xmlhttp.responseText;
+            $('#batch_list').DataTable({
+            "pagingType": "full_numbers",
+            "lengthMenu": [
+            [10, 25, 50, -1],
+            [10, 25, 50, "All"]
+            ],
+            responsive: true,
+            language: {
+            search: "_INPUT_",
+            searchPlaceholder: "Search records",
+            }
+        });
+        var table = $('#student_list').DataTable();
         }
         function course(){
             var xmlhttp=new XMLHttpRequest();

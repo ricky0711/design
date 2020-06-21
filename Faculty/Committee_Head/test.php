@@ -155,10 +155,10 @@
                 <div class="tab-pane " id="link8">
                     <div class="card" style="width:1200px;">
                     <div class="card-header">
-                    <h4 class="card-title">Past Test Details</h4>
-                    <p class="card-category">
-                        Get information about test's that already happened
-                    </p>
+                        <h4 class="card-title">Past Test Details</h4>
+                        <p class="card-category">
+                            Get information about test's that already happened
+                        </p>
                     </div>
                     <div class="card-body">
                             <div class="toolbar">
@@ -226,25 +226,25 @@
                         </div>
                     </div>
                     <form action="#" method="post">
-                            <div class="modal fade" id="noticeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                <div class="modal-content" >
-                                    <div class="modal-header">
-                                    <h5 class="modal-title" id="myModalLabel">Update Stipend</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                                        <i class="material-icons">close</i>
-                                    </button>
-                                    </div>
-                                    <div class="modal-body">
-                                    <div class="material-datatables" id="Marks_view">
-                                    </div>        
-                                    </div>
-                                    <div class="modal-footer justify-content-center">
-                                    </div>
+                        <div class="modal fade" id="noticeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                            <div class="modal-content" >
+                                <div class="modal-header">
+                                <h5 class="modal-title" id="myModalLabel">Update Stipend</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                    <i class="material-icons">close</i>
+                                </button>
                                 </div>
+                                <div class="modal-body">
+                                <div class="material-datatables" id="Marks_view">
+                                </div>        
+                                </div>
+                                <div class="modal-footer justify-content-center">
                                 </div>
                             </div>
-                        </form>
+                            </div>
+                        </div>
+                    </form>
                 </div>
                 </div>
                 <div class="tab-pane" id="link9">
@@ -325,41 +325,61 @@
                     </p>
                     </div>
                     <div class="card-body">
-                    <form action="#" method="post">
-                    <div class="media">
-                        <div class="media-body mb-2">
-                            <select name="dept" class="form-control p-1 pl-3 btn btn-secondary btn-round" id="dept_marks" onchange="course_marks()" autofocus>
-                                <option>Select Department</option>
-                                <option value="BMIIT">BMIIT</option>
-                                <option value="SRIMCA">SRIMCA</option>
-                                <option value="CGPIT">CGPIT</option>
-                            </select>
-                        </div>
+                        <form action="#" method="post">
+                            <div class="media">
+                                <div class="media-body row">
+                                    <div class="input-group-prepend col-1 mr-0 pr-0">
+                                        <span class="input-group-text">
+                                        <i class="material-icons">apartment</i>
+                                        </span>
+                                    </div>
+                                    <select class="form-control pl-2 col-10 btn btn-secondary btn-round" name="dept" id="dept_marks" onchange="course_marks()" data-size="5" title="Select Department">
+                                        <option disabled selected>Select Department</option>
+                                        <option value="BMIIT">BMIIT</option>
+                                        <option value="SRIMCA">SRIMCA</option>
+                                        <option value="CGPIT">CGPIT</option>
+                                    </select>
+                                </div>
+                            </div>    
+                            <div class="media">
+                                <div class="media-body row">
+                                    <div class="input-group-prepend col-1 mr-0 pr-0">
+                                        <span class="input-group-text">
+                                        <i class="material-icons">school</i>
+                                        </span>
+                                    </div>
+                                    <select class="form-control pl-2 col-10 btn btn-secondary btn-round" name="degree" id="degree_marks" onchange="passing_year_marks()" data-size="5" title="Select Degree">
+                                        <option>Select Degree</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="media-body row">
+                                    <div class="input-group-prepend col-1 mr-0 pr-0">
+                                        <span class="input-group-text">
+                                        <i class="material-icons">military_tech</i>
+                                        </span>
+                                    </div>
+                                    <select class="form-control pl-2 col-10 btn btn-secondary btn-round" name="pyear" id="pyear_marks" data-size="5"  onchange="test_bind()"  title="Select Passing Year">
+                                        <option disabled selected>Select Passing Year</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="media-body row">
+                                    <div class="input-group-prepend col-1 mr-0 pr-0">
+                                        <span class="input-group-text">
+                                        <i class="material-icons">event</i>
+                                        </span>
+                                    </div>
+                                    <select class="form-control pl-2 col-10 btn btn-secondary btn-round" name="test" id="tests" data-size="5"  onchange="get_marks()"  title="Select Passing Year">
+                                        <option disabled selected>Select Test</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div id="marks"></div>
+                        </form>
                     </div>
-                    <div class="media">
-                        <div class="media-body mb-2">
-                            <select name="degree" class="form-control p-1 pl-3 btn btn-secondary btn-round" id="degree_marks" onchange="passing_year_marks()">
-                                <option>Select Degree</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="media">
-                        <div class="media-body mb-2">
-                            <select name="pyear" class="form-control p-1 pl-3 btn btn-secondary btn-round" id="pyear_marks" onchange="test_bind()">
-                                <option>Select Passing Year</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="media">
-                        <div class="media-body mb-2">
-                            <select name="test" class="form-control p-1 pl-3 btn btn-secondary btn-round" id="tests" onchange="get_marks()">
-                                <option>Select Test</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div id="marks"></div>
-                    </form>
-                </div>
                 </div>
             </div>
             </div>

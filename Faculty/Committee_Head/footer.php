@@ -669,14 +669,27 @@
         xmlhttp.open("GET","update_event.php?eid="+id,false);
         xmlhttp.send(null);
         document.getElementById("Update_event").innerHTML=xmlhttp.responseText;
-    })
+    });
     $(document).on("click" , "button.viewMarks" , function(){
         var id=$(this).val();
         var xmlhttp=new XMLHttpRequest();
         xmlhttp.open("GET","view_test_marks.php?tid="+id,false);
         xmlhttp.send(null);
         document.getElementById("Marks_view").innerHTML=xmlhttp.responseText;
-    })
+        $('#view_marks').DataTable({
+            "pagingType": "full_numbers",
+            "lengthMenu": [
+            [10, 25, 50, -1],
+            [10, 25, 50, "All"]
+            ],
+            responsive: true,
+            language: {
+            search: "_INPUT_",
+            searchPlaceholder: "Search records",
+            }
+        });
+        var table = $('#view_marks').DataTable();
+    });
   </script>
 </body>
 
