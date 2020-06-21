@@ -82,8 +82,8 @@
                           <td><?php echo $data["SELECTION_LIST_NAME"]; ?></td>
                           <td><?php echo $data["SELECTION_LIST_YEAR"]; ?></td>
                           <td class="text-right">
-                              <button type="button" value="<?php echo $data["SELECTION_LIST_ID"];?>" class="btn btn-link btn-info btn-just-icon viewBtn" rel="tooltip" title="View ShortList" data-toggle="modal" data-target="#noticeModal"><i class="material-icons">visibility</i></button>
-                              <button type="button" value="<?php echo $data["SELECTION_LIST_ID"];?>" class="btn btn-link btn-warning btn-just-icon StipendBtn" rel="tooltip" title="Enter Stipend" data-toggle="modal" data-target="#noticeModal2"><i class="fa fa-inr"></i></button>
+                              <button type="button" value="<?php echo $data["SELECTION_LIST_ID"];?>" class="btn btn-link btn-info btn-just-icon viewBtn" rel="tooltip" title="View ShortList" data-toggle="modal" data-target="#view_Shortlist"><i class="material-icons">visibility</i></button>
+                              <button type="button" value="<?php echo $data["SELECTION_LIST_ID"];?>" class="btn btn-link btn-warning btn-just-icon StipendBtn" rel="tooltip" title="Enter Stipend" data-toggle="modal" data-target="#upStipend"><i class="fa fa-inr"></i></button>
                               <a href="add_student_selection_list.php?sid=<?php echo $data["SELECTION_LIST_ID"]; ?>" class="btn btn-link btn-success btn-just-icon " rel="tooltip" title="Add Student to Selection List"><i class="material-icons">library_add_check</i></a>
                               <a href="delete_shortlist.php?sid=<?php echo $data["SELECTION_LIST_ID"]; ?>" class="btn btn-link btn-danger btn-just-icon " rel="tooltip" title="Delete ShortList"><i class="material-icons">delete_sweep</i></a>
                               <a href="send_shortlist.php?sid=<?php echo $data["SELECTION_LIST_ID"]; ?>" class="btn btn-link btn-primary btn-just-icon " rel="tooltip" title="Send ShortList"><i class="material-icons">send</i></a>                          
@@ -104,7 +104,7 @@
           </div>
           <!-- end row -->
         </div>
-        <div class="modal fade" id="noticeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal fade" id="view_Shortlist" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content" >
               <div class="modal-header">
@@ -114,37 +114,8 @@
                 </button>
               </div>
               <div class="modal-body">
-                <div class="material-datatables">
-                  <table id="datatables" class="table table-responsive table-striped table-no-bordered table-hover" cellspacing="0">
-                    <thead>
-                      <tr>
-                        <th>Profile Pic</th>
-                        <th>Enrollment No.</th>
-                        <th>Name</th>
-                        <th>Stipend</th>
-                        <th class="disabled-sorting text-right">Actions</th>
-                      </tr>
-                    </thead>
-                    <tfoot>
-                      <tr>
-                        <th>Profile Pic</th>
-                        <th>Enrollment No.</th>
-                        <th>Name</th>
-                        <th>Stipend</th>
-                        <th class="text-right">Actions</th>
-                      </tr>
-                    </tfoot>
-                    <tbody id="shortlist_data">
-                        <tr>
-                          <td>( ͡° ͜ʖ ͡°)</td>
-                          <td>201706100110047</td>
-                          <td>BHAVANI SHARMA</td>
-                          <td>2020</td>
-                          <td class="text-right">
-                        </tr>
-                    </tbody>
-                  </table>
-                </div>        
+                  <div id="shortlist_data">           
+                  </div>
               </div>
               <div class="modal-footer justify-content-center">
               </div>
@@ -152,7 +123,7 @@
           </div>
         </div>
         <form action="#" method="post">
-          <div class="modal fade" id="noticeModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal fade" id="upStipend" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content" >
                 <div class="modal-header">
@@ -162,32 +133,7 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                  <div class="material-datatables">
-                    <table id="datatables" class="table table-responsive table-striped table-no-bordered table-hover" cellspacing="0">
-                      <thead>
-                        <tr>
-                        <th>Enrollment No.</th>
-                          <th>Name</th>
-                          <th class="disabled-sorting">Stipend</th>
-                        </tr>
-                      </thead>
-                      <tfoot>
-                        <tr>
-                          <th>Enrollment No.</th>
-                          <th>Name</th>
-                          <th class="disabled-sorting">Stipend</th>
-                        </tr>
-                      </tfoot>
-                      <tbody id="Update_stipend_data">
-                          <tr>
-                            <td>( ͡° ͜ʖ ͡°)</td>
-                            <td>201706100110047</td>
-                            <td>BHAVANI SHARMA</td>
-                            <td>2020</td>
-                            <td class="text-right">
-                          </tr>
-                      </tbody>
-                    </table>
+                  <div id="stipend_update">           
                   </div>        
                 </div>
                 <div class="modal-footer justify-content-center">

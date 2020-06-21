@@ -1,7 +1,7 @@
 <?php 
     include 'header.php';
     $data=$_SESSION['Userdata'];
-    // error_reporting(0);
+     error_reporting(0);
     ?>
     <style>
     .zoom {

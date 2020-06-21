@@ -434,14 +434,42 @@
         xmlhttp.open("GET","view_shortlist.php?sid="+id,false);
         xmlhttp.send(null);
         document.getElementById("shortlist_data").innerHTML=xmlhttp.responseText;
-    })
+        $('#viewShortlist').DataTable({
+            "pagingType": "full_numbers",
+            "lengthMenu": [
+            [10, 25, 50, -1],
+            [10, 25, 50, "All"]
+            ],
+            responsive: true,
+            language: {
+            search: "_INPUT_",
+            searchPlaceholder: "Search records",
+            }
+        });
+
+        var table = $('#viewShortlist').DataTable();
+    });
     $(document).on("click" , "button.StipendBtn" , function(){
         var id=$(this).val();
         var xmlhttp=new XMLHttpRequest();
         xmlhttp.open("GET","STIPEND_entry.php?sid="+id,false);
         xmlhttp.send(null);
-        document.getElementById("Update_stipend_data").innerHTML=xmlhttp.responseText;
-    })
+        document.getElementById("stipend_update").innerHTML=xmlhttp.responseText;
+        $('#update_stipend').DataTable({
+            "pagingType": "full_numbers",
+            "lengthMenu": [
+            [10, 25, 50, -1],
+            [10, 25, 50, "All"]
+            ],
+            responsive: true,
+            language: {
+            search: "_INPUT_",
+            searchPlaceholder: "Search records",
+            }
+        });
+
+        var table = $('#update_stipend').DataTable();
+    });
   </script>
   <script>
     function setFormValidation(id) {
