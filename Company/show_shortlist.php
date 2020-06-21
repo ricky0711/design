@@ -6,23 +6,47 @@
   $cid = $data["COMPANY_ID"];
   $cname= $data["COMPANY_NAME"];
 ?>
+    
+<script>
+	function isInputNumber(evt) {
+
+        var ch = String.fromCharCode(evt.which);
+
+        if (!(/[0-9]/.test(ch))) {
+            evt.preventDefault();
+        }
+
+    }
+</script>
+
       <div class="content">
         <div class="container-fluid">
           <div class="row">
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-primary card-header-icon">
+                 
                   <div class="card-icon">
                     <i class="material-icons">assignment</i>
                   </div>
                   <button class="btn btn-success btn-round pull-right btn-sm mt-2" data-toggle="modal" data-target="#noticeModal3">
                       <i class="material-icons mr-1">add_circle_outline</i>New
                     </button>
-                  <h4 class="card-title">ShortList</h4>
+                  <h4 class="card-title">ShortList</h4> 
                 </div>
                 <div class="card-body">
                   <div class="toolbar">
-                  
+                  <?php
+                    if(isset($_SESSION["errorforstipend"])){
+                  ?>
+                    <h4 class="card-title"><?php echo $_SESSION["errorforstipend"]; ?></h4>
+                  <?php 
+                  }else{
+                    ?>
+                    <h4 class="card-title"></h4>
+                  <?php 
+                  }
+                 ?>
                     <!--        Here you can write extra buttons/actions for the toolbar              -->
                   </div>
                   <div class="material-datatables">

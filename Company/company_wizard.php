@@ -6,7 +6,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -173,10 +172,28 @@
         }
 
     }
+
+    function isInputChar(evt) {
+
+        var ch = String.fromCharCode(evt.which);
+
+        if (!(/[A-Za-z]/.test(ch))) {
+            evt.preventDefault();
+        }
+
+    }
+
+    function isInputCharSpace(evt) {
+
+        var ch = String.fromCharCode(evt.which);
+
+        if (!(/^[a-zA-Z ]*$/.test(ch))) {
+            evt.preventDefault();
+        }
+
+    }
     </script>
-    <!--custom styles-->
     <link href="../Files/assets/css/main.css" rel="stylesheet">
-    <!-- Google Tag Manager -->
     <script>
     (function(w, d, s, l, i) {
         w[l] = w[l] || [];
@@ -204,21 +221,10 @@
     <!-- End Google Tag Manager (noscript) -->
 
     <div class="wrapper">
-
-        <!--=================================
-   preloader -->
-
-        <div id="pre-loader">
+    <div id="pre-loader">
             <img src="../Files/images/pre-loader/loader-01.svg" alt="">
         </div>
-
-        <!--=================================
-     preloader -->
-
-        <!--=================================
-     login-->
-
-        <section class="login-box-main height-100vh page-section-ptb"
+     <section class="login-box-main height-100vh page-section-ptb"
             style="background: url(../Files/images/login/06.jpg); background-repeat: no-repeat; background-attachment: fixed;">
             <div class="login-box-main-middle">
                 <div class="container">
@@ -235,9 +241,6 @@
                                         <div class="card-body">
                                             <form class="" action="#" method="post" enctype="multipart/form-data"
                                                 id="default">
-                                                
-
-                                                    <!-- <h5 class="mb-3">Step Title</h5> -->
                                                     <div class="form-group row">
                                                         <div
                                                             style="width: 125px;height: 125px; position: relative; overflow: hidden;border-radius: 50%;margin: auto auto">
@@ -248,13 +251,9 @@
                                                             <input type="file" class="form-control"
                                                                 placeholder="Company Logo" name="profileImage"
                                                                 id="profileImage" onchange="displayImage(this)"
-                                                                accept="image/*">
+                                                                accept="image/*" required>
                                                         </div>
                                                     </div>
-                                                    <!-- <div class="form-group row">
-                                                        <label class="btn btn-light col-4 offset-4" id="profileDisplay"
-                                                            onclick="triggerClick()">Choose A Logo</label>
-                                                    </div> -->
                                                     <div class="form-group row">
                                                         <label
                                                             class="col-sm-4 col-form-label col-form-label-sm">Comapany
@@ -270,9 +269,9 @@
                                                             class="col-sm-4 col-form-label col-form-label-sm">Comapany's
                                                             Website</label>
                                                         <div class="col-sm-8">
-                                                            <input type="text" name="cweb" maxlength="100"
+                                                            <input type="url" name="cweb" maxlength="100"
                                                                 class="form-control"
-                                                                placeholder="www.yourcompanywebsite.domains" required>
+                                                                placeholder="https: or http:/www.yourcompanywebsite.domains" required>
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
@@ -281,7 +280,8 @@
                                                             Year</label>
                                                         <div class="col-sm-8">
                                                             <input type="text" name="ryear"
-                                                                onkeypress="isInputNumber(event)" maxlength="4"
+                                                                onkeypress="isInputNumber(event)" minlength="4"
+                                                                maxlength="4"
                                                                 class="form-control" placeholder="Example: 1998"
                                                                 required>
                                                         </div>
@@ -343,23 +343,23 @@
                                                         <label class="col-sm-4 col-form-label col-form-label-sm">Package
                                                             Offering</label>
                                                         <div class="col-sm-4">
-                                                            <input type="text" onkeypress="isInputNumber(event)"
-                                                                class="form-control" name="minpack"
+                                                            <input type="text" onkeyup="packagecheck(); return false;" onkeypress="isInputNumber(event)"
+                                                                class="form-control" id="minval" minlength="5" name="minpack"
                                                                 placeholder="Min Package" required>
+                                                                <span id="packagemessage"></span>
                                                         </div>
                                                         <div class="col-sm-4">
-                                                            <input type="text" onkeypress="isInputNumber(event)"
-                                                                class="form-control" name="maxpack"
+                                                            <input type="text" onkeyup="packagecheck(); return false;" onkeypress="isInputNumber(event)"
+                                                                class="form-control" id="maxval" minlength="5" name="maxpack"
                                                                 placeholder="Max Package" required>
                                                         </div>
+                                                        
                                                     </div>
-                                               
-                                                
                                                     <div class="form-group row">
                                                         <label class="col-sm-4 col-form-label col-form-label-sm">HR
                                                             Name</label>
                                                         <div class="col-sm-8">
-                                                            <input type="text" maxlength="50" class="form-control"
+                                                            <input type="text" onkeypress="isInputCharSpace(event)" maxlength="50" class="form-control"
                                                                 name="hrname" placeholder="HR's Name" required>
                                                         </div>
                                                     </div>
@@ -368,7 +368,8 @@
                                                         <label class="col-sm-4 col-form-label col-form-label-sm">HR
                                                             Email-ID</label>
                                                         <div class="col-sm-8">
-                                                            <input type="email" class="form-control" name="hremail"
+                                                            <input type="email" patten=(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])
+                                                             class="form-control" name="hremail"
                                                                 placeholder="HR's Email-ID" required>
                                                         </div>
                                                     </div>
@@ -377,8 +378,9 @@
                                                             No.</label>
                                                         <div class="col-sm-8">
                                                             <input type="text" maxlength="10"
-                                                                onkeypress="isInputNumber(event)" class="form-control"
+                                                                onkeypress="isInputNumber(event)" id="mobile1" onkeyup="check1(); return false;" class="form-control"
                                                                 name="contactno" placeholder="Primary Contact" required>
+                                                                <span id="message1"></span>
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
@@ -386,9 +388,10 @@
                                                             No. (Alt)</label>
                                                         <div class="col-sm-8">
                                                             <input type="text" maxlength="10"
-                                                                onkeypress="isInputNumber(event)" class="form-control"
+                                                                onkeypress="isInputNumber(event)" id="mobile" onkeyup="check(); return false;" class="form-control"
                                                                 name="contactnoalt" placeholder="Alternate Contact"
                                                                 required>
+                                                                <span id="message"></span>
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
@@ -495,6 +498,63 @@
             }
             reader.readAsDataURL(e.files[0]);
         }
+    }
+
+    function check()
+    {
+        // alert("ff");
+        var pass1 = document.getElementById('mobile');
+        var message = document.getElementById('message');
+        var badColor = "#84BA3F";
+        if(mobile.value.length!=10){
+            // alert("ffrr");
+            message.style.color = badColor;
+            message.innerHTML = "required 10 digits, match requested format!"
+        }    
+        if(mobile.value.length=='10'){
+            message.style.color = badColor;
+            message.innerHTML = ""
+        }
+    }
+
+
+    function check1()
+    {
+        var pass1 = document.getElementById('mobile1');
+        var message = document.getElementById('message1');
+        var badColor = "#84BA3F";
+        if(mobile1.value.length!=10){
+            message.style.color = badColor;
+            message.innerHTML = "required 10 digits, match requested format!"
+        }    
+        if(mobile1.value.length=='10'){
+            message.style.color = badColor;
+            message.innerHTML = ""
+        }
+    }
+
+    
+    function packagecheck()
+    {
+        //alert("This");
+        var min = document.getElementById('minval');
+        var max = document.getElementById('maxval');
+        var message = document.getElementById('packagemessage');
+        var badColor = "#84BA3F";
+        if(parseInt(min.value) > parseInt(max.value)){
+            message.style.color = badColor;
+            message.innerHTML = "Min Package must be less than Max Package";
+        }else{
+            message.style.color = badColor;
+            message.innerHTML = "";
+        }    
+
+        if(parseInt(min.value) < 1){
+            // alert("This");
+            message.style.color = badColor;
+            message.innerHTML = "Min package could not be zero.";
+        }
+
     }
     </script>
 </body>

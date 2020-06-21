@@ -87,7 +87,7 @@
                                         <i class="material-icons">event</i>
                                         </span>
                                     </div>
-                                    <select class="form-control pl-2 col-10 btn btn-secondary btn-round" name="event" id="event" data-size="5"  onchange="event_bind()"  title="Select Passing Year">
+                                    <select class="form-control pl-2 col-10 btn btn-secondary btn-round" name="event" id="event" data-size="5"  title="Select Passing Year">
                                         <option disabled selected>Select Event</option>
                                     </select>
                                 </div>
