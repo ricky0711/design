@@ -1,120 +1,11 @@
 <?php 
+    ob_start();
     include 'header.php';
+    $data=$_SESSION['Userdata'];
 ?>
             <div class="content">
                 <div class="content">
                     <div class="container-fluid">
-                        <!-- <div class="row">
-                            <div class="col-md-12">
-                                <div class="card ">
-                                    <div class="card-header card-header-success card-header-icon">
-                                        <div class="card-icon">
-                                            <i class="material-icons"></i>
-                                        </div>
-                                        <h4 class="card-title">Global Sales by Top Locations</h4>
-                                    </div>
-                                    <div class="card-body ">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="table-responsive table-sales">
-                                                    <table class="table">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>
-                                                                    <div class="flag">
-                                                                        <img src="../../Files/assets2/img/flags/US.png">
-                                                                    </div>
-                                                                </td>
-                                                                <td>USA</td>
-                                                                <td class="text-right">
-                                                                    2.920
-                                                                </td>
-                                                                <td class="text-right">
-                                                                    53.23%
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    <div class="flag">
-                                                                        <img src="../../Files/assets2/img/flags/DE.png">
-                                                                    </div>
-                                                                </td>
-                                                                <td>Germany</td>
-                                                                <td class="text-right">
-                                                                    1.300
-                                                                </td>
-                                                                <td class="text-right">
-                                                                    20.43%
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    <div class="flag">
-                                                                        <img src="../../Files/assets2/img/flags/AU.png">
-                                                                    </div>
-                                                                </td>
-                                                                <td>Australia</td>
-                                                                <td class="text-right">
-                                                                    760
-                                                                </td>
-                                                                <td class="text-right">
-                                                                    10.35%
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    <div class="flag">
-                                                                        <img src="../../Files/assets2/img/flags/GB.png">
-                                                                    </div>
-                                                                </td>
-                                                                <td>United Kingdom</td>
-                                                                <td class="text-right">
-                                                                    690
-                                                                </td>
-                                                                <td class="text-right">
-                                                                    7.87%
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    <div class="flag">
-                                                                        <img src="../../Files/assets2/img/flags/RO.png">
-                                                                    </div>
-                                                                </td>
-                                                                <td>Romania</td>
-                                                                <td class="text-right">
-                                                                    600
-                                                                </td>
-                                                                <td class="text-right">
-                                                                    5.94%
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    <div class="flag">
-                                                                        <img src="../../Files/assets2/img/flags/BR.png">
-                                                                    </div>
-                                                                </td>
-                                                                <td>Brasil</td>
-                                                                <td class="text-right">
-                                                                    550
-                                                                </td>
-                                                                <td class="text-right">
-                                                                    4.34%
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 ml-auto mr-auto">
-                                                <div id="worldMap" style="height: 300px;"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
                         <div class="row">
                             <div class="col-lg-3 col-md-6 col-sm-6">
                                 <div class="card card-stats">
@@ -182,215 +73,204 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- <div class="alert alert-info alert-with-icon" data-notify="container">
-                            <i class="material-icons" data-notify="icon">notifications</i>
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                              <i class="material-icons">close</i>
-                            </button>
-                            <span data-notify="icon" class="now-ui-icons ui-1_bell-53"></span>
-                            <span data-notify="message">This is a notification with close button and icon and have many lines. You can see that the icon and the close button are always vertically aligned. This is a beautiful notification. So you don't have to worry about the style.</span>
-                        </div> -->
                         <div class="row">
-                            <div class="col-md-4">
-                                <div class="card card-chart">
-                                    <div class="card-header card-header-rose" data-header-animation="true">
-                                        <div class="ct-chart" id="websiteViewsChart"></div>
+                            <div class="col-12">
+                                <div class="card card-stats">
+                                    <div class="card-header card-header-primary card-header-icon">
+                                        <div class="card-icon">
+                                            <i class="material-icons">notifications</i>
+                                        </div>
+                                        
+                                        <h3 class="font-weight-bold text-dark">Notifications</h3>
+                                       <!-- <h3 class="card-title">184</h3> -->
                                     </div>
                                     <div class="card-body">
-                                        <div class="card-actions">
-                                            <button type="button" class="btn btn-danger btn-link fix-broken-card">
-                                                <i class="material-icons">build</i> Fix Header!
-                                            </button>
-                                            <button type="button" class="btn btn-info btn-link" rel="tooltip" data-placement="bottom" title="Refresh">
-                                                <i class="material-icons">refresh</i>
-                                            </button>
-                                            <button type="button" class="btn btn-default btn-link" rel="tooltip" data-placement="bottom" title="Change Date">
-                                                <i class="material-icons">edit</i>
-                                            </button>
-                                        </div>
-                                        <h4 class="card-title">Website Views</h4>
-                                        <p class="card-category">Last Campaign Performance</p>
+                                    <?php
+                                    $count=0;
+                                    include('../../Files/PDO/dbcon.php');
+                                    $id=$_SESSION['lid'];
+                                    $type='CH';
+                                    $stmt=$con->prepare("CALL GET_ALL_NOTIFICATION(:id,:type);");
+                                    $stmt->bindparam(":id",$id);
+                                    $stmt->bindparam(":type",$type);
+                                    $stmt->execute();
+                                    while($data = $stmt->fetch(PDO::FETCH_ASSOC))
+                                    {
+                                    $id = $data['NOTIFICATION_EVENT_ID'];
+                                    if($count==0)
+                                    {
+                                        $x=7;
+                                        $stmt1=$con->prepare(" CALL GET_EVENT_NAME(:id);");
+                                        $stmt1->bindparam(":id",$x);
+                                        $stmt1->execute();
+                                        $uname=$stmt1->fetch(PDO::FETCH_ASSOC);
+                                        $count=1;
+                                        // echo $uname;
+                                    }
+                                    $stmt1=$con->prepare(" CALL GET_EVENT_NAME(:id);");
+                                    $stmt1->bindparam(":id",$id);
+                                    $stmt1->execute();
+                                    $uname=$stmt1->fetch(PDO::FETCH_ASSOC); 
+                                    if ($data['NOTIFICATION_TYPE'] == 'MEVNT' || $data['NOTIFICATION_TYPE'] == 'AEVNT') {
+                                        ?>
+                                            <div class="alert alert-primary alert-with-icon" data-notify="container">
+                                                <i class="material-icons" data-notify="icon">notifications</i>
+                                                    <!-- <button type="button" class="close" aria-label="Close">
+                                                        <i class="material-icons">close</i>
+                                                    </button> -->
+                                                    <p class="pull-right mr-5"><?php echo $data['NOTIFICATION_TIME_STAMP']; ?> </p>
+                                                <span data-notify="icon" class="now-ui-icons ui-1_bell-53"></span>
+                                                <h4  class="pull-left ml-2 font-weight-bold"><?php echo $uname['EVENT_NAME']; ?></h4>
+                                                <p class="pull-left font-weight-bold mr-5">Hey There! A new event is created please review the event and coordinate with other Committee Members. Incase of query under and any situation including change in date, time or venue contact respective Committee Member <br></p>
+                                                <!-- <span data-notify="message">This is a notification with close button and icon and have many lines. You can see that the icon and the close button are always vertically aligned. This is a beautiful notification. So you don't have to worry about the style.</span> -->
+                                                <a href="remove_notification.php?nid=<?php echo $data['NOTIFICATION_ID']; ?>">
+                                                    <button class="btn btn-secondary btn-sm btn-round mr-5">
+                                                        <i class="material-icons">close</i> Remove
+                                                    </button>
+                                                </a>   
+                                                <a href="view_event_detail.php?eid=<?php echo $data['NOTIFICATION_EVENT_ID']; ?>"> 
+                                                    <button class="btn btn-secondary btn-sm btn-round pull-left mr-2">
+                                                        <i class="material-icons">visibility</i> View
+                                                    </button>
+                                                </a>
+
                                     </div>
-                                    <div class="card-footer">
-                                        <div class="stats">
-                                            <i class="material-icons">access_time</i> campaign sent 2 days ago
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card card-chart">
-                                    <div class="card-header card-header-success" data-header-animation="true">
-                                        <div class="ct-chart" id="dailySalesChart"></div>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="card-actions">
-                                            <button type="button" class="btn btn-danger btn-link fix-broken-card">
-                                                <i class="material-icons">build</i> Fix Header!
-                                            </button>
-                                            <button type="button" class="btn btn-info btn-link" rel="tooltip" data-placement="bottom" title="Refresh">
-                                                <i class="material-icons">refresh</i>
-                                            </button>
-                                            <button type="button" class="btn btn-default btn-link" rel="tooltip" data-placement="bottom" title="Change Date">
-                                                <i class="material-icons">edit</i>
-                                            </button>
-                                        </div>
-                                        <h4 class="card-title">Daily Sales</h4>
-                                        <p class="card-category">
-                                            <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today sales.</p>
-                                    </div>
-                                    <div class="card-footer">
-                                        <div class="stats">
-                                            <i class="material-icons">access_time</i> updated 4 minutes ago
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card card-chart">
-                                    <div class="card-header card-header-info" data-header-animation="true">
-                                        <div class="ct-chart" id="completedTasksChart"></div>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="card-actions">
-                                            <button type="button" class="btn btn-danger btn-link fix-broken-card">
-                                                <i class="material-icons">build</i> Fix Header!
-                                            </button>
-                                            <button type="button" class="btn btn-info btn-link" rel="tooltip" data-placement="bottom" title="Refresh">
-                                                <i class="material-icons">refresh</i>
-                                            </button>
-                                            <button type="button" class="btn btn-default btn-link" rel="tooltip" data-placement="bottom" title="Change Date">
-                                                <i class="material-icons">edit</i>
-                                            </button>
-                                        </div>
-                                        <h4 class="card-title">Completed Tasks</h4>
-                                        <p class="card-category">Last Campaign Performance</p>
-                                    </div>
-                                    <div class="card-footer">
-                                        <div class="stats">
-                                            <i class="material-icons">access_time</i> campaign sent 2 days ago
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <h3>Manage Listings</h3>
-                        <br>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="card card-product">
-                                    <div class="card-header card-header-image" data-header-animation="true">
-                                        <a href="#pablo">
-                                            <img class="img" src="../../Files/assets2/img/card-2.jpg">
-                                        </a>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="card-actions text-center">
-                                            <button type="button" class="btn btn-danger btn-link fix-broken-card">
-                                                <i class="material-icons">build</i> Fix Header!
-                                            </button>
-                                            <button type="button" class="btn btn-default btn-link" rel="tooltip" data-placement="bottom" title="View">
-                                                <i class="material-icons">art_track</i>
-                                            </button>
-                                            <button type="button" class="btn btn-success btn-link" rel="tooltip" data-placement="bottom" title="Edit">
-                                                <i class="material-icons">edit</i>
-                                            </button>
-                                            <button type="button" class="btn btn-danger btn-link" rel="tooltip" data-placement="bottom" title="Remove">
-                                                <i class="material-icons">close</i>
-                                            </button>
-                                        </div>
-                                        <h4 class="card-title">
-                                            <a href="#pablo">Cozy 5 Stars Apartment</a>
-                                        </h4>
-                                        <div class="card-description">
-                                            The place is close to Barceloneta Beach and bus stop just 2 min by walk and near to "Naviglio" where you can enjoy the main night life in Barcelona.
-                                        </div>
-                                    </div>
-                                    <div class="card-footer">
-                                        <div class="price">
-                                            <h4>$899/night</h4>
-                                        </div>
-                                        <div class="stats">
-                                            <p class="card-category"><i class="material-icons">place</i> Barcelona, Spain</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card card-product">
-                                    <div class="card-header card-header-image" data-header-animation="true">
-                                        <a href="#pablo">
-                                            <img class="img" src="../../Files/assets2/img/card-3.jpg">
-                                        </a>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="card-actions text-center">
-                                            <button type="button" class="btn btn-danger btn-link fix-broken-card">
-                                                <i class="material-icons">build</i> Fix Header!
-                                            </button>
-                                            <button type="button" class="btn btn-default btn-link" rel="tooltip" data-placement="bottom" title="View">
-                                                <i class="material-icons">art_track</i>
-                                            </button>
-                                            <button type="button" class="btn btn-success btn-link" rel="tooltip" data-placement="bottom" title="Edit">
-                                                <i class="material-icons">edit</i>
-                                            </button>
-                                            <button type="button" class="btn btn-danger btn-link" rel="tooltip" data-placement="bottom" title="Remove">
-                                                <i class="material-icons">close</i>
-                                            </button>
-                                        </div>
-                                        <h4 class="card-title">
-                                            <a href="#pablo">Office Studio</a>
-                                        </h4>
-                                        <div class="card-description">
-                                            The place is close to Metro Station and bus stop just 2 min by walk and near to "Naviglio" where you can enjoy the night life in London, UK.
-                                        </div>
-                                    </div>
-                                    <div class="card-footer">
-                                        <div class="price">
-                                            <h4>$1.119/night</h4>
-                                        </div>
-                                        <div class="stats">
-                                            <p class="card-category"><i class="material-icons">place</i> London, UK</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card card-product">
-                                    <div class="card-header card-header-image" data-header-animation="true">
-                                        <a href="#pablo">
-                                            <img class="img" src="../../Files/assets2/img/card-1.jpg">
-                                        </a>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="card-actions text-center">
-                                            <button type="button" class="btn btn-danger btn-link fix-broken-card">
-                                                <i class="material-icons">build</i> Fix Header!
-                                            </button>
-                                            <button type="button" class="btn btn-default btn-link" rel="tooltip" data-placement="bottom" title="View">
-                                                <i class="material-icons">art_track</i>
-                                            </button>
-                                            <button type="button" class="btn btn-success btn-link" rel="tooltip" data-placement="bottom" title="Edit">
-                                                <i class="material-icons">edit</i>
-                                            </button>
-                                            <button type="button" class="btn btn-danger btn-link" rel="tooltip" data-placement="bottom" title="Remove">
-                                                <i class="material-icons">close</i>
-                                            </button>
-                                        </div>
-                                        <h4 class="card-title">
-                                            <a href="#pablo">Beautiful Castle</a>
-                                        </h4>
-                                        <div class="card-description">
-                                            The place is close to Metro Station and bus stop just 2 min by walk and near to "Naviglio" where you can enjoy the main night life in Milan.
-                                        </div>
-                                    </div>
-                                    <div class="card-footer">
-                                        <div class="price">
-                                            <h4>$459/night</h4>
-                                        </div>
-                                        <div class="stats">
-                                            <p class="card-category"><i class="material-icons">place</i> Milan, Italy</p>
-                                        </div>
+                                        <?php
+                                    }
+                                    elseif ($data['NOTIFICATION_TYPE'] == 'CSL') {
+                                        $select_list_id= $data['NOTIFICATION_EVENT_ID'];
+                                        $stmt4=$con->prepare(" CALL GET_SELECTION_LIST_DATA(:selection_list_id);");
+                                        $stmt4->bindparam(":selection_list_id",$select_list_id);
+                                        $stmt4->execute();
+                                        $stmt4=$con->prepare(" CALL GET_SELECTION_LIST_DATA(:selection_list_id);");
+                                        $stmt4->bindparam(":selection_list_id",$select_list_id);
+                                        $stmt4->execute();
+                                        $companydata=$stmt4->fetch(PDO::FETCH_ASSOC); 
+                                        $cmpny_name=$companydata["COMPANY_NAME"];
+                                        ?>
+                                            <div class="alert alert-success alert-with-icon" data-notify="container">
+                                                <i class="material-icons" data-notify="icon">notifications</i>
+                                                    <!-- <button type="button" class="close" aria-label="Close">
+                                                        <i class="material-icons">close</i>
+                                                    </button> -->
+                                                    <p class="pull-right mr-5"><?php echo $data['NOTIFICATION_TIME_STAMP']; ?></p>
+                                                <span data-notify="icon" class="now-ui-icons ui-1_bell-53"></span>
+                                                <h4  class="pull-left ml-2 font-weight-bold"><?php echo $cmpny_name; ?></h4>
+                                                <p class="pull-left font-weight-bold mr-5">Hey There! <?php echo $cmpny_name; ?> just sent you a list of there shortlisted students for training alogin with stipend offering for <?php echo $companydata['STUDENTS']; ?> student(s), check your mail as well. Please review the list and proceed accordingly</p>
+                                                <!-- <span data-notify="message">This is a notification with close button and icon and have many lines. You can see that the icon and the close button are always vertically aligned. This is a beautiful notification. So you don't have to worry about the style.</span> -->
+                                                <a href="remove_notification.php?nid=<?php echo $data['NOTIFICATION_ID']; ?>">
+                                                    <button class="btn btn-secondary btn-sm btn-round mr-5" type="button">
+                                                        <i class="material-icons">close</i> Remove
+                                                    </button>
+                                                </a>
+                                                <a href="view_company_shortlist.php?sid=<?php echo $data['NOTIFICATION_EVENT_ID']; ?>">
+                                                    <button class="btn btn-secondary btn-sm btn-round pull-left mr-2" type="button">
+                                                        <i class="material-icons">visibility</i> View
+                                                    </button>
+                                                </a>
+                                            </div>
+                                        <?php
+                                    }elseif ($data['NOTIFICATION_TYPE'] == 'CPL') {
+                                        $cid=$data['NOTIFICATION_SENDER_ID'];
+                                        $type='CP';
+                                        $stmt5=$con->prepare(" CALL GET_USERNAME(:cid, :type);");
+                                        $stmt5->bindparam(":cid",$cid);
+                                        $stmt5->bindparam(":type",$type);
+                                        $stmt5->execute();
+                                        $stmt5=$con->prepare(" CALL GET_USERNAME(:cid, :type);");
+                                        $stmt5->bindparam(":cid",$cid);
+                                        $stmt5->bindparam(":type",$type);
+                                        $stmt5->execute();
+                                        $companydata=$stmt5->fetch(PDO::FETCH_ASSOC); 
+                                        $cmpny_name=$companydata["uname"];
+                                        ?>
+                                            <div class="alert alert-success alert-with-icon" data-notify="container">
+                                                <i class="material-icons" data-notify="icon">notifications</i>
+                                                    <!-- <button type="button" class="close" aria-label="Close">
+                                                        <i class="material-icons">close</i>
+                                                    </button> -->
+                                                    <p class="pull-right mr-5"><?php echo $data['NOTIFICATION_TIME_STAMP']; ?></p>
+                                                <span data-notify="icon" class="now-ui-icons ui-1_bell-53"></span>
+                                                <h4  class="pull-left ml-2 font-weight-bold"><?php echo $cmpny_name; ?></h4>
+                                                <p class="pull-left font-weight-bold mr-5">Hey There! <?php echo $cmpny_name; ?> just sent you a list of there shortlisted students for placement alogin with package offering, check your mail as well. Please review the list and proceed accordingly.</p>
+                                                <!-- <span data-notify="message">This is a notification with close button and icon and have many lines. You can see that the icon and the close button are always vertically aligned. This is a beautiful notification. So you don't have to worry about the style.</span> -->
+                                                <a href="remove_notification.php?nid=<?php echo $data['NOTIFICATION_ID']; ?>">
+                                                    <button class="btn btn-secondary btn-sm btn-round mr-5" type="button">
+                                                        <i class="material-icons">close</i> Remove
+                                                    </button>
+                                                </a>
+                                                <a href="view_company_placement_list.php?cid=<?php echo $data['NOTIFICATION_SENDER_ID']; ?>">
+                                                    <button class="btn btn-secondary btn-sm btn-round pull-left mr-2" type="button">
+                                                        <i class="material-icons">visibility</i> View
+                                                    </button>
+                                                </a>
+                                            </div>
+                                        <?php
+                                    }elseif ($data['NOTIFICATION_TYPE'] == 'TRMNT') {
+                                        $cid=$data['NOTIFICATION_SENDER_ID'];
+                                        $type='CP';
+                                        $stmt5=$con->prepare(" CALL GET_USERNAME(:cid, :type);");
+                                        $stmt5->bindparam(":cid",$cid);
+                                        $stmt5->bindparam(":type",$type);
+                                        $stmt5->execute();
+                                        $stmt5=$con->prepare(" CALL GET_USERNAME(:cid, :type);");
+                                        $stmt5->bindparam(":cid",$cid);
+                                        $stmt5->bindparam(":type",$type);
+                                        $stmt5->execute();
+                                        $companydata=$stmt5->fetch(PDO::FETCH_ASSOC); 
+                                        $cmpny_name=$companydata["uname"];
+                                        ?>
+                                            <div class="alert alert-danger alert-with-icon" data-notify="container">
+                                                <i class="material-icons" data-notify="icon">notifications</i>
+                                                    <p class="pull-right mr-5"><?php echo $data['NOTIFICATION_TIME_STAMP']; ?></p>
+                                                <span data-notify="icon" class="now-ui-icons ui-1_bell-53"></span>
+                                                <h4  class="pull-left ml-2 font-weight-bold"><?php echo $cmpny_name; ?></h4>
+                                                <p class="pull-left font-weight-bold mr-5">Ola! <?php echo $data['NOTIFICATION_DESCRPTION']; ?> by <?php echo $cmpny_name; ?> when the student is under training at <?php echo $cmpny_name; ?>. Please make sure everything is alright with all the associated parties</p>
+                                                <a href="remove_notification.php?nid=<?php echo $data['NOTIFICATION_ID']; ?>">
+                                                    <button class="btn btn-secondary btn-sm btn-round mr-5">
+                                                        <i class="material-icons">close</i> Remove
+                                                    </button>
+                                                </a>
+                                            </div>
+                                        <?php
+                                    }elseif ($data['NOTIFICATION_TYPE'] == 'TRREQ') {
+                                        $sid=$data['NOTIFICATION_SENDER_ID'];
+                                        $type='ST';
+                                        $stmt5=$con->prepare(" CALL GET_USERNAME(:sid, :type);");
+                                        $stmt5->bindparam(":sid",$sid);
+                                        $stmt5->bindparam(":type",$type);
+                                        $stmt5->execute();
+                                        $stmt5=$con->prepare(" CALL GET_USERNAME(:sid, :type);");
+                                        $stmt5->bindparam(":sid",$sid);
+                                        $stmt5->bindparam(":type",$type);
+                                        $stmt5->execute();
+                                        $companydata=$stmt5->fetch(PDO::FETCH_ASSOC); 
+                                        $cmpny_name=$companydata["uname"];
+                                        ?>
+                                            <div class="alert alert-warning alert-with-icon" data-notify="container">
+                                                <i class="material-icons" data-notify="icon">notifications</i>
+                                                    <!-- <button type="button" class="close" aria-label="Close">
+                                                        <i class="material-icons">close</i>
+                                                    </button> -->
+                                                    <p class="pull-right mr-5"><?php echo $data['NOTIFICATION_TIME_STAMP']; ?></p>
+                                                <span data-notify="icon" class="now-ui-icons ui-1_bell-53"></span>
+                                                <h4  class="pull-left ml-2 font-weight-bold"><?php echo $uname; ?></h4>
+                                                <p class="pull-left font-weight-bold mr-5">A Student <?php echo $uname; ?> is requesting for termination from the training and placement process under the following reason: <?php echo $data['NOTIFICATION_DESCRPTION']; ?>. Please do coordinate with the student before approving</p>
+                                                <a href="approve_termination.php?sid=<?php echo $data['NOTIFICATION_SENDER_ID']; ?>&nid=<?php echo $data['NOTIFICATION_ID']; ?>">
+                                                    <button class="btn btn-secondary btn-sm btn-round" type="button">
+                                                        <i class="material-icons">check</i> Accept
+                                                    </button>
+                                                </a>
+                                                <a href="remove_termination.php?nid=<?php echo $data['NOTIFICATION_ID']; ?>&sid=<?php echo $data['NOTIFICATION_SENDER_ID']; ?>">
+                                                    <button class="btn btn-secondary btn-sm btn-round mr-5" type="button">
+                                                        <i class="material-icons">close</i> Deny
+                                                    </button>
+                                                </a>
+                                            </div>
+                                        <?php
+                                    }
+                                    }
+                                    ?>
                                     </div>
                                 </div>
                             </div>
