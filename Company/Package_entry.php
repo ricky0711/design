@@ -46,60 +46,53 @@
 
     }
 	</script>
-<div class="content-wrapper header-info">
-      <!-- widgets -->
-      <div class="mb-30">
-           <div class="card h-100 ">
-           <div class="card-body h-100">
-             <h4 class="card-title">Student Package Enter</h4>
-             <!-- action group -->
-             <div class="scrollbar">
-              <ul class="list-unstyled">
-                <li>
-                  <div class="media">
-                    <div class="media-body mb-2">
-                    <form action="#" method="POST">
-                      <?php
-                        $id_count=sizeof($_SESSION['req']);
-                        $ids=$_SESSION['req'];
-                        // print_r($ids);
-                        $i=1;
-                        foreach ($ids as $a) {
-                          if ($i<$id_count) {
-                            $stmt=$con->prepare("CALL GET_STUDENT_DETAILS(:sid)");
-                            $stmt->bindParam(":sid",$a);
-                            $stmt->execute();
-                            $stmt=$con->prepare("CALL GET_STUDENT_DETAILS(:sid)");
-                            $stmt->bindParam(":sid",$a);
-                            $stmt->execute();
-                            $x=$stmt->fetch(PDO::FETCH_ASSOC);
-                            ?>
-                              <div class="row">
-                                <label for="" class="m-2 mt-3 col-2"><?php echo $x['STUDENT_ENROLLMENT_NUMBER']; ?></label>
-                                <label for="" class="m-2 mt-3 col-2"><?php echo $x['STUDENT_FIRST_NAME']." ".$x['STUDENT_LAST_NAME']; ?></label>
-                                <input type="text" maxlength="10" onkeypress="isInputNumber(event)" name="<?php echo $x['STUDENT_ID']; ?>" class="col-6 m-2 form-control" required>
-                              </div>
-                            <?php 
-                          }
-                          $i++;
-                        }
-                      ?>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="media">
-                    <div class="media-body mb-2">
-                      <input type="submit" class="button button-border x-small" value="Submit" name="Submit">
-                    </div>
-                  </div>
-                </li>
-                </form>
-              </ul>
-             </div>
+
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-primary card-header-icon">
+            
+            <div class="card-icon">
+              <i class="material-icons">assignment</i>
             </div>
+              <h4 class="card-title">Enter Student's Package</h4> 
           </div>
-        </div>
+          <div class="card-body">
+              <form action="#" method="POST">
+                <?php
+                  $id_count=sizeof($_SESSION['req']);
+                  $ids=$_SESSION['req'];
+                  // print_r($ids);
+                  $i=1;
+                  foreach ($ids as $a) {
+                    if ($i<$id_count) {
+                      $stmt=$con->prepare("CALL GET_STUDENT_DETAILS(:sid)");
+                      $stmt->bindParam(":sid",$a);
+                      $stmt->execute();
+                      $stmt=$con->prepare("CALL GET_STUDENT_DETAILS(:sid)");
+                      $stmt->bindParam(":sid",$a);
+                      $stmt->execute();
+                      $x=$stmt->fetch(PDO::FETCH_ASSOC);
+                      ?>
+                        <div class="row">
+                          <label for="" class="m-2 mt-3 col-2"><?php echo $x['STUDENT_ENROLLMENT_NUMBER']; ?></label>
+                          <label for="" class="m-2 mt-3 col-2"><?php echo $x['STUDENT_FIRST_NAME']." ".$x['STUDENT_LAST_NAME']; ?></label>
+                          <input type="text" maxlength="10" onkeypress="isInputNumber(event)" name="<?php echo $x['STUDENT_ID']; ?>" class="col-6 m-2 form-control" required>
+                        </div>
+                      <?php 
+                    }
+                    $i++;
+                  }
+                ?>
+                <input type="submit" class="btn btn-success btn-round" value="Submit" name="Submit">
+              </form>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
 <?php 
 	include('footer.php');
 ?>
