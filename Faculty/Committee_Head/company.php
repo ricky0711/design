@@ -69,14 +69,12 @@
                                 <table id="company_list" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
                                     <thead>
                                         <tr>
-                                            <th">Name</th>
+                                            <th>Name</th>
                                             <th>Email</th>
                                             <th>Phone No.</th>
                                             <th>Contact Person</th>
-                                            <th>CP Email</th>
                                             <th>CP Phone No.</th>
-                                            <th>Website</th>
-                                            <th class="disabled-sorting pull-right">Actions</th>
+                                            <th class="disabled-sorting text-right">Actions</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -85,10 +83,8 @@
                                             <th>Email</th>
                                             <th>Phone No.</th>
                                             <th>Contact Person</th>
-                                            <th>CP Email</th>
                                             <th>CP Phone No.</th>
-                                            <th>Website</th>
-                                            <th class="disabled-sorting pull-right">Actions</th>
+                                            <th class="disabled-sorting text-right">Actions</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -98,10 +94,8 @@
                                             <td><?php echo $data['COMPANY_EMAIL']; ?></td>
                                             <td><?php echo $data['COMPANY_PHONE_NUMBER_1']; ?></td>
                                             <td><?php echo $data['COMPANY_HR_NAME']; ?></td>
-                                            <td><?php echo $data['COMPANY_HR_EMAIL']; ?></td>
                                             <td><?php echo $data['COMPANY_PHONE_NUMBER_2']; ?></td>
-                                            <td><?php echo $data['COMPANY_WEBSITE']; ?></td>
-                                            <td class="pull-right text-nowrap"><a href="company_profile.php?cid=<?php echo $data['COMPANY_ID'] ?>" class="btn btn-link btn-info btn-just-icon " rel="tooltip" title="View Company Profile"><i class="material-icons">visibility</i></a>
+                                            <td class="text-right"><a href="company_profile.php?cid=<?php echo $data['COMPANY_ID'] ?>" class="btn btn-link btn-info btn-just-icon " rel="tooltip" title="View Company Profile"><i class="material-icons">visibility</i></a>
                                             <a href="company_deactivate.php?cid=<?php echo $data['COMPANY_ID'] ?>" class="btn btn-link btn-danger btn-just-icon " rel="tooltip" title="Deactivate Company"><i class="material-icons">person_remove</i></a></td>
                                         </tr>
                                         <?php } 
@@ -139,10 +133,8 @@
                                         <th class="text-nowrap">Email</th>
                                         <th class="text-nowrap">Phone No.</th>
                                         <th class="text-nowrap">Contact Person</th>
-                                        <th class="text-nowrap">CP Email</th>
                                         <th class="text-nowrap">CP Phone No.</th>
-                                        <th class="text-nowrap">Website</th>
-                                        <th class="disabled-sorting pull-right">Actions</th>
+                                        <th class="disabled-sorting text-right">Actions</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -151,9 +143,7 @@
                                         <th>Email</th>
                                         <th>Phone No.</th>
                                         <th>Contact Person</th>
-                                        <th>CP Email</th>
                                         <th>CP Phone No.</th>
-                                        <th>Website</th>
                                         <th>Actions</th>
                                         </tr>
                                     </tfoot>
@@ -164,10 +154,8 @@
                                         <td ><?php echo $data['COMPANY_EMAIL']; ?></td>
                                         <td ><?php echo $data['COMPANY_PHONE_NUMBER_1']; ?></td>
                                         <td ><?php echo $data['COMPANY_HR_NAME']; ?></td>
-                                        <td ><?php echo $data['COMPANY_HR_EMAIL']; ?></td>
                                         <td ><?php echo $data['COMPANY_PHONE_NUMBER_2']; ?></td>
-                                        <td ><?php echo $data['COMPANY_WEBSITE']; ?></td>
-                                        <td class="pull-right"><a href="company_profile.php?cid=<?php echo $data['COMPANY_ID'] ?>" class="btn btn-link btn-info btn-just-icon " rel="tooltip" title="View Company Profile"><i class="material-icons">visibility</i></a>
+                                        <td class="text-right"><a href="company_profile.php?cid=<?php echo $data['COMPANY_ID'] ?>" class="btn btn-link btn-info btn-just-icon " rel="tooltip" title="View Company Profile"><i class="material-icons">visibility</i></a>
                                             <a href="restore_company.php?cid=<?php echo $data['COMPANY_ID'] ?>" class="btn btn-link btn-success btn-just-icon " rel="tooltip" title="Restore Company"><i class="material-icons">restore_from_trash</i></a></td>
                                         </tr>
                                         <?php } ?>
@@ -206,7 +194,7 @@
                                         <td>Invitation List</td>
                                         <td>Created by</td>
                                         <td>Date of Creation</td>
-                                        <th class="disabled-sorting">Actions</th>
+                                        <th class="disabled-sorting text-right">Actions</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -223,7 +211,7 @@
                                         <td><?php echo $data['BROADCAST_LIST_NAME']; ?></td>
                                         <td><?php echo $data['FACULTY_FIRST_NAME']." ".$data['FACULTY_LAST_NAME']; ?></td>
                                         <td><?php echo $data['BROADCAST_LIST_DATE']; ?></td>
-                                        <td><a href="view_list.php?ilid=<?php echo $data['BROADCAST_LIST_ID'] ?>" class="btn btn-link btn-info btn-just-icon " rel="tooltip" title="View Broadcast List"><i class="material-icons">visibility</i></a>
+                                        <td class="text-right"><a href="view_list.php?ilid=<?php echo $data['BROADCAST_LIST_ID'] ?>" class="btn btn-link btn-info btn-just-icon " rel="tooltip" title="View Broadcast List"><i class="material-icons">visibility</i></a>
                                             <a href="add_company_list.php?ilid=<?php echo $data['BROADCAST_LIST_ID'] ?>" class="btn btn-link btn-success btn-just-icon " rel="tooltip" title="Add Companies to the List"><i class="material-icons">add</i></a>
                                             <a href="delete_list.php?ilid=<?php echo $data['BROADCAST_LIST_ID'] ?>" class="btn btn-link btn-danger btn-just-icon " rel="tooltip" title="Delete Broadcast List"><i class="material-icons">delete_sweep</i></a></td>
                                         </tr>
@@ -339,9 +327,7 @@
                                         <th>Email</th>
                                         <th>Phone No.</th>
                                         <th>Contact Person</th>
-                                        <th>CP Email</th>
                                         <th>CP Phone No.</th>
-                                        <th>Website</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -351,9 +337,7 @@
                                         <th>Email</th>
                                         <th>Phone No.</th>
                                         <th>Contact Person</th>
-                                        <th>CP Email</th>
                                         <th>CP Phone No.</th>
-                                        <th>Website</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -386,9 +370,7 @@
                                     <td><?php echo $data['COMPANY_EMAIL']; ?></td>
                                     <td><?php echo $data['COMPANY_PHONE_NUMBER_1']; ?></td>
                                     <td><?php echo $data['COMPANY_HR_NAME']; ?></td>
-                                    <td><?php echo $data['COMPANY_HR_EMAIL']; ?></td>
                                     <td><?php echo $data['COMPANY_PHONE_NUMBER_2']; ?></td>
-                                    <td><?php echo $data['COMPANY_WEBSITE']; ?></td>
 
                                 </tr>
                                 <?php
@@ -405,9 +387,7 @@
                                     <td><?php echo $data['COMPANY_EMAIL']; ?></td>
                                     <td><?php echo $data['COMPANY_PHONE_NUMBER_1']; ?></td>
                                     <td><?php echo $data['COMPANY_HR_NAME']; ?></td>
-                                    <td><?php echo $data['COMPANY_HR_EMAIL']; ?></td>
                                     <td><?php echo $data['COMPANY_PHONE_NUMBER_2']; ?></td>
-                                    <td><?php echo $data['COMPANY_WEBSITE']; ?></td>
                                 </tr>
                                 <?php
                                 $c+=1;
@@ -547,29 +527,29 @@
         </div>
     </div>
 </div>
-<form action="#" method="post">
-          <div class="modal fade" id="noticeModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <form action="#" method="post">
+        <div class="modal fade" id="noticeModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
-              <div class="modal-content" >
+            <div class="modal-content" >
                 <div class="modal-header">
-                  <h5 class="modal-title" id="myModalLabel">Create New ShortList</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                <h5 class="modal-title" id="myModalLabel">Create New ShortList</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                     <i class="material-icons">close</i>
-                  </button>
+                </button>
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                      <label for="title" class="bmd-label-floating">Shortlist Title</label>
-                      <input type="text" name="ilname" class="form-control">
+                    <label for="title" class="bmd-label-floating">Shortlist Title</label>
+                    <input type="text" name="ilname" class="form-control">
                     </div>
                 </div>
                 <div class="modal-footer justify-content-center">
-                  <input type="submit" name="new_broadcast" class="btn btn-success btn-round" value="Create">
+                <input type="submit" name="new_broadcast" class="btn btn-success btn-round" value="Create">
                 </div>
-              </div>
             </div>
-          </div> 
-        </form> 
+            </div>
+        </div> 
+    </form> 
 
         <script type="text/javascript">	
 		function get_event(){
@@ -586,6 +566,19 @@
             xmlhttp.send(null);
             // alert(xmlhttp.responseText);
             document.getElementById("student").innerHTML=xmlhttp.responseText;
+            $('#recommend').DataTable({
+            "pagingType": "full_numbers",
+            "lengthMenu": [
+            [10, 25, 50, -1],
+            [10, 25, 50, "All"]
+            ],
+            responsive: true,
+            language: {
+            search: "_INPUT_",
+            searchPlaceholder: "Search records",
+            }
+        });
+        var table = $('#recommend').DataTable();
         }
         </script>
 <?php 

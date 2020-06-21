@@ -26,7 +26,7 @@
                 <th>Document Title</th>
                 <th>Document Type</th>
                 <th>Document Name</th>
-                <th class="disabled-sorting">Actions</th>
+                <th class="disabled-sorting text-right">Actions</th>
             </tr>
         </tfoot>
         <tbody>
@@ -45,7 +45,7 @@
             <tr>
                 <td><?php echo $x["DOCUMENT_TITLE"]; ?></td>
                 <td><?php echo $doc_type; ?></td>
-                <td><a href="MATERIAL/<?php echo $x['DOCUMENT_NAME']; ?>" download class="btn btn-link btn-info btn-just-icon " rel="tooltip" title="<?php echo $x['DOCUMENT_NAME']; ?>"><i class="material-icons">cloud_download</i></a></td>
+                <td class="text-right"><a href="MATERIAL/<?php echo $x['DOCUMENT_NAME']; ?>" download class="btn btn-link btn-info btn-just-icon " rel="tooltip" title="<?php echo $x['DOCUMENT_NAME']; ?>"><i class="material-icons">cloud_download</i></a></td>
                 <td><a href="delete_material.php?did=<?php echo $x['DOCUMENT_ID']; ?>" class="btn btn-link btn-danger btn-just-icon " rel="tooltip" title="Delete Document"><i class="material-icons">delete_sweep</i></a></td>
             </tr>
             <?php } ?>
