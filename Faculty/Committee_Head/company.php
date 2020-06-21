@@ -211,8 +211,8 @@
                                         <td><?php echo $data['BROADCAST_LIST_NAME']; ?></td>
                                         <td><?php echo $data['FACULTY_FIRST_NAME']." ".$data['FACULTY_LAST_NAME']; ?></td>
                                         <td><?php echo $data['BROADCAST_LIST_DATE']; ?></td>
-                                        <td class="text-right"><a href="view_list.php?ilid=<?php echo $data['BROADCAST_LIST_ID'] ?>" class="btn btn-link btn-info btn-just-icon " rel="tooltip" title="View Broadcast List"><i class="material-icons">visibility</i></a>
-                                            <a href="add_company_list.php?ilid=<?php echo $data['BROADCAST_LIST_ID'] ?>" class="btn btn-link btn-success btn-just-icon " rel="tooltip" title="Add Companies to the List"><i class="material-icons">add</i></a>
+                                        <td class="text-right"><button type="button" value="<?php echo $data['BROADCAST_LIST_ID'] ?>" class="btn btn-link btn-info btn-just-icon viewBroadcast" data-toggle="modal" data-target="#viewBroadcast" rel="tooltip" title="View Broadcast List"><i class="material-icons">visibility</i></button>
+                                            <button type="button" value="<?php echo $data['BROADCAST_LIST_ID'] ?>" class="btn btn-link btn-success btn-just-icon addToBroadcast" rel="tooltip" data-toggle="modal" data-target="#addToBroadcast" title="Add Companies to the List"><i class="material-icons">add</i></button>
                                             <a href="delete_list.php?ilid=<?php echo $data['BROADCAST_LIST_ID'] ?>" class="btn btn-link btn-danger btn-just-icon " rel="tooltip" title="Delete Broadcast List"><i class="material-icons">delete_sweep</i></a></td>
                                         </tr>
                                         <?php } ?>
@@ -220,6 +220,49 @@
                                 </table>
                             </div>
                     </div>
+                    <form action="#" method="post">
+                        <div class="modal fade" id="viewBroadcast" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                            <div class="modal-content" >
+                                <div class="modal-header">
+                                <h5 class="modal-title" id="myModalLabel">Create New ShortList</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                    <i class="material-icons">close</i>
+                                </button>
+                                </div>
+                                <div class="modal-body" id="View_broadcast">
+                                    
+                                </div>
+                                <div class="modal-footer justify-content-center">
+                                <input type="submit" name="new_broadcast" class="btn btn-success btn-round" value="Create">
+                                </div>
+                            </div>
+                            </div>
+                        </div> 
+                    </form>
+                    <form action="#" method="post">
+                        <div class="modal fade" id="addToBroadcast" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                            <div class="modal-content" >
+                                <div class="modal-header">
+                                <h5 class="modal-title" id="myModalLabel">Create New ShortList</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                    <i class="material-icons">close</i>
+                                </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                    <label for="title" class="bmd-label-floating">Shortlist Title</label>
+                                    <input type="text" name="ilname" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="modal-footer justify-content-center">
+                                <input type="submit" name="new_broadcast" class="btn btn-success btn-round" value="Create">
+                                </div>
+                            </div>
+                            </div>
+                        </div> 
+                    </form>  
                 </div>
                 </div>
                 <div class="tab-pane" id="link10">

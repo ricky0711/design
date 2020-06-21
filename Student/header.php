@@ -135,7 +135,7 @@
                     </li>
                     <li class="nav-item ">
                         <a class="nav-link" href="resume.php">
-                            <i class="material-icons">publish</i>
+                            <i class="material-icons">history_edu</i>
                             <p>Resume Details</p>
                         </a>
                     </li>
