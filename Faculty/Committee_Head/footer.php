@@ -670,6 +670,33 @@
         xmlhttp.send(null);
         document.getElementById("Update_event").innerHTML=xmlhttp.responseText;
     });
+    $(document).on("click" , "button.event_view" , function(){
+        var id=$(this).val();
+        var xmlhttp=new XMLHttpRequest();
+        xmlhttp.open("GET","view_event_detail.php?eid="+id,false);
+        xmlhttp.send(null);
+        document.getElementById("event_data").innerHTML=xmlhttp.responseText;
+    });
+    $(document).on("click" , "button.shortlist_view" , function(){
+        var id=$(this).val();
+        var xmlhttp=new XMLHttpRequest();
+        xmlhttp.open("GET","view_company_shortlist.php?sid="+id,false);
+        xmlhttp.send(null);
+        document.getElementById("shortlist_data").innerHTML=xmlhttp.responseText;
+        $('#tblshortlist').DataTable({
+            "pagingType": "full_numbers",
+            "lengthMenu": [
+            [10, 25, 50, -1],
+            [10, 25, 50, "All"]
+            ],
+            responsive: true,
+            language: {
+            search: "_INPUT_",
+            searchPlaceholder: "Search records",
+            }
+        });
+        var table = $('#tblshortlist').DataTable();
+    });
     $(document).on("click" , "button.viewMarks" , function(){
         var id=$(this).val();
         var xmlhttp=new XMLHttpRequest();
@@ -690,7 +717,105 @@
         });
         var table = $('#view_marks').DataTable();
     });
+    $(document).on("click" , "button.cmp_plcmnt_view" , function(){
+        var id=$(this).val();
+        var xmlhttp=new XMLHttpRequest();
+        xmlhttp.open("GET","view_company_placement_list.php?cid="+id,false);
+        xmlhttp.send(null);
+        document.getElementById("cmp_plcmnt_data").innerHTML=xmlhttp.responseText;
+        $('#tblcmp_plcmnt').DataTable({
+            "pagingType": "full_numbers",
+            "lengthMenu": [
+            [10, 25, 50, -1],
+            [10, 25, 50, "All"]
+            ],
+            responsive: true,
+            language: {
+            search: "_INPUT_",
+            searchPlaceholder: "Search records",
+            }
+        });
+        var table = $('#tblcmp_plcmnt').DataTable();
+    });
+    $(document).on("click" , "button.broadcast_view" , function(){
+        var id=$(this).val();
+        var xmlhttp=new XMLHttpRequest();
+        xmlhttp.open("GET","view_list.php?ilid="+id,false);
+        xmlhttp.send(null);
+        document.getElementById("View_broadcast").innerHTML=xmlhttp.responseText;
+        $('#tblbroadcast_list').DataTable({
+            "pagingType": "full_numbers",
+            "lengthMenu": [
+            [10, 25, 50, -1],
+            [10, 25, 50, "All"]
+            ],
+            responsive: true,
+            language: {
+            search: "_INPUT_",
+            searchPlaceholder: "Search records",
+            }
+        });
+        var table = $('#tblbroadcast_list').DataTable();
+    });
+    $(document).on("click" , "button.addToList" , function(){
+        var id=$(this).val();
+        var xmlhttp=new XMLHttpRequest();
+        xmlhttp.open("GET","add_company_list.php?ilid="+id,false);
+        xmlhttp.send(null);
+        document.getElementById("add").innerHTML=xmlhttp.responseText;
+        $('#tblcmp_list').DataTable({
+            "pagingType": "full_numbers",
+            "lengthMenu": [
+            [10, 25, 50, -1],
+            [10, 25, 50, "All"]
+            ],
+            responsive: true,
+            language: {
+            search: "_INPUT_",
+            searchPlaceholder: "Search records",
+            }
+        });
+        var table = $('#tblcmp_list').DataTable();
+    });
+    
   </script>
+  <script type="text/javascript">
+    function company_check_evnt(clicked) {
+        if ($('#' + clicked).is(":checked")) {
+            var val = $('#' + clicked).val();
+            // alert("uncheck" + val);
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("GET", "Ex_company_add.php?cid=" + val, false);
+            xmlhttp.send(null);
+        } else {
+            var val = $('#' + clicked).val();
+            // alert(val);
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("GET", "delete_company.php?cid=" + val, false);
+            xmlhttp.send(null);
+        }
+    }
+
+
+    function company_uncheck_evnt(clicked) {
+        if ($('#' + clicked).is(":checked")) {
+            var val = $('#' + clicked).val();
+            // alert("check" + val);
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("GET", "insert_company.php?cid=" + val, false);
+            xmlhttp.send(null);
+            //alert(xmlhttp.responseText);
+        } else {
+            var val = $('#' + clicked).val();
+            // alert(val);
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("GET", "delete_company.php?cid=" + val, false);
+            xmlhttp.send(null);
+            //alert(xmlhttp.responseText);
+        }
+    }
+    
+    </script>
 </body>
 
 </html>

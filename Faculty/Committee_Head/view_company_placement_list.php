@@ -1,26 +1,43 @@
 <?php 
   ob_start();
-  include('header.php');
+  //include('header.php');
+  session_start();
   $data=$_SESSION['Userdata'];
   $cid=$_GET["cid"];
   include('../../Files/PDO/dbcon.php');
+  error_reporting(0);
 ?>
-
-<div class="content-wrapper header-info">
-    <!-- widgets -->
-    <div class="mb-30">
-        <div class="card h-100 ">
-            <div class="card-body h-100">
-                <h4 class="card-title">Placement Offers</h4>
-                <!-- action group -->
-                <div class="scrollbar">
-                    <ul class="list-unstyled">
-                        <li class="d-flex justify-content-center">
-                            <table class="table text-dark table-responsive" style="table-layout: fixed;width: 100%;">
-                                <tr class="font-weight-bold">
-                                    <td></td>
-                                </tr>
-                                <?php
+<div class="content">
+    <div class="row">
+        <div class="card" style="width:1200px;">
+            <div class="card-header">
+                <h4 class="card-title">Shortlisted Students</h4>
+                <p class="card-category">
+                </p>
+            </div>
+            <div class="card-body">
+                    <div class="toolbar">
+                    <!--        Here you can write extra buttons/actions for the toolbar              -->
+                    </div>
+                <div class="material-datatables">
+                    <table id="tblcmp_plcmnt" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Enrollment Number</th>
+                                <th>Name</th>
+                                <th>Offered Stipend</th>
+                                <th class="disabled-sorting text-right">Actions</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>Enrollment Number</th>
+                                <th>Name</th>
+                                <th>Offered Stipend</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            <?php
                                  $stmt2=$con->prepare("CALL GET_PLACMENT_STUDENTS(:cid)");
                                  $stmt2->bindParam(":cid",$cid);     
                                  $stmt2->execute(); 
@@ -54,51 +71,25 @@
                                         }
                                     }
                                  ?>
-                                <tr>
-                                    <td><img src="../../Student/Profile_pic/<?php echo $studdata["STUDENT_PROFILE_PIC"]; ?>"
-                                            style="height: 120px;width: 120px;"></td>
-                                    <td><?php echo $studdata["STUDENT_ENROLLMENT_NUMBER"]; ?></td>
-                                    <td><?php echo $studdata["STUDENT_FIRST_NAME"]." ".$studdata["STUDENT_LAST_NAME"]; ?>
-                                    </td>
-                                    <td><?php echo $studdata["PLACEMENT_OFFERED_PACKAGE"]; ?>
-                                    </td>
-                                    <td><a href="../../Company/Document_offer_letter/<?php echo $ol; ?>" download><button class="btn btn-outline-warning"><i class="fa fa-download"></i>Offer Letter</button></a></td>
-                                    <td><a href="../../Company/Document_bond/<?php echo $bd; ?>" download><button class="btn btn-outline-warning"><i class="fa fa-download"></i>Bond</button></a></td>
-                                    <td>
-                                        <a href="student_profile.php?sid=<?php echo $studdata["STUDENT_ID"]; ?>"><button
-                                                type="button" class="btn btn-sm btn-outline-info"><i
-                                                    class="fa fa-eye"></i></button></a>
-                                    </td>
-                                    <td>
-                                        <a
-                                            href="insert_student_placement_notification.php?sid=<?php echo $studdata["STUDENT_ID"]; ?>&cid=<?php echo $cid; ?>"><button
-                                                type="button" class="btn btn-sm btn-outline-success"><i
-                                                    class="fa fa-check"></i></button></a>
-                                    </td>
-                                </tr>
-                                <?php 
-                                }
-                            } ?>
-                            </table>
-                        </li>
-                        <li>
-                            <!-- <div class="media">
-                                <div class="media-body mb-2">
-                                    <button class="button button-border x-small">
-                                        <a
-                                            href="insert_hole_selectlist_notification.php?sid=<?php echo $select_list_id; ?>">
-                                            Publish
-                                        </a>
-                                    </button>
-                                </div>
-                            </div> -->
-                        </li>
-                    </ul>
+                            <tr>
+                                <td><?php echo $studdata["STUDENT_ENROLLMENT_NUMBER"]; ?></td>
+                                <td><?php echo $studdata["STUDENT_FIRST_NAME"]." ".$studdata["STUDENT_LAST_NAME"]; ?></td>
+                                <td><?php echo $studdata["PLACEMENT_OFFERED_PACKAGE"]; ?></td>
+                                <td class="text-right text-nowrap"><a href="../../Company/Document_offer_letter/<?php echo $ol; ?>" download class="btn btn-link btn-warning btn-just-icon " rel="tooltip" title="Offer Letter"><i class="material-icons">visibility</i></a>
+                                            <a href="../../Company/Document_bond/<?php echo $bd; ?>" download class="btn btn-link btn-rose btn-just-icon " rel="tooltip" title="Bond"><i class="material-icons">restore_from_trash</i></a>
+                                            <a href="student_profile.php?sid=<?php echo $studdata["STUDENT_ID"]; ?>" class="btn btn-link btn-info btn-just-icon " rel="tooltip" title="View Student Profile"><i class="material-icons">restore_from_trash</i></a>
+                                            <a href="insert_student_placement_notification.php?sid=<?php echo $studdata["STUDENT_ID"]; ?>&cid=<?php echo $cid; ?>" class="btn btn-link btn-success btn-just-icon " rel="tooltip" title="Finalize Student"><i class="material-icons">restore_from_trash</i></a></td>
+
+                            </tr>
+                            <?php } } ?>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
-    <?php 
-  include('footer.php');
+</div>
+<?php 
+  //include('footer.php');
   ob_flush();
 ?>

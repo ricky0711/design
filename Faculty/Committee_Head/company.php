@@ -2,7 +2,7 @@
     include 'header.php';
 ?>
 <script src="../../Files/ckeditor/ckeditor.js"></script>
-
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <div class="content">
     <div class="container-fluid">
         <div class="row">
@@ -208,12 +208,15 @@
                                     <tbody>
                                         <?php while($data = $stmt3->fetch(PDO::FETCH_ASSOC)) { ?>
                                         <tr>
+                                        <?php
+                                            // $_SESSION["broadcast_id"]=$data['BROADCAST_LIST_ID'];
+                                          ?>
                                         <td><?php echo $data['BROADCAST_LIST_NAME']; ?></td>
                                         <td><?php echo $data['FACULTY_FIRST_NAME']." ".$data['FACULTY_LAST_NAME']; ?></td>
                                         <td><?php echo $data['BROADCAST_LIST_DATE']; ?></td>
-                                        <td class="text-right"><button type="button" value="<?php echo $data['BROADCAST_LIST_ID'] ?>" class="btn btn-link btn-info btn-just-icon viewBroadcast" data-toggle="modal" data-target="#viewBroadcast" rel="tooltip" title="View Broadcast List"><i class="material-icons">visibility</i></button>
-                                            <button type="button" value="<?php echo $data['BROADCAST_LIST_ID'] ?>" class="btn btn-link btn-success btn-just-icon addToBroadcast" rel="tooltip" data-toggle="modal" data-target="#addToBroadcast" title="Add Companies to the List"><i class="material-icons">add</i></button>
-                                            <a href="delete_list.php?ilid=<?php echo $data['BROADCAST_LIST_ID'] ?>" class="btn btn-link btn-danger btn-just-icon " rel="tooltip" title="Delete Broadcast List"><i class="material-icons">delete_sweep</i></a></td>
+                                        <td class="text-right"><button type="button" value="<?php echo $data['BROADCAST_LIST_ID'] ?>" class="btn btn-link btn-info btn-just-icon broadcast_view" data-toggle="modal" data-target="#viewBroadcast" rel="tooltip" title="View Broadcast List"><i class="material-icons">visibility</i></button>
+                                            <button type="button" value="<?php echo $data['BROADCAST_LIST_ID']; ?>" class="btn btn-link btn-success btn-just-icon addToList" rel="tooltip" data-toggle="modal" data-target="#addToBroadcast" title="Add Companies to the List"><i class="material-icons">add</i></button>
+                                            <a href="delete_list.php?ilid=<?php echo $data['BROADCAST_LIST_ID']; ?>" class="btn btn-link btn-danger btn-just-icon " rel="tooltip" title="Delete Broadcast List"><i class="material-icons">delete_sweep</i></a></td>
                                         </tr>
                                         <?php } ?>
                                     </tbody>
@@ -225,13 +228,14 @@
                             <div class="modal-dialog">
                             <div class="modal-content" >
                                 <div class="modal-header">
-                                <h5 class="modal-title" id="myModalLabel">Create New ShortList</h5>
+                                <h5 class="modal-title" id="myModalLabel">View Broadcastlist</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                                     <i class="material-icons">close</i>
                                 </button>
                                 </div>
-                                <div class="modal-body" id="View_broadcast">
-                                    
+                                <div class="modal-body">
+                                    <div id="View_broadcast">
+                                    </div>
                                 </div>
                                 <div class="modal-footer justify-content-center">
                                 <input type="submit" name="new_broadcast" class="btn btn-success btn-round" value="Create">
@@ -245,19 +249,15 @@
                             <div class="modal-dialog">
                             <div class="modal-content" >
                                 <div class="modal-header">
-                                <h5 class="modal-title" id="myModalLabel">Create New ShortList</h5>
+                                <h5 class="modal-title" id="myModalLabel">Add Companies to the list</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                                     <i class="material-icons">close</i>
                                 </button>
                                 </div>
                                 <div class="modal-body">
-                                    <div class="form-group">
-                                    <label for="title" class="bmd-label-floating">Shortlist Title</label>
-                                    <input type="text" name="ilname" class="form-control">
-                                    </div>
+                                    <div id="add"></div>
                                 </div>
                                 <div class="modal-footer justify-content-center">
-                                <input type="submit" name="new_broadcast" class="btn btn-success btn-round" value="Create">
                                 </div>
                             </div>
                             </div>
@@ -652,3 +652,41 @@
     }
     ob_flush();
 ?>
+
+<script type="text/javascript">
+    function company_check_evnt(clicked) {
+        if ($('#' + clicked).is(":checked")) {
+            var val = $('#' + clicked).val();
+            // alert("uncheck" + val);
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("GET", "Ex_company_add.php?cid=" + val, false);
+            xmlhttp.send(null);
+        } else {
+            var val = $('#' + clicked).val();
+            // alert(val);
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("GET", "delete_company.php?cid=" + val, false);
+            xmlhttp.send(null);
+        }
+    }
+
+
+    function company_uncheck_evnt(clicked) {
+        if ($('#' + clicked).is(":checked")) {
+            var val = $('#' + clicked).val();
+            // alert("check" + val);
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("GET", "insert_company.php?cid=" + val, false);
+            xmlhttp.send(null);
+            //alert(xmlhttp.responseText);
+        } else {
+            var val = $('#' + clicked).val();
+            // alert(val);
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("GET", "delete_company.php?cid=" + val, false);
+            xmlhttp.send(null);
+            //alert(xmlhttp.responseText);
+        }
+    }
+    
+    </script>

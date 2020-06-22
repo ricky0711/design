@@ -123,16 +123,15 @@
                                                 <h4  class="pull-left ml-2 font-weight-bold"><?php echo $uname['EVENT_NAME']; ?></h4>
                                                 <p class="pull-left font-weight-bold mr-5">Hey There! A new event is created please review the event and coordinate with other Committee Members. Incase of query under and any situation including change in date, time or venue contact respective Committee Member <br></p>
                                                 <!-- <span data-notify="message">This is a notification with close button and icon and have many lines. You can see that the icon and the close button are always vertically aligned. This is a beautiful notification. So you don't have to worry about the style.</span> -->
-                                                <a href="remove_notification.php?nid=<?php echo $data['NOTIFICATION_ID']; ?>">
-                                                    <button class="btn btn-secondary btn-sm btn-round mr-5">
+                                                <a href="remove_notification.php?nid=">
+                                                    <button type="button" value="" class="btn btn-secondary btn-sm btn-round mr-5">
                                                         <i class="material-icons">close</i> Remove
                                                     </button>
-                                                </a>   
-                                                <a href="view_event_detail.php?eid=<?php echo $data['NOTIFICATION_EVENT_ID']; ?>"> 
-                                                    <button class="btn btn-secondary btn-sm btn-round pull-left mr-2">
+                                                </a>    
+                                                    <button type="button" value="<?php echo $data['NOTIFICATION_EVENT_ID']; ?>" class="btn btn-secondary btn-sm btn-round pull-left mr-2 event_view" data-toggle="modal" data-target="#view_event">
                                                         <i class="material-icons">visibility</i> View
                                                     </button>
-                                                </a>
+                                                    
 
                                     </div>
                                         <?php
@@ -163,11 +162,9 @@
                                                         <i class="material-icons">close</i> Remove
                                                     </button>
                                                 </a>
-                                                <a href="view_company_shortlist.php?sid=<?php echo $data['NOTIFICATION_EVENT_ID']; ?>">
-                                                    <button class="btn btn-secondary btn-sm btn-round pull-left mr-2" type="button">
+                                                    <button type="button" value="<?php echo $data['NOTIFICATION_EVENT_ID']; ?>" class="btn btn-secondary btn-sm btn-round pull-left mr-2 shortlist_view" data-toggle="modal" data-target="#view_shortlist" type="button">
                                                         <i class="material-icons">visibility</i> View
                                                     </button>
-                                                </a>
                                             </div>
                                         <?php
                                     }elseif ($data['NOTIFICATION_TYPE'] == 'CPL') {
@@ -199,11 +196,9 @@
                                                         <i class="material-icons">close</i> Remove
                                                     </button>
                                                 </a>
-                                                <a href="view_company_placement_list.php?cid=<?php echo $data['NOTIFICATION_SENDER_ID']; ?>">
-                                                    <button class="btn btn-secondary btn-sm btn-round pull-left mr-2" type="button">
+                                                    <button type="button" value="<?php echo $data['NOTIFICATION_SENDER_ID']; ?>" class="btn btn-secondary btn-sm btn-round pull-left mr-2 cmp_plcmnt_view" data-toggle="modal" data-target="#view_cmp_plcmnt">
                                                         <i class="material-icons">visibility</i> View
                                                     </button>
-                                                </a>
                                             </div>
                                         <?php
                                     }elseif ($data['NOTIFICATION_TYPE'] == 'TRMNT') {
@@ -275,6 +270,60 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="view_shortlist" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content" >
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="myModalLabel" class="text-dark">View Event Details</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        <i class="material-icons">close</i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="shortlist_data">           
+                        </div>
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="view_event" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content" >
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="myModalLabel">View Event Details</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        <i class="material-icons">close</i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="event_data">           
+                        </div>
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="view_cmp_plcmnt" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content" >
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="myModalLabel">View Event Details</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        <i class="material-icons">close</i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="cmp_plcmnt_data">           
+                        </div>
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                    </div>
                     </div>
                 </div>
             </div>

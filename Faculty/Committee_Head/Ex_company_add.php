@@ -7,4 +7,7 @@
     $stmt5->bindParam(":broadcast_id",$bid);
     $stmt5->bindParam(":company_id",$cid);
     $stmt5->execute();
+    // echo "<script>alert('".$cid." ".$bid."');</script>";
+    echo $bid." ".$cid;
+    print_r($stmt5->errorinfo());
 ?>

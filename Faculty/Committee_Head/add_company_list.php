@@ -1,6 +1,7 @@
 <?php 
   ob_start();
-  include('header.php');
+  //include('header.php');
+  session_start();
   $data=$_SESSION['Userdata'];
 ?>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
@@ -11,29 +12,25 @@
       $stmt=$con->prepare("CALL VIEW_COMPANY");
       $stmt->execute();
   ?>
-
-<div class="content-wrapper header-info">
-    <!-- widgets -->
-    <div class="mb-30">
-        <div class="card h-100">
-            <div class="card-body h-100">
-                <h4 class="card-title">Add Company</h4>
-                <!-- action group -->
-                <ul class="list-unstyled">
-                    <li>
-                        <table class="table text-dark table-responsive" style="table-layout: fixed;width: 100%;">
-                            <tr class="font-weight-bold">
-                                <td></td>
-                                <td></td>
-                                <td>Name</td>
-                                <td>Email</td>
-                                <td>Phone Number</td>
-                                <td>Contact Person(CP)</td>
-                                <td>CP Email</td>
-                                <td>CP Phone Number</td>
-                                <td>Address</td>
-                                <td>Website</td>
-                            </tr>
+            <div class="material-datatables">
+                <table id="tblcmp_list" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%;">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Name</th>
+                            <th>Phone No.</th>
+                            <th class="disabled-sorting text-right">Actions</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th></th>
+                            <th>Name</th>
+                            <th>Phone No.</th>
+                            <th class="disabled-sorting text-right">Actions</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
                             <?php 
                                 $cnt=0;
                                 $c=0;
@@ -56,63 +53,35 @@
                                 }
                                 if ($check==1) {
                                     ?>
-                            <tr>
-                                <td><input type="checkbox" id="company_check<?php echo $cid;?>"
-                                        name="<?php echo $cid;?>" value="<?php echo $cid;?>"
-                                        onClick="company_check_evnt(this.id)" checked></td>
-                                <td>
-                                    <div style="height: 35px;width: 35px;border-radius: 50%;">
-                                        <img src="../../Company/com_logo/<?php echo $data['COMPANY_LOGO'] ?>"
-                                            alt="avatar" style="height: 100%;width: 100%;">
-                                    </div>
-                                </td>
-                                <td><?php echo $data['COMPANY_NAME']; ?></td>
-                                <td><?php echo $data['COMPANY_EMAIL']; ?></td>
-                                <td><?php echo $data['COMPANY_PHONE_NUMBER_1']; ?></td>
-                                <td><?php echo $data['COMPANY_HR_NAME']; ?></td>
-                                <td><?php echo $data['COMPANY_HR_EMAIL']; ?></td>
-                                <td><?php echo $data['COMPANY_PHONE_NUMBER_2']; ?></td>
-                                <td><?php echo $data['COMPANY_ADDRESS']; ?></td>
-                                <td><?php echo $data['COMPANY_WEBSITE']; ?></td>
-                            </tr>
-                            <?php
+                        <tr>
+                            <td><input type="checkbox" id="company_check<?php echo $cid;?>" name="<?php echo $cid;?>" value="<?php echo $cid;?>" onClick="company_check_evnt(this.id)" checked></td>
+                            <td><?php echo $data['COMPANY_NAME']; ?></td>
+                            <td><?php echo $data['COMPANY_PHONE_NUMBER_1']; ?></td>
+                            <td class="text-right"><a href="company_profile.php?cid=<?php echo $data['COMPANY_ID'] ?>" class="btn btn-link btn-info btn-just-icon " rel="tooltip" title="View Company Profile"><i class="material-icons">visibility</i></a>
+                            <a href="remove_from_list.php?mid=<?php echo $data['BROADCAST_LIST_MEMBER_ID'] ?>&ilid=<?php echo $ilid ?>" class="btn btn-link btn-danger btn-just-icon " rel="tooltip" title="Deactivate Company"><i class="material-icons">person_remove</i></a></td>
+                        </tr>
+                        <?php
+                                $cnt+=1; 
+                            }else {
+                                ?>
+                        <tr>
+                            <td><input type="checkbox" id="company_check<?php echo $cid;?>" name="<?php echo $cid;?>" value="<?php echo $cid;?>" onClick="company_check_evnt(this.id)"></td>
+                            <td><?php echo $data['COMPANY_NAME']; ?></td>
+                            <td><?php echo $data['COMPANY_PHONE_NUMBER_1']; ?></td>
+                            <td class="text-right"><a href="company_profile.php?cid=<?php echo $data['COMPANY_ID'] ?>" class="btn btn-link btn-info btn-just-icon " rel="tooltip" title="View Company Profile"><i class="material-icons">visibility</i></a>
+                            <a href="remove_from_list.php?mid=<?php echo $data['BROADCAST_LIST_MEMBER_ID'] ?>&ilid=<?php echo $ilid ?>" class="btn btn-link btn-danger btn-just-icon " rel="tooltip" title="Deactivate Company"><i class="material-icons">person_remove</i></a></td>
+                        </tr>
+                        <?php
                                 $cnt+=1; 
                             }
-                            else
-                            {
-                            ?>
-                            <tr>
-                                <td><input type="checkbox" id="company_uncheck<?php echo $cid;?>"
-                                        name="<?php echo $cid;?>" value="<?php echo $cid;?>"
-                                        onClick="company_uncheck_evnt(this.id)"></td>
-                                <td>
-                                    <div style="height: 35px;width: 35px;border-radius: 50%;">
-                                        <img src="../../Company/com_logo/<?php echo $data['COMPANY_LOGO'] ?>"
-                                            alt="avatar" style="height: 100%;width: 100%;">
-                                    </div>
-                                </td>
-                                <td><?php echo $data['COMPANY_NAME']; ?></td>
-                                <td><?php echo $data['COMPANY_EMAIL']; ?></td>
-                                <td><?php echo $data['COMPANY_PHONE_NUMBER_1']; ?></td>
-                                <td><?php echo $data['COMPANY_HR_NAME']; ?></td>
-                                <td><?php echo $data['COMPANY_HR_EMAIL']; ?></td>
-                                <td><?php echo $data['COMPANY_PHONE_NUMBER_2']; ?></td>
-                                <td><?php echo $data['COMPANY_ADDRESS']; ?></td>
-                                <td><?php echo $data['COMPANY_WEBSITE']; ?></td>
-                            </tr>
-                            <?php
-                            $c+=1;
                         }
-                    } 
-                   ?>
-                        </table>
-                    </li>
-                </ul>
+                            ?>
+                    </tbody>
+                </table>
             </div>
-        </div>
-    </div>
-    <?php 
-  include('footer.php');
+            <?php print_r($_SESSION);?>
+<?php 
+//   include('footer.php');
 ?>
 
     <script type="text/javascript">
@@ -150,4 +119,5 @@
             //alert(xmlhttp.responseText);
         }
     }
+    
     </script>
